@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document 汪扬力qq:435330483  */
+
+/* 全局CSS定义 */
+body {margin:0; padding:0;font:normal 12px/1.6 Tahoma, Verdana, Geneva,sans-serif,"黑体","Arial"; color:#424242; font-size:12px;}
+body,html,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,tr,td,th,img,pre,fieldset,input,textarea,blockquote,th,td,iframe,div,strong,label,em{margin:0;padding:0;border:0;}
+table,td,tr,th{font-size:1em;}
+ul,li,lo {list-style:none; }
+select,input,button{margin:0;vertical-align:middle;font-size:12px;}
+/* img{
+azimuth: expression(
+this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+this.src = "blank.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+this.runtimeStyle.backgroundImage = "none")),this.pngSet=true);
+}IE6下 PNG 图片透明
+
+* html #logonav {filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="透明PNG图片路径地址"); background:none;}
+例子：
+.div { position:relative;}  
+span {  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='filter.png');float:left;  width:200px;height:100px;position:absolute;top:0;left:0;  }
+div > span { background:url(filter.png); }  
+<div><img src="../../../filter.png" alt="图片说明" /></div> */
+
+/* 链接颜色 */
+a:link {color: #5f5f67; text-decoration:none;}
+a:visited {color: #999;text-decoration:none;}
+a:hover {color: #ed008c; text-decoration:none;}
+
+/* 链接颜色 */
+a.underline:link {color:#666; text-decoration:underline;}
+a.underline:visited {color:#666;text-decoration:underline;}
+a.underline:hover {color:#333; text-decoration:none;}
+
+.unLine,.unLine a{text-decoration: none;}
+.underline,.underline a{text-decoration: underline;}
+
+/* 字体属性 [定义规则,小写f加属性名称] */
+.fB {font-weight: bold;}
+.fI {font-style: italic;}
+
+/* 字体大小*/
+.f12px{ font-size:12px;}
+.f14px{ font-size:14px; font-family:"宋体"}
+.f16px{ font-size:16px;}
+.f18px{ font-size:18px;}
+.f24px{ font-size:24px;}
+.f30px{ font-size:30px;}
+
+/* 颜色属性 [定义规则，小写c加颜色名称] */
+.white,a.white:link,a.white:visited{ color:#c1c1c1;}
+.cRed,a.cRed:link,a.cRed:visited{ color:Red;}
+.cBlue,a.cBlue:link,a.cBlue:visited{color:#06c;}
+.cDRed,a.cDRed:link,a.cDRed:visited{ color:#bc2931;}
+.cOrange,a.cOrange:link,a.cOrange:visited{ color:#f60;}
+.cOrangeB,a.cOrangeB:link,a.cOrangeB:visited{ color:#f60;font-weight: bold;}
+.cGray,a.cGray:link,a.cGray:visited{ color: #4F544D;}
+.cDGray,a.cDGray:link,a.cDGray:visited{ color: #999;}
+.cWhite,a.cWhite:link,a.cWhite:visited{ color:#fff;}
+.cBlack,a.cBlack:link,a.cBlack:visited{color:#000;}a.cBlack:hover{color:#bc2931;}
+.cYellow,a.cYellow:link,a.cYellow:visited{color:#ff0;}
+.cYellowB,a.cYellowB:link,a.cYellowB:visited{color:#ff0;font-weight: bold;}
+.cGreen,a.cGreen:link,a.cGreen:visited{color:#1E9B00;}
+.cPink,a.cPink:link,a.cPink:visited{ color:#f69;}
+.ec008c,a.ec008c:link,a.ec008c:visited{ color:#ec008c;}
+/* 其他属性 */
+.w994{ margin:0 auto; width:996px; height:auto; *height:auto; _height:auto; overflow:hidden;}/* 高度自动兼容各种浏览器 */
+.w515{width:515px; height:auto; *height:auto; _height:auto; overflow:hidden;}
+.w230{width:230px; height:auto; *height:auto; _height:auto; overflow:hidden;}
+.w735{width:735px; height:auto; *height:auto; _height:auto; overflow:hidden;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both; font-size:1px; width:1px; visibility: hidden;}
+.hidden,.none{display: none;}
+.txtTitle,h1{color:#666;font:18px/30px '微软雅黑',simsun,Verdana,Lucida,Arial,Helvetica,sans-serif;text-align:center;}
+.gap{ width:100%;height:10px;font-size:1%; font-size:0;margin:0;padding:0;border:0;}
+.txt{text-overflow:ellipsis; /* for IE */ -moz-text-overflow: ellipsis; /* for Firefox,mozilla */ overflow:hidden; white-space: nowrap;  border:0px; text-align:left }/* 单元格长度固定，多余文字显示... CSS样式控制 */
+.FDropShadow{filter:progid:DXImageTransform.Microsoft.Dropshadow(color=#ffffff,offx=1,offy=1,positive="true")}
+.DropShadow{filter: DropShadow(Color=#d3d3d3, OffX=0, OffY=1, Positive=1);position:absolute;}/* 文字加阴影 */
+.clear {clear:both; *display:inline;/*IE only*/

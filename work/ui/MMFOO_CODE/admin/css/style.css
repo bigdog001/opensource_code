@@ -1,0 +1,92 @@
+﻿/*---------公共样式----------*/
+body{font:12px,Arial, Helvetica, sans-serif; font-family:"宋体";margin:0 auto; background:#ffffff;}
+body,ul,li,dl,dt,dd,p,h1,h2,h3,h4,hr,span,form,table,td,img,div,input{margin:0px;padding:0px}
+ 
+img{border:0;}
+h2{font-size:14px}
+div,p{display:block}
+ul,li{list-style:none}
+button,.but1{cursor:pointer}
+a{text-decoration:none;color:#333; font-family:"宋体"}
+.contant_main a:hover{ text-decoration:underline; cursor:pointer}
+.clear{clear:both}
+/*---------图片+文字列表  公共样式----------*/
+.tu_bt1{display:block}
+.tu_bt1 li{float:left;display:inline;overflow:hidden;text-align:center}
+.tu_bt1 li .zbt{text-align:center}
+/*---------模块标题----------*/
+.title{height:auto;clear:both}
+.title h2{float:left}
+.trm{float:right}
+.Dgd{text-align:right}
+/*---------模块设置----------*/
+.kcon{_height:1px;clear:both}
+.kbot{height:10px;overflow:hidden;clear:both}
+.kbot .bl,.kbot .br{float:left;width:10px;height:10px;overflow:hidden}
+.kbot .br{float:right}
+/*---------整体背景 ----------*/
+body{ background:#E6F5FC;}
+/*---------top ----------*/
+.top{ background:url(../images/top.jpg) repeat-x; height:72px;width:1116px;margin:0 auto; overflow:hidden}
+.logo{ background:url(../images/flower.jpg) no-repeat left; height:56px;padding:16px 0 0 115px; float:left}
+.menu{padding:10px 47px 0 0; float:right}
+.menu_t{ text-align:right;}
+.menu_t a{ background:url(../images/tub1.jpg) no-repeat;padding-left:16px;margin:0 10px; color:#ffffff;}
+.menu_t .quit{ background:url(../images/tub2.jpg) no-repeat;padding-left:16px;}
+.menu_f{ background:url(../images/menu_f.jpg) no-repeat;margin-top:19px;*margin-top:21px;_margin-top:19px; height:29px;width:514px;padding:0 41px; line-height:29px; color:#1870A7;}
+.menu_f a{ color:#ff0000; text-decoration:underline;}
+.menu_f span{ float:left;width:345px; display:block}
+.time{ float:left;width:150px}
+/*---------content----------*/
+.contant{margin:10px auto 27px;width:1116px;}
+/*---------left----------*/
+.left{width:208px; float:left}
+.left .title{ background:url(../images/leftT.jpg) no-repeat; height:27px;padding-top:10px; line-height:27px; color:#ffffff; font-family:"微软雅黑"; font-size:16px; text-align:center}
+.left .kcon{ background:#D0DDE5;padding:14px 7px 15px 16px;}
+.left .kcon a{ color:#3084B9; display:block; border-bottom:1px solid #B6BEC3; height:20px; line-height:20px;padding:9px 17px 0 0; text-align:right;}
+.left .kcon a:hover{ color:#ff0000}
+.left .kbot{ background:url(../images/leftF.jpg) no-repeat; height:10px; font-size:0}
+/*---------right----------*/
+.right{ float:right;width:908px;}
+.right .title{ background:url(../images/rightT.jpg) no-repeat; height:30px; line-height:30px; color:#3084B9;padding:10px 25px 0 35px}
+.right .title h2{ font-size:16px; font-weight:700}
+.right .title .trm{padding-top:0px}
+.right .title a{ color:#3084B9}
+.right .kcon{ background:url(../images/rightC.jpg) repeat-y;padding:10px 17px 50px 22px}
+.right .kcon table{margin-bottom:35px}
+.right .kcon table th{ font-size:14px; font-weight:normal}
+.right .kcon table .img{width:125px; height:130px;margin:10px auto}
+.right .kcon table .imgS{width:65px; height:66px;margin:0px auto}
+.right .kcon table td a{color:#1870A7; line-height:24px;}
+.right .kcon table td a:hover{color:#ff0000; text-decoration:underline }
+.right .kcon .page{ text-align:center}
+.right .kcon .page a{margin:0 5px; color:#1870A7; line-height:30px}
+.right .kcon .page a:hover{ color:#ff0000}
+.right .kbot{ background:url(../images/rightF.jpg) no-repeat}
+
+/*---------foot----------*/
+.foot{ text-align:center; background:url(../images/line2.jpg) repeat-x top;padding-top:20px; height:60px; color:#1870A7}
+
+
+/*---------活动管理----------*/
+.rightAct .kcon{padding:10px 17px 50px 123px}
+.rightAct .kcon a{ color:#1A6B97;margin:0 6px;}
+.rightAct .kcon a:hover{ text-decoration:underline; color:#ff0000}
+/*---------轮播图----------*/
+.rightTu .kcon a{ color:#1A6B97; line-height:24px}
+.rightTu .kcon a:hover{ text-decoration:underline; color:#ff0000}
+.rightTu .kcon .tableModify{ height:900px; *height:920px;}
+.rightTu .kcon table .img{height:218px;margin:10px auto;width:440px;}
+.rightTu .kcon table input{width:275px; height:28px; border:1px solid #1A6B97; background:#D0DDE5;margin:10px 0; font-size:14px; line-height:24px; float:left}
+.rightTu .kcon .load{ background:url(../images/load.jpg) no-repeat ;width:65px; height:26px; display:block; float:left; color:#ffffff; text-align:center; line-height:26px;margin:12px 0 0 10px}
+.rightTu .kcon .edit{ background:url(../images/edit.jpg) no-repeat ;width:152px; height:26px; display:block; float:left; color:#ffffff; text-align:center; line-height:26px;margin:5px 0 0 220px; display:inline}
+.rightTu .kcon table span{ display:block;}
+/*---------页脚----------*/
+.rightFoot .kcon{padding:10px 17px 50px 123px}
+.rightFoot .kcon h2{ color:#1A6B97; line-height:40px; font-size:14px;}
+.rightFoot .kcon a{ color:#1A6B97;margin:0 6px;}
+.rightFoot .kcon a:hover{ text-decoration:underline; color:#ff0000}
+
+
+
+

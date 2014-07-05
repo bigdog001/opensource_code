@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.assembly{ float: left; width: 308px; height: 359px; border: 1px solid #CCC; margin-top: 15px; margin-right: 15px; }
+.join{ float: left; width: 249px; height: 79px; margin-top: 15px; }
+
+.update{ float: left; width: 247px; border: 1px solid #CCC; height: 265px; margin-top: 14px; }
+.update h3{ line-height: 36px; height: 36px; color: #000; font-size: 14px; font-weight: bold; clear: both; }
+.update h3 span.title{ padding-left: 15px; }
+.update h3 span.refresh{ float: right; }
+.update h3 span.refresh a{ font-size: 12px; font-weight: normal; color: #999; margin-right: 15px; text-decoration: none; }
+.update h3 span.refresh a:hover{ color: #ed008c; }
+.updateCell{ float: left; width: 224px; border-bottom: 1px dotted #CCC; margin-left: 10px; padding-bottom: 8px; padding-top: 8px;  }
+.updateCell .avatar{ float: left; width: 49px; height: 52px; margin-right: 10px; }
+.updateCell .updateInfo{ float: left; width: 164px; line-height: 18px; }
+.updateCell .updateInfo h5{ font-weight: normal; font-size: 12px; color: #CCC; line-height: 18px; }
+.updateCell .updateInfo a{ padding-left: 3px; padding-right: 3px; }
+
+.titleLogin{margin:20px 0 0; line-height:24px; font-size:14px; color:#A4A4A4; float:left; }
+.titleLogin a{ color:#FF0099;font-weight:normal}
+
+.beautyTop{ width: 991px; float: left; border: 1px solid #CCC; margin-top: 14px; padding-bottom: 5px; *padding-bottom: 20px; _padding-bottom: 20px;display:inline}
+.beautyTop h3{ line-height: 36px; height: 36px; color: #000; font-size: 14px; font-weight: bold; clear: both; }
+.beautyTop h3 a.lable{ background: #CCC; color: #333; padding: 6px 10px;  margin-left: 15px; font-size: 12px; font-weight: normal;}
+.beautyTop h3 a.lable:hover{ background: #ed008c; color: #fff; text-decoration: none; }
+.beautyTop h3 a.current{ background: #ed008c; color: #fff; padding: 6px 10px;  margin-left: 15px; font-size: 12px; font-weight: normal;}
+.beautyTop h3 span.title{ padding-left: 15px; }
+.beautyTop h3 span.refresh{ float: right; }
+.beautyTop h3 span.refresh a{ font-size: 12px; font-weight: normal; color: #999; margin-right: 15px; text-decoration: none; }
+.beautyTop h3 span.refresh a:hover{ color: #ed008c; }
+
+.topCell{ float: left; width: 145px; margin-left: 15px; _margin-left: 6px; _margin-right: 5px; border: 1px solid #CCC; margin-bottom: 25px;}
+.topCell .avatar{ float: left; width: 100%; }
+.topCell .avatar img{ width: 145px; }
+.topCell h4{ line-height: 24px; height: 24px; width: 100%; float: left; clear: both; }
+.topCell h4 a{ color: #ed008c; font-weight: bold; text-decoration: none; font-size: 12px; margin-left: 8px;   }
+.topCell h4 a:hover{ color: #000; }
+.topCell h6{ line-height: 24px; font-size: 12px; color: #999; font-weight: normal; float: left; height: 24px; clear: both; width: 100%; }
+.topCell h6 span{ padding-left: 8px; }
+.topCell h6 span a{ color: #000; text-decoration: none; font-weight: normal; }
+.topCell h6 span a:hover{ color: #ed008c; }
+
+/*rank*/
+.rankBox{ clear: both; float: left; width: 950px; border-bottom: 1px dotted #ccc; margin-bottom: 15px; margin-left: 15px; _margin-left: 10px; }
+.numone{ float: left; width: 350px; border: 1px solid #CCC; margin-bottom: 20px; clear: both; height: 203px;}
+.numone .rankAvatar .avatar{ float: left; width: 162px; }
+.numone .rankAvatar{ float: left; width: 162px; }
+.numone .rankInfo{ float: left; width: 160px; margin-top: 20px; }
+.numone .rankInfo h4{ line-height: 24px; height: 24px; width: 100%; float: left; }
+.numone .rankInfo h4 a{ color: #ed008c; font-weight: bold; text-decoration: none; font-size: 14px; margin-left: 8px;   }
+.numone .rankInfo h4 a:hover{ color: #000; }
+.numone .rankInfo h6{ line-height: 24px; font-size: 12px; color: #999; font-weight: normal; float: left; height: 24px; width: 100%; }
+.numone .rankInfo h6 span{ padding-left: 8px; }
+.numone .rankInfo h6 span a{ color: #000; text-decoration: none; font-weight: normal; }
+.numone .rankInfo h6 span a:hover{ color: #ed008c; }
+.numone .someInfo{ float: left; width: 160px; border-top: 1px dotted #ccc; margin-left: 8px; margin-top: 10px; padding-top: 5px; }
+.numone .someInfo ul{ float: left; width: 100%; list-style: none; }
+.numone .someInfo ul li{ float: left; width: 100%; line-height: 24px; color: #666; }
+
+.design_center{padding:40px 145px; width:701px;margin:33px 0 0}
+.design_center h2{ font-size:21px; font-family:"宋体"; color:#666666; line-height:26px;}
+.design_center span{ display:block}
+.design_center span a{ display:block;width:157px; height:25px; border-top:1px solid #fe69ab;border-left:1px solid #fe69ab;border-bottom:1px solid #c90077;border-right:1px solid #c90077; background:#ec008c; float:right; color:#ffffff; text-align:center; line-height:27px; font-weight:normal}
+.design_center_content{margin:15px 0 0; border-top:1px dashed #dddddd;padding:10px 0 20px; float:left;width:700px;}
+.design_center_content .tu_bt1{ float:left}
+.design_center_content .tu_bt1 li{ width:199px; height:65px;padding:7px 10px; _padding:7px 9px; border:1px solid #c8c8c8; float:left;margin:8px 5px; _margin:8px 4px; display:inline; background:#f7f7f7}
+.design_center_content .tu_bt1 .img,.design_center_content .tu_bt1 .userIdList,.design_center_content .tu_bt1 .zbt{ float:left}
+.design_center_content .tu_bt1 .img{width:64px; height:64px; overflow:hidden;margin:0 10px; display:inline}
+.design_center_content .tu_bt1 .zbt{width:100px; height:62px; line-height:16px; overflow:hidden; color:#666666}
+.design_center_content .allUserSelect{ float:left;border-top:1px dashed #dddddd;width:230px;margin:33px 0 0;padding:40px 235px 0;height:30px;line-height:24px;*line-height:30px}
+.design_center_content .allUserSelect label input{margin:5px; float:left}
+.design_center_content .allUserSelect label{float:left}
+
+
+

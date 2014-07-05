@@ -1,0 +1,176 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	height:100%;
+}
+body {
+	font-family:"宋体";
+	font-size: 12px;
+	line-height: 18px;
+}
+img {
+	border:0;
+	vertical-align:top;
+	text-align:left;
+}
+object {
+	vertical-align:top;
+	outline:none;
+}
+ul, ol {
+	list-style:none;
+}
+button {
+	border: 0px;
+}
+a {
+	color: #ec008b;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+.clearit{ clear: both; width: 100%; margin-bottom: 5px; height: 5px; overflow: hidden;}
+#layout {
+	margin: 0px auto;
+	width: 993px;
+}
+#top {
+	float: left;
+	width: 100%;
+}
+.clr{ clear: both; }
+.logo {
+	float: left;
+	margin-top: 26px;
+}
+.logo img{ width: 200px; }
+
+.signin {
+	background: #f4f4f4;
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	color: #999;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+.signin a {
+	color: #999;
+	text-decoration: none;
+	margin-left: 8px;
+	margin-right: 8px;
+	font-weight: normal;
+}
+.signin a:hover {
+	color: #ec008b;
+}
+
+.signin2 {
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	color: #999;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 10px;
+}
+.signin2 a {
+	color: #999;
+	text-decoration: none;
+	margin-left: 8px;
+	margin-right: 8px;
+	font-weight: normal;
+}
+.signin2 a:hover {
+	color: #ec008b;
+}
+#footer {
+	float: left;
+	width: 100%;
+	margin-top: 15px;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 3px solid #feafcd;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+ul.listFoot {
+	list-style: none;
+	float: left;
+	width: 140px;
+}
+ul.listFoot li {
+	width: 100%;
+	float: left;
+	line-height: 30px;
+	color: #333;
+}
+.ml40 {
+	margin-left: 40px;
+	_margin-left: 20px;
+}
+.mrBorder {
+	border-right: 1px dotted #999;
+}
+
+#subscribe {
+	float: left;
+	margin-top: 5px;
+}
+#subscribe fieldset {
+	border:none;
+}
+#subscribe input{
+	float: left; 
+}
+#subscribe input.text {
+	border: 1px solid #e7e7e7;
+	border-right: 0px;
+	padding: 8px 10px 7px 10px;
+	color:#747273;
+	width:126px;
+}
+#subscribe input.submit {
+	background: #e7e7e7;
+	width:49px;
+	height:32px;
+	border:none;
+	cursor:pointer;
+}
+
+.trailor {
+	width: 100%;
+	float: left;
+	line-height:30px;
+	color: #999;
+}
+.trailor span {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*登录部分*/
+.login{  width: 750px; clear: both; font-size: 14px; font-family: "宋体"; color: #333; font-weight: bold; margin-left: 250px; _margin-left: 230px; margin-bottom: 40px; }
+.login ul{ list-style: none; width: 100%; clear: both; overflow:hidden; }
+.login ul li{  float: left; line-height: 60px; text-indent: 1em; }
+.login ul li p{ margin: 5px 12px; line-height: 24px; }
+.login ul li.tl{ width: 100px; }
+.login ul li.tr{ width: 600px; overflow:hidden; }
+.login ul li.tr input{ border: 2px solid #ccc; padding: 10px 10px; width: 200px; }
+.login ul li.tr input.codd{width: 50px;  }
+.login ul li.tr input.agree{ margin-left: 40px;  border: 0px; width: 10px; margin-top: 15px; }
+.login ul li.tr span{ font-size: 12px; color: #999; font-weight: normal; }
+.login ul li.show{ text-indent: 0px; }
+
+button.submitLogin{ background:url(../images/submit_login.jpg); width: 111px; height: 27px; cursor: pointer; margin-top: 20px; }
+input.submitLogin{ background:url(../images/submit_login.jpg); width: 111px; height: 27px; cursor: pointer; margin-top: 20px; }
+
+.slogan{ margin: 10px; }
+
+
+
