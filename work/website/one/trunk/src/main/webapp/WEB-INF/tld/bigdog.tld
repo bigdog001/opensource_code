@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+         <taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+         <description>haha......</description>
+         <tlib-version>1.0</tlib-version>
+         <short-name>bigdog</short-name>
+         <uri>/bigdog-tags</uri>
+         <!-- 输出新闻列表标签  -->
+         <tag>
+             <description>输出新闻标签</description>
+             <name>getIt</name>
+             <tag-class>com.bigdog.server.web.crimedoc.tld.TitleTag</tag-class>
+             <body-content>scriptless</body-content>
+             <attribute>
+                 <name>id</name>
+                 <required>true</required>
+                 <rtexprvalue>true</rtexprvalue>
+                 <type>int</type>
+             </attribute>
+
+             <attribute>
+                 <name>showit</name>
+                 <required>false</required>
+                 <rtexprvalue>true</rtexprvalue>
+                 <type>int</type>
+             </attribute>
+
+             <attribute>
+                 <name>showSize</name>
+                 <required>false</required>
+                 <rtexprvalue>true</rtexprvalue>
+                 <type>int</type>
+             </attribute>
+
+         </tag>
+     </taglib>
