@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FaceMailEditText">
+        <attr name="img_background_default" format="integer" />
+        <attr name="img_background_hover" format="integer" />
+    </declare-styleable>
+</resources>

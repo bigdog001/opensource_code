@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FaceMail</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="loading">Loading...</string>
+    <string name="mail_account_setting">:Setting</string>
+    <string name="mail_account_delete_positive">删除</string>
+    <string name="mail_account_delete_nagtive">保留</string>
+    <string name="mail_title_bar_return">返回</string>
+    <string name="mail_title_bar_setting">设置</string>
+
+
+
+    <!--  AccountsFragment.java==========================  -->
+    <string name="btn_myemail_accountlists_UnAvailable">请设置邮件账户</string>
+    <string name="mail_rcv_refresh">Receive</string>
+    <string name="mail_account_edit">Edit</string>
+    <string name="mail_account_delete">Delete</string>
+    <string name="mail_rcv_nonew_email">nonew_email</string>
+    <string name="mail_rcv_email_done">receive email done</string>
+    <string name="mail_rcv_on_error">receive email error</string>
+    <string name="mail_account_delete_title">删除账户</string>
+    <string name="mail_account_delete_suc">删除账户成功</string>
+    <string name="mail_account_delete_message">您真的要删除此账户吗?</string>
+    <!--  ==========================AccountsFragment.java  -->
+
+
+
+
+    <!--  LeftFragment.java==========================  -->
+    <string name="tv_write_email_left_menu">Compose</string>
+    <string name="tv_myemail_left_menu">InBox</string>
+    <string name="tv_myemail_send_left_menu">OutBox</string>
+    <string name="tv_email_draft_left_menu">Drafts</string>
+    <string name="tv_email_recyclebin_left_menu">Trash</string>
+    <string name="tv_email_important_star_left_menu">Star-Mail</string>
+    <string name="tv_email_setting_left_menu">Setting</string>
+    <string name="left_menu_settings"> + </string>
+    <!--  ========================== LeftFragment.java -->
+
+
+
+    <!--  SlidingActivity.java==========================  -->
+    <string name="setting_dialog_title_account">请设置帐号!</string>
+    <string name="setting_dialog_message_account">您目前无任何帐号设置,请设置帐号!</string>
+    <string name="setting_account">设置</string>
+    <string name="setting_cancel">下次设置</string>
+    <string name="setting_loginname">登录名:</string>
+    <string name="et_setting_loginname_hint">email</string>
+    <string name="userExistErrot">该用户已经存在</string>
+    <string name="setting_loginpwd">password:</string>
+    <string name="setting_loginpwd_hint"> password</string>
+    <string name="setting_loginsmtp">smtp:</string>
+    <string name="setting_loginsmtp_hint">smtp host</string>
+    <string name="setting_loginsmtpPort">port:</string>
+    <string name="emailError">用户名不能为空</string>
+    <string name="pwdError">password不能为空</string>
+    <string name="smtpError">smtp不能为空</string>
+    <string name="smtpPortError">smtpport不能为空</string>
+    <string name="smtpPortNUmberError">smtpport不能为字母</string>
+    <string name="pop3Error">pop3不能为空</string>
+    <string name="pop3PortError">pop3port不能为空</string>
+    <string name="pop3PortnumberError">pop3port不能为字母</string>
+    <string name="addUserAccountSuccess">帐号添加成功</string>
+    <string name="updateUserAccountSuccess">更新帐号成功</string>
+    <string name="setting_loginpop3">pop3:</string>
+    <string name="setting_loginpop3_hint">pop3 host</string>
+    <string name="setting_loginpop3Port">port:</string>
+    <string name="mail_exit_yes">确定</string>
+    <string name="mail_exit_no">取消</string>
+    <string name="mail_exit_title">提示</string>
+    <string name="mail_exit_message">确定要退出吗?</string>
+    <string name="mail_message_detail_error">在进入邮件详情界面时发生异常</string>
+    <!--  ==========================SlidingActivity.java  -->
+
+
+
+    <!--  MailDetailFragment.java==========================  -->
+    <string name="mail_message_detail_reply_button">回复</string>
+
+    <!--  ===============================MailDetailFragment  -->
+
+
+
+
+    <!--  ==========================mail_message_detail.xml  -->
+    <string name="mail_message_detail_from">发件人:</string>
+    <string name="mail_message_detail_to">收件人:</string>
+    <string name="mail_message_detail_to_cc">抄送:</string>
+    <!--  mail_message_detail.xml==========================  -->
+
+
+    <!--  ==========================mail_message_reply.xml  -->
+    <string name="mail_message_reply_author">发件人:</string>
+    <string name="mail_message_reply_to">收件人:</string>
+    <string name="mail_message_reply_cc">抄送:</string>
+    <string name="mail_message_reply_bcc">密送:</string>
+    <string name="mail_message_select_author">选择</string>
+    <string name="mail_message_reply_title">标题:</string>
+    <string name="mail_message_reply_title_hint">输入标题</string>
+    <string name="mail_message_reply_content_hint">输入内容</string>
+    <!--  mail_message_reply.xml==========================  -->
+
+
+    <!--  mail_message_detail.xml==========================  -->
+    <string name="mail_message_rcv_frequency_label">请设置接收频率</string>
+
+    <!--  ==========================mail_message_detail.xml  -->
+
+
+
+
+    <!--     MailListsFragment.java========================== -->
+    <string name="mail_message_detail_nomessage">无邮件</string>
+
+    <!--     ==========================MailListsFragment.java -->
+
+
+    <!--  MailWriteFragment.java==========================  -->
+    <string name="mail_message_write_save_send_button">操作</string>
+    <string name="mail_message_reply_selectAuthor_text">选择发件人身份</string>
+    <string name="mail_message_reply_selectAuthor_none">无身份</string>
+    <string name="mail_message_reply_to_enter_text_title">请输入收件人</string>
+    <string name="mail_message_reply_to_enter_text_hint">请输入收件人</string>
+    <string name="mail_message_reply_cc_enter_text_title">请输入抄送人</string>
+    <string name="mail_message_reply_cc_enter_text_hint">请输入抄送人</string>
+    <string name="mail_message_reply_bcc_enter_text_title">请输入密送人</string>
+    <string name="mail_message_reply_bcc_enter_text_hint">请输入密送人</string>
+    <string name="mail_message_reply_ok">确定</string>
+    <string name="mail_message_reply_cancel">取消</string>
+    <string name="mail_message_reply_email_address_empty_tip">请输入邮件地址</string>
+    <string name="mail_message_reply_email_address_invalide">邮件地址非法</string>
+
+    <!--  ===============================MailWriteFragment.java  -->
+
+
+    <!--    mail_write_fragment_menu.xml=======================   -->
+    <string name="mail_write_add_to">添加收件人</string>
+    <string name="mail_write_add_cc">添加抄送</string>
+    <string name="mail_write_add_bcc">添加密送</string>
+    <string name="mail_write_send">发送</string>
+    <string name="mail_write_save_draft">存草稿</string>
+
+    <!--    =======================mail_write_fragment_menu.xml   -->
+
+
+
+
+
+</resources>

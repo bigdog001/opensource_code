@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/centerbg"
+        >
+        <LinearLayout style="@style/FacemailFill"
+                android:gravity="center_horizontal|center_vertical">
+              <Button style="@style/FacemailWrap"
+                      android:id="@+id/btn_myemail_accountlists_UnAvailable"
+                      android:text="@string/btn_myemail_accountlists_UnAvailable"/>
+        </LinearLayout>
+</RelativeLayout>

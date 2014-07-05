@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/centerbg">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="1sp"
+                      android:orientation="vertical">
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1sp"
+                            android:orientation="horizontal">
+                <TextView style="@style/FacemailWrap"
+                          android:text="@string/mail_message_reply_author" android:layout_alignParentLeft="true"
+                          android:layout_centerVertical="true"/>
+
+
+                <TextView android:id="@+id/author_from" style="@style/FacemailWrap" android:layout_centerInParent="true"
+                          />
+                <Button style="@style/FacemailWrap" android:id="@+id/mail_message_select_author"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="32sp" android:background="@drawable/action_button_unselected"
+                        android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:src="@drawable/face_mail_divider"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/mail_message_reply_to_layout"
+                      android:orientation="vertical">
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                <TextView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_to_id"
+                          android:text="@string/mail_message_reply_to" android:layout_alignParentLeft="true"
+                          android:layout_centerVertical="true"/>
+                <GridView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_to"
+                          android:numColumns="auto_fit"
+                          android:layout_toRightOf="@+id/mail_message_reply_to_id"
+                        />
+
+            </RelativeLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:src="@drawable/face_mail_divider"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/mail_message_cc_layout"
+                      android:orientation="vertical"
+                      android:visibility="gone"
+                >
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                <TextView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_cc_text"
+                          android:text="@string/mail_message_reply_cc" android:layout_alignParentLeft="true"
+                          android:layout_centerVertical="true"/>
+                <GridView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_cc"
+                          android:numColumns="auto_fit"
+                          android:layout_toRightOf="@+id/mail_message_reply_cc_text"
+                        />
+            </RelativeLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:src="@drawable/face_mail_divider"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:id="@+id/mail_message_bcc_layout"
+                      android:visibility="gone"
+                >
+            <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                <TextView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_bcc_text"
+                          android:text="@string/mail_message_reply_bcc" android:layout_alignParentLeft="true"
+                          android:layout_centerVertical="true"/>
+                <GridView style="@style/FacemailWrap"
+                          android:id="@+id/mail_message_reply_bcc"
+                          android:numColumns="auto_fit"
+                          android:layout_toRightOf="@+id/mail_message_reply_bcc_text"
+                        />
+
+            </RelativeLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:src="@drawable/face_mail_divider"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="1sp"
+                      android:orientation="vertical"
+                      android:id="@+id/mail_message_title_layout"
+                >
+            <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                <TextView style="@style/FacemailWrap"
+                          android:text="@string/mail_message_reply_title" android:layout_alignParentLeft="true"
+                          android:layout_centerVertical="true"/>
+                <EditText style="@style/FacemailWrap" android:paddingLeft="5sp"
+                          android:id="@+id/mail_message_reply_title" android:hint="@string/mail_message_reply_title_hint"
+                          android:focusable="true"
+                          android:singleLine="true"
+                          android:scrollHorizontally="true"
+                          android:background="@null"
+                          android:layout_centerInParent="true"
+                        />
+
+            </LinearLayout>
+            <ImageView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:src="@drawable/face_mail_divider"/>
+        </LinearLayout>
+
+
+        <ScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:layout_margin="1sp">
+            <EditText android:layout_width="match_parent" android:layout_height="match_parent"
+                     android:id="@+id/mail_message_content_reply_edittext"
+                     android:hint="@string/mail_message_reply_content_hint"
+                     android:inputType="textMultiLine"
+                     android:gravity="left|top"
+                     android:minLines="10" />
+
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

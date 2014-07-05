@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CarFinder</string>
+    <string name="title_show">CarFinder</string>
+    <string name="work_model_content">请选择工作模式</string>
+    <string name="work_detect_model">采集模式</string>
+    <string name="work_monitor_motel">观测作模式</string>
+    <string name="work_declare_title">Declaration</string>
+    <string name="work_declare_content">
+        1:请打开GPS以及网络链接,确保位置感知.
+        2:..............
+    </string>
+    <string name="agree">agree</string>
+    <string name="refuse">refuse</string>
+    <string name="checkbox_label">no show next </string>
+    <!-- LocationThread.java======================================= -->
+    <string name="LocationThread_java_1">GPS - Good</string>
+    <string name="LocationThread_java_2">GPS - Failed</string>
+    <string name="LocationThread_java_3">GSM - Good</string>
+    <string name="LocationThread_java_4">GSM - Failed</string>
+    <string name="LocationThread_java_5">Wifi - Good</string>
+    <string name="LocationThread_java_6">Wifi - Failed</string>
+    <string name="LocationThread_java_7">Network - Good</string>
+    <string name="LocationThread_java_8">Network - Failed</string>
+    <!-- =======================================LocationThread.java -->
+
+
+    <!-- detectactivity_content.xml===============================  -->
+    <string name="last_position_lat_lon">Coordinate:</string>
+    <string name="last_position_addr">Address:</string>
+    <string name="no_tid_error">no tracker id!</string>
+    <string name="tracker_id_passwd_setting">please set password !</string>
+    <string name="tracker_id_passwd_enter">please enter password !</string>
+    <string name="tracker_id_passwd_hint">enter password !</string>
+    <string name="tracker_id_passwd_hintagain">enter password again !</string>
+    <string name="tracker_id_passwd_ok_text">ok</string>
+    <string name="tracker_id_passwd_cancel_text">cancel</string>
+    <string name="tracker_id_no_passwd_hint">please enter password</string>
+    <string name="tracker_id_nosame_passwd_hint">please enter same password</string>
+    <string name="tracker_id_passwd_setting_ok">password setting ok</string>
+    <string name="tracker_id_passwd_wrrong">password is not ok</string>
+
+    <!-- ===============================detectactivity_content.xml  -->
+
+</resources>

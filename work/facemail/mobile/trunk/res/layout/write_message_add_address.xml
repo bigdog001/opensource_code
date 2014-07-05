@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:facemail="http://schemas.android.com/apk/res/com.facemail.mobile.android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            style="@style/FacemailFillW"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+        <com.facemail.mobile.android.view.FaceEditText
+                android:hint="@string/mail_message_reply_to_enter_text_hint" android:paddingTop="5dip"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dip" android:paddingRight="10dip"
+                android:layout_width="250sp" android:layout_marginLeft="1dip"
+                android:layout_marginTop="10dip" android:maxLines="1"
+                android:layout_marginRight="10dip" android:id="@+id/write_message_add_address_text"
+                android:singleLine="true" android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:maxLength="200"
+                facemail:img_background_hover="@drawable/arrow2" android:imeOptions="actionNext"
+                facemail:img_background_default="@drawable/arrow1"
+                />
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/FacemailFillW"
+                  android:layout_marginLeft="5dp"
+                  android:layout_marginTop="5dp"
+                  android:orientation="horizontal"
+                  android:gravity="center_horizontal"
+            >
+        <Button android:id="@+id/add_ok_write_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mail_message_reply_ok"/>
+        <Button android:id="@+id/add_cancel_write_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/mail_message_reply_cancel"/>
+    </LinearLayout>
+
+</LinearLayout>

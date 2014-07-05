@@ -1,0 +1,1 @@
+﻿mvn archetype:generate  -DarchetypeArtifactId=android-release  -DarchetypeGroupId=de.akquinet.android.archetypes  -DarchetypeVersion=1.0.11  -DgroupId=com.bigdog.xxx.android  -DartifactId=bigdog-android-project-release

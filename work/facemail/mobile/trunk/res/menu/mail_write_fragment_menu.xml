@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mail_write_add_to" android:icon="@android:drawable/ic_menu_crop" android:showAsAction="ifRoom" android:title="@string/mail_write_add_to"/>
+    <item android:id="@+id/mail_write_add_cc" android:icon="@android:drawable/ic_menu_crop" android:showAsAction="ifRoom" android:title="@string/mail_write_add_cc"/>
+    <item android:id="@+id/mail_write_add_bcc" android:icon="@android:drawable/ic_menu_crop" android:showAsAction="ifRoom" android:title="@string/mail_write_add_bcc"/>
+    <item android:id="@+id/mail_write_send" android:icon="@android:drawable/ic_menu_crop" android:showAsAction="ifRoom" android:title="@string/mail_write_send"/>
+    <item android:id="@+id/mail_write_save_draft" android:icon="@android:drawable/ic_menu_crop" android:showAsAction="ifRoom" android:title="@string/mail_write_save_draft"/>
+</menu>
