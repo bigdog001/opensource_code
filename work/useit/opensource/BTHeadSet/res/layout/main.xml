@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@android:color/white"
+        >
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/open_service"
+            android:text="open"
+            android:layout_marginLeft="5dp"
+            />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/voice_routing_on"
+            android:text="bluetoothOn"
+            android:layout_marginLeft="5dp"
+            />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/voice_routing_off"
+            android:text="bluetoothOff "
+            android:layout_marginLeft="5dp"
+            />
+</LinearLayout>
+

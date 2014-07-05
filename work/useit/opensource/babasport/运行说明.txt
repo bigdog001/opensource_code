@@ -1,0 +1,35 @@
+
+==================在myeclise中恢复巴巴运动网开发环境====================
+1>在myeclipse中新建一个web工程,项目名称为"babasport","Context root URL"一栏中只填写"/"(*高度注意*),"J2EE Specification Level"一栏选择"J2EE1.4",然后点击"finish".
+
+2>从"我的电脑"进入到项目所在路径,把项目下的src和WebRoot目录删除,然后把巴巴运动网源代码中的src和WebRoot文件夹拷贝至项目所在路径。回到myeclipse开发工具，右键点击项目,点击"refresh"刷新项目。
+
+3>采用utf8字符集编码创建数据库,名为:itcast。DDL语句如下：
+CREATE DATABASE `itcast` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
+
+4>修改jdbc.properties中的数据库连接信息
+
+5>成功启动后,执行http://localhost:8080/system/init.do初始化信息
+
+6>访问http://localhost:8080/进入主页
+
+7>访问http://localhost:8080/control/center/main.do进入后台办公系统,用户名admin,密码123456
+
+
+
+
+==================在eclise-jee中恢复巴巴运动网开发环境====================
+1>首先确认你打开的是"Java EE"开发环境(在右上角有显示),点击新建"Dynamic web project",项目名称为"babasport",点击"next",在"Web Module"窗口中Context Root一栏设置为空值(*高度注意*)、Content Directory一栏中输入WebRoot,然后点击"finish".
+
+2>从"我的电脑"进入到项目所在路径,把项目下的src和WebRoot目录删除,然后把例子中的src和WebRoot文件夹拷贝至项目所在路径。回到eclipse开发工具，右键点击项目,点击"refresh"刷新项目。
+
+3>采用utf8字符集编码创建数据库,名为:itcast。DDL语句如下：
+CREATE DATABASE `itcast` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
+
+4>修改jdbc.properties中的数据库连接信息
+
+5>成功启动后,执行http://localhost:8080/system/init.do初始化信息
+
+6>访问http://localhost:8080/进入主页
+
+7>访问http://localhost:8080/control/center/main.do进入后台办公系统,用户名admin,密码123456

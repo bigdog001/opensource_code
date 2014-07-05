@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BTHeadSet</string>
+    <string name="nobluetooth">本机没有找到蓝牙硬件或驱动！</string>
+    <string name="bluetoothOn">蓝牙已经开启！</string>
+    <string name="bluetoothOff">不允许蓝牙开启！</string>
+    <string name="exitToast">exit when you press again！</string>
+</resources>
