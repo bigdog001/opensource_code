@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TuliaoClientActivity!</string>
+    <string name="app_name">途聊</string>
+    <string name="password_digits">
+      ._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ
+    </string>
+
+</resources>

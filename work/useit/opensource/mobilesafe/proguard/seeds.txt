@@ -1,0 +1,331 @@
+com.itheima.mobilesafe.AntiVirusActivity
+com.itheima.mobilesafe.AppLockActivity
+com.itheima.mobilesafe.AppLockActivity: void onClick(android.view.View)
+com.itheima.mobilesafe.AppManagerActivity
+com.itheima.mobilesafe.AppManagerActivity: void onClick(android.view.View)
+com.itheima.mobilesafe.AtoolsActivity
+com.itheima.mobilesafe.AtoolsActivity: void numberAddressQuery(android.view.View)
+com.itheima.mobilesafe.AtoolsActivity: void commonNumQuery(android.view.View)
+com.itheima.mobilesafe.AtoolsActivity: void backupSms(android.view.View)
+com.itheima.mobilesafe.AtoolsActivity: void enterAppLock(android.view.View)
+com.itheima.mobilesafe.CallSmsSafeActivity
+com.itheima.mobilesafe.CallSmsSafeActivity: void jump(android.view.View)
+com.itheima.mobilesafe.CallSmsSafeActivity: void addBlackNumber(android.view.View)
+com.itheima.mobilesafe.CallSmsSafeActivity: void onClick(android.view.View)
+com.itheima.mobilesafe.CleanCacheActivity
+com.itheima.mobilesafe.CleanCacheActivity: void cleanAll(android.view.View)
+com.itheima.mobilesafe.CleanSDActivity
+com.itheima.mobilesafe.CleanTabActivity
+com.itheima.mobilesafe.CommonNumberActivity
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity
+com.itheima.mobilesafe.DragViewActivity
+com.itheima.mobilesafe.EditBlackNumberDialog
+com.itheima.mobilesafe.EnterPwdActivity
+com.itheima.mobilesafe.EnterPwdActivity: void enter(android.view.View)
+com.itheima.mobilesafe.HomeActivity
+com.itheima.mobilesafe.HomeActivity: void onClick(android.view.View)
+com.itheima.mobilesafe.LostFindActivity
+com.itheima.mobilesafe.LostFindActivity: void reEntrySetup(android.view.View)
+com.itheima.mobilesafe.MobliesafeApplication
+com.itheima.mobilesafe.NumberQueryActivity
+com.itheima.mobilesafe.NumberQueryActivity: void query(android.view.View)
+com.itheima.mobilesafe.R$anim: int cycle_7
+com.itheima.mobilesafe.R$anim: int shake
+com.itheima.mobilesafe.R$anim: int tran_next_in
+com.itheima.mobilesafe.R$anim: int tran_next_out
+com.itheima.mobilesafe.R$anim: int tran_pre_in
+com.itheima.mobilesafe.R$anim: int tran_pre_out
+com.itheima.mobilesafe.R$attr: int checked_text
+com.itheima.mobilesafe.R$attr: int title
+com.itheima.mobilesafe.R$attr: int unchecked_text
+com.itheima.mobilesafe.R$color: int gray
+com.itheima.mobilesafe.R$color: int textColorPrimary
+com.itheima.mobilesafe.R$color: int textColorPrimaryDark
+com.itheima.mobilesafe.R$color: int textColorSecondary
+com.itheima.mobilesafe.R$color: int textColorSecondaryContent
+com.itheima.mobilesafe.R$drawable: int app
+com.itheima.mobilesafe.R$drawable: int atools
+com.itheima.mobilesafe.R$drawable: int bg
+com.itheima.mobilesafe.R$drawable: int bind
+com.itheima.mobilesafe.R$drawable: int bind_sim_bg_normal
+com.itheima.mobilesafe.R$drawable: int bind_sim_bg_pressed
+com.itheima.mobilesafe.R$drawable: int bind_sim_bg_selector
+com.itheima.mobilesafe.R$drawable: int button_bg_green
+com.itheima.mobilesafe.R$drawable: int button_bg_green_on
+com.itheima.mobilesafe.R$drawable: int button_bg_selector
+com.itheima.mobilesafe.R$drawable: int call_locate_blue
+com.itheima.mobilesafe.R$drawable: int call_locate_gray
+com.itheima.mobilesafe.R$drawable: int call_locate_green
+com.itheima.mobilesafe.R$drawable: int call_locate_orange
+com.itheima.mobilesafe.R$drawable: int call_locate_white
+com.itheima.mobilesafe.R$drawable: int callmsgsafe
+com.itheima.mobilesafe.R$drawable: int contact
+com.itheima.mobilesafe.R$drawable: int gps
+com.itheima.mobilesafe.R$drawable: int home_item_selector
+com.itheima.mobilesafe.R$drawable: int ic_delete_btn
+com.itheima.mobilesafe.R$drawable: int ic_launcher
+com.itheima.mobilesafe.R$drawable: int ic_scanner_malware
+com.itheima.mobilesafe.R$drawable: int img1
+com.itheima.mobilesafe.R$drawable: int img2
+com.itheima.mobilesafe.R$drawable: int img3
+com.itheima.mobilesafe.R$drawable: int jiantou1
+com.itheima.mobilesafe.R$drawable: int list_devider
+com.itheima.mobilesafe.R$drawable: int local_popup_bg
+com.itheima.mobilesafe.R$drawable: int lock
+com.itheima.mobilesafe.R$drawable: int logo2
+com.itheima.mobilesafe.R$drawable: int main_item_normal
+com.itheima.mobilesafe.R$drawable: int net
+com.itheima.mobilesafe.R$drawable: int netmanager
+com.itheima.mobilesafe.R$drawable: int next
+com.itheima.mobilesafe.R$drawable: int notification
+com.itheima.mobilesafe.R$drawable: int opt_item_pressed
+com.itheima.mobilesafe.R$drawable: int opt_item_selector
+com.itheima.mobilesafe.R$drawable: int phone
+com.itheima.mobilesafe.R$drawable: int previous
+com.itheima.mobilesafe.R$drawable: int progress_horizontal
+com.itheima.mobilesafe.R$drawable: int progress_medium_white
+com.itheima.mobilesafe.R$drawable: int safe
+com.itheima.mobilesafe.R$drawable: int scan
+com.itheima.mobilesafe.R$drawable: int security_progress
+com.itheima.mobilesafe.R$drawable: int security_progress_bg
+com.itheima.mobilesafe.R$drawable: int settings
+com.itheima.mobilesafe.R$drawable: int setup1
+com.itheima.mobilesafe.R$drawable: int shenmabg
+com.itheima.mobilesafe.R$drawable: int sysoptimize
+com.itheima.mobilesafe.R$drawable: int tab1
+com.itheima.mobilesafe.R$drawable: int tab2
+com.itheima.mobilesafe.R$drawable: int tab3
+com.itheima.mobilesafe.R$drawable: int tab_left_default
+com.itheima.mobilesafe.R$drawable: int tab_left_pressed
+com.itheima.mobilesafe.R$drawable: int tab_right_default
+com.itheima.mobilesafe.R$drawable: int tab_right_pressed
+com.itheima.mobilesafe.R$drawable: int taskmanager
+com.itheima.mobilesafe.R$drawable: int trojan
+com.itheima.mobilesafe.R$drawable: int unlock
+com.itheima.mobilesafe.R$drawable: int widget_bg_portrait
+com.itheima.mobilesafe.R$drawable: int widget_bg_portrait_child
+com.itheima.mobilesafe.R$drawable: int widget_bg_portrait_child_divider
+com.itheima.mobilesafe.R$id: int bt_add_blacknumber_cancle
+com.itheima.mobilesafe.R$id: int bt_add_blacknumber_ok
+com.itheima.mobilesafe.R$id: int bt_first_entry_cancle
+com.itheima.mobilesafe.R$id: int bt_first_entry_ok
+com.itheima.mobilesafe.R$id: int bt_normal_entry_cancle
+com.itheima.mobilesafe.R$id: int bt_normal_entry_ok
+com.itheima.mobilesafe.R$id: int btn_clear
+com.itheima.mobilesafe.R$id: int cb_settingview_status
+com.itheima.mobilesafe.R$id: int cb_setup4_status
+com.itheima.mobilesafe.R$id: int cb_taskmanager
+com.itheima.mobilesafe.R$id: int cb_tasksetting
+com.itheima.mobilesafe.R$id: int cb_tasksetting_autokill
+com.itheima.mobilesafe.R$id: int content
+com.itheima.mobilesafe.R$id: int elv
+com.itheima.mobilesafe.R$id: int et_add_blacknumber
+com.itheima.mobilesafe.R$id: int et_callsms_pagenumber
+com.itheima.mobilesafe.R$id: int et_first_entry_pwd
+com.itheima.mobilesafe.R$id: int et_first_entry_pwd_confirm
+com.itheima.mobilesafe.R$id: int et_normal_entry_pwd
+com.itheima.mobilesafe.R$id: int et_numberquery_number
+com.itheima.mobilesafe.R$id: int et_password
+com.itheima.mobilesafe.R$id: int et_setup3_phone
+com.itheima.mobilesafe.R$id: int gv_home
+com.itheima.mobilesafe.R$id: int handle
+com.itheima.mobilesafe.R$id: int item_change_name
+com.itheima.mobilesafe.R$id: int iv_applock_icon
+com.itheima.mobilesafe.R$id: int iv_applock_status
+com.itheima.mobilesafe.R$id: int iv_appmanger_icon
+com.itheima.mobilesafe.R$id: int iv_cache_icon
+com.itheima.mobilesafe.R$id: int iv_delete_blacknumber
+com.itheima.mobilesafe.R$id: int iv_drag_view
+com.itheima.mobilesafe.R$id: int iv_enter_pwd
+com.itheima.mobilesafe.R$id: int iv_home_item_icon
+com.itheima.mobilesafe.R$id: int iv_lostfind_status
+com.itheima.mobilesafe.R$id: int iv_scan
+com.itheima.mobilesafe.R$id: int iv_setup2_bindstatus
+com.itheima.mobilesafe.R$id: int iv_splash_logo
+com.itheima.mobilesafe.R$id: int iv_tab
+com.itheima.mobilesafe.R$id: int iv_taskmanger_icon
+com.itheima.mobilesafe.R$id: int iv_toast
+com.itheima.mobilesafe.R$id: int ll_container
+com.itheima.mobilesafe.R$id: int ll_info
+com.itheima.mobilesafe.R$id: int ll_locked
+com.itheima.mobilesafe.R$id: int ll_share
+com.itheima.mobilesafe.R$id: int ll_start
+com.itheima.mobilesafe.R$id: int ll_uninstall
+com.itheima.mobilesafe.R$id: int ll_unlock
+com.itheima.mobilesafe.R$id: int loading
+com.itheima.mobilesafe.R$id: int lv_appmanager
+com.itheima.mobilesafe.R$id: int lv_callsms_safe
+com.itheima.mobilesafe.R$id: int lv_locked
+com.itheima.mobilesafe.R$id: int lv_select_contact
+com.itheima.mobilesafe.R$id: int lv_taskmanager
+com.itheima.mobilesafe.R$id: int lv_unlock
+com.itheima.mobilesafe.R$id: int pb_appmanger
+com.itheima.mobilesafe.R$id: int pb_taskmanger
+com.itheima.mobilesafe.R$id: int process_count
+com.itheima.mobilesafe.R$id: int process_memory
+com.itheima.mobilesafe.R$id: int progressBar1
+com.itheima.mobilesafe.R$id: int radioGroup1
+com.itheima.mobilesafe.R$id: int rb_all
+com.itheima.mobilesafe.R$id: int rb_phone
+com.itheima.mobilesafe.R$id: int rb_sms
+com.itheima.mobilesafe.R$id: int rl_setting_change_location
+com.itheima.mobilesafe.R$id: int rl_setting_changebg
+com.itheima.mobilesafe.R$id: int rl_setup2_bind
+com.itheima.mobilesafe.R$id: int rl_splash_bg
+com.itheima.mobilesafe.R$id: int scan_status
+com.itheima.mobilesafe.R$id: int sd
+com.itheima.mobilesafe.R$id: int sv_setting_applock
+com.itheima.mobilesafe.R$id: int sv_setting_firewall
+com.itheima.mobilesafe.R$id: int sv_setting_showaddress
+com.itheima.mobilesafe.R$id: int sv_setting_update
+com.itheima.mobilesafe.R$id: int tv_app_status
+com.itheima.mobilesafe.R$id: int tv_applock_name
+com.itheima.mobilesafe.R$id: int tv_appmanager_location
+com.itheima.mobilesafe.R$id: int tv_appmanager_name
+com.itheima.mobilesafe.R$id: int tv_appmanager_version
+com.itheima.mobilesafe.R$id: int tv_appmanger_rom
+com.itheima.mobilesafe.R$id: int tv_appmanger_sd
+com.itheima.mobilesafe.R$id: int tv_black_mode
+com.itheima.mobilesafe.R$id: int tv_black_number
+com.itheima.mobilesafe.R$id: int tv_cache_name
+com.itheima.mobilesafe.R$id: int tv_cache_size
+com.itheima.mobilesafe.R$id: int tv_callsms_page_status
+com.itheima.mobilesafe.R$id: int tv_contact_name
+com.itheima.mobilesafe.R$id: int tv_contact_phone
+com.itheima.mobilesafe.R$id: int tv_drag_view
+com.itheima.mobilesafe.R$id: int tv_enter_pwd
+com.itheima.mobilesafe.R$id: int tv_home_item_name
+com.itheima.mobilesafe.R$id: int tv_locked
+com.itheima.mobilesafe.R$id: int tv_locked_count
+com.itheima.mobilesafe.R$id: int tv_lostfind_number
+com.itheima.mobilesafe.R$id: int tv_numberquery_address
+com.itheima.mobilesafe.R$id: int tv_scan_status
+com.itheima.mobilesafe.R$id: int tv_setting_addressbg
+com.itheima.mobilesafe.R$id: int tv_setting_bg_location
+com.itheima.mobilesafe.R$id: int tv_setting_bg_style
+com.itheima.mobilesafe.R$id: int tv_settingview_status
+com.itheima.mobilesafe.R$id: int tv_settingview_title
+com.itheima.mobilesafe.R$id: int tv_splash_name
+com.itheima.mobilesafe.R$id: int tv_splash_version
+com.itheima.mobilesafe.R$id: int tv_status
+com.itheima.mobilesafe.R$id: int tv_tab
+com.itheima.mobilesafe.R$id: int tv_taskmanager_mem
+com.itheima.mobilesafe.R$id: int tv_taskmanager_name
+com.itheima.mobilesafe.R$id: int tv_taskmanger_count
+com.itheima.mobilesafe.R$id: int tv_taskmanger_mem
+com.itheima.mobilesafe.R$id: int tv_title
+com.itheima.mobilesafe.R$id: int tv_toast
+com.itheima.mobilesafe.R$id: int tv_toast_address
+com.itheima.mobilesafe.R$id: int tv_unlock
+com.itheima.mobilesafe.R$id: int tv_unlock_count
+com.itheima.mobilesafe.R$layout: int activity_anti_virus
+com.itheima.mobilesafe.R$layout: int activity_app_lock
+com.itheima.mobilesafe.R$layout: int activity_app_manager
+com.itheima.mobilesafe.R$layout: int activity_atools
+com.itheima.mobilesafe.R$layout: int activity_call_sms_safe
+com.itheima.mobilesafe.R$layout: int activity_clean
+com.itheima.mobilesafe.R$layout: int activity_clean_cache
+com.itheima.mobilesafe.R$layout: int activity_clean_sd
+com.itheima.mobilesafe.R$layout: int activity_common_num
+com.itheima.mobilesafe.R$layout: int activity_drag_view
+com.itheima.mobilesafe.R$layout: int activity_enter_pwd
+com.itheima.mobilesafe.R$layout: int activity_home
+com.itheima.mobilesafe.R$layout: int activity_lost_find
+com.itheima.mobilesafe.R$layout: int activity_number_query
+com.itheima.mobilesafe.R$layout: int activity_select_contact
+com.itheima.mobilesafe.R$layout: int activity_setting
+com.itheima.mobilesafe.R$layout: int activity_setup1
+com.itheima.mobilesafe.R$layout: int activity_setup2
+com.itheima.mobilesafe.R$layout: int activity_setup3
+com.itheima.mobilesafe.R$layout: int activity_setup4
+com.itheima.mobilesafe.R$layout: int activity_splash
+com.itheima.mobilesafe.R$layout: int activity_task_manager
+com.itheima.mobilesafe.R$layout: int activity_task_setting
+com.itheima.mobilesafe.R$layout: int activity_traffic_manager
+com.itheima.mobilesafe.R$layout: int cccc_activity_call_sms_safe
+com.itheima.mobilesafe.R$layout: int dialog_add_blacknumber
+com.itheima.mobilesafe.R$layout: int dialog_first_entry
+com.itheima.mobilesafe.R$layout: int dialog_normal_entry
+com.itheima.mobilesafe.R$layout: int grid_home_item
+com.itheima.mobilesafe.R$layout: int list_applock_item
+com.itheima.mobilesafe.R$layout: int list_appmanager_item
+com.itheima.mobilesafe.R$layout: int list_cache_item
+com.itheima.mobilesafe.R$layout: int list_callsms_item
+com.itheima.mobilesafe.R$layout: int list_select_contact_item
+com.itheima.mobilesafe.R$layout: int list_taskmanager_item
+com.itheima.mobilesafe.R$layout: int main
+com.itheima.mobilesafe.R$layout: int mytoast
+com.itheima.mobilesafe.R$layout: int popup_appmanger
+com.itheima.mobilesafe.R$layout: int process_widget
+com.itheima.mobilesafe.R$layout: int tab_clean
+com.itheima.mobilesafe.R$layout: int toast_location
+com.itheima.mobilesafe.R$layout: int ui_setting_view
+com.itheima.mobilesafe.R$menu: int lost_find_menu
+com.itheima.mobilesafe.R$raw: int ylzs
+com.itheima.mobilesafe.R$string: int app_name
+com.itheima.mobilesafe.R$string: int hello
+com.itheima.mobilesafe.R$string: int sample_device_admin
+com.itheima.mobilesafe.R$string: int sample_device_admin_description
+com.itheima.mobilesafe.R$string: int server_url
+com.itheima.mobilesafe.R$style: int Theme
+com.itheima.mobilesafe.R$style: int Theme_Transparent
+com.itheima.mobilesafe.R$style: int bt_next_style
+com.itheima.mobilesafe.R$style: int bt_pre_style
+com.itheima.mobilesafe.R$style: int image_off_style
+com.itheima.mobilesafe.R$style: int image_on_style
+com.itheima.mobilesafe.R$style: int my_pb_style
+com.itheima.mobilesafe.R$style: int my_progreebar_style
+com.itheima.mobilesafe.R$style: int text_content_style
+com.itheima.mobilesafe.R$style: int text_title_style
+com.itheima.mobilesafe.R$style: int widget_text
+com.itheima.mobilesafe.R$styleable: int[] SettingView
+com.itheima.mobilesafe.R$styleable: int SettingView_checked_text
+com.itheima.mobilesafe.R$styleable: int SettingView_title
+com.itheima.mobilesafe.R$styleable: int SettingView_unchecked_text
+com.itheima.mobilesafe.R$xml: int device_admin_sample
+com.itheima.mobilesafe.R$xml: int example_appwidget_info
+com.itheima.mobilesafe.SelectContactActivity
+com.itheima.mobilesafe.SettingActivity
+com.itheima.mobilesafe.SettingActivity: void onClick(android.view.View)
+com.itheima.mobilesafe.Setup1Activity
+com.itheima.mobilesafe.Setup2Activity
+com.itheima.mobilesafe.Setup3Activity
+com.itheima.mobilesafe.Setup3Activity: void selectContact(android.view.View)
+com.itheima.mobilesafe.Setup4Activity
+com.itheima.mobilesafe.Setup4Activity: void activeAdmin(android.view.View)
+com.itheima.mobilesafe.SetupBaseActivity
+com.itheima.mobilesafe.SetupBaseActivity: void next(android.view.View)
+com.itheima.mobilesafe.SetupBaseActivity: void pre(android.view.View)
+com.itheima.mobilesafe.SplashActivity
+com.itheima.mobilesafe.TaskManagerActivity
+com.itheima.mobilesafe.TaskManagerActivity: void selectAll(android.view.View)
+com.itheima.mobilesafe.TaskManagerActivity: void unSelectAll(android.view.View)
+com.itheima.mobilesafe.TaskManagerActivity: void killAll(android.view.View)
+com.itheima.mobilesafe.TaskManagerActivity: void setting(android.view.View)
+com.itheima.mobilesafe.TaskSettingActivity
+com.itheima.mobilesafe.TrafficManagerActivity
+com.itheima.mobilesafe.engine.AppInfoProvider
+com.itheima.mobilesafe.receiver.BootCompleteReceiver
+com.itheima.mobilesafe.receiver.CustomBroadcastReceiver
+com.itheima.mobilesafe.receiver.LockScreenReceiver
+com.itheima.mobilesafe.receiver.MyAdmin
+com.itheima.mobilesafe.receiver.MyWidget
+com.itheima.mobilesafe.receiver.OutCallReceiver
+com.itheima.mobilesafe.receiver.SmsReceiver
+com.itheima.mobilesafe.service.AutoKillService
+com.itheima.mobilesafe.service.CallSmsFirewallService
+com.itheima.mobilesafe.service.CallSmsSafeService
+com.itheima.mobilesafe.service.CopyOfWatchDogService
+com.itheima.mobilesafe.service.UpdateWidgetService
+com.itheima.mobilesafe.service.WatchDogService
+com.itheima.mobilesafe.ui.FocusedTextView
+com.itheima.mobilesafe.ui.FocusedTextView: FocusedTextView(android.content.Context,android.util.AttributeSet,int)
+com.itheima.mobilesafe.ui.FocusedTextView: FocusedTextView(android.content.Context,android.util.AttributeSet)
+com.itheima.mobilesafe.ui.FocusedTextView: FocusedTextView(android.content.Context)
+com.itheima.mobilesafe.ui.SettingView
+com.itheima.mobilesafe.ui.SettingView: SettingView(android.content.Context,android.util.AttributeSet,int)
+com.itheima.mobilesafe.ui.SettingView: SettingView(android.content.Context,android.util.AttributeSet)
+com.itheima.mobilesafe.ui.SettingView: SettingView(android.content.Context)
+com.itheima.mobilesafe.ui.SettingView: void setTitle(java.lang.String)
+com.itheima.mobilesafe.ui.SettingView: void setContext(java.lang.String)
+com.itheima.mobilesafe.ui.SettingView: void setChecked(boolean)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="#3185A3"
+        android:gravity="center"
+        android:text="流量统计"
+        android:textColor="#B3EBFF"
+        android:textSize="25sp" />
+
+    <SlidingDrawer
+        android:id="@+id/sd"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/content"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="#66009900" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我是抽屉里面的内容" />
+        </LinearLayout>
+    </SlidingDrawer>
+
+</LinearLayout>

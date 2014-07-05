@@ -1,0 +1,1108 @@
+android.content.pm.IPackageDataObserver -> a.a.a.a:
+    void onRemoveCompleted(java.lang.String,boolean) -> a
+android.content.pm.IPackageDataObserver$Stub -> a.a.a.b:
+    android.os.IBinder asBinder() -> asBinder
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+android.content.pm.IPackageStatsObserver -> a.a.a.c:
+    void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> a
+android.content.pm.IPackageStatsObserver$Stub -> a.a.a.d:
+    android.os.IBinder asBinder() -> asBinder
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.android.internal.telephony.ITelephony -> com.a.a.a.a:
+    void dial(java.lang.String) -> a
+    void call(java.lang.String) -> b
+    boolean showCallScreen() -> a
+    boolean showCallScreenWithDialpad(boolean) -> a
+    boolean endCall() -> b
+    void answerRingingCall() -> c
+    void silenceRinger() -> d
+    boolean isOffhook() -> e
+    boolean isRinging() -> f
+    boolean isIdle() -> g
+    boolean isRadioOn() -> h
+    boolean isSimPinEnabled() -> i
+    void cancelMissedCallsNotification() -> j
+    boolean supplyPin(java.lang.String) -> c
+    boolean handlePinMmi(java.lang.String) -> d
+    void toggleRadioOnOff() -> k
+    boolean setRadio(boolean) -> b
+    void updateServiceLocation() -> l
+    void enableLocationUpdates() -> m
+    void disableLocationUpdates() -> n
+    int enableApnType(java.lang.String) -> e
+    int disableApnType(java.lang.String) -> f
+    boolean enableDataConnectivity() -> o
+    boolean disableDataConnectivity() -> p
+    boolean isDataConnectivityPossible() -> q
+    android.os.Bundle getCellLocation() -> r
+    java.util.List getNeighboringCellInfo() -> s
+    int getCallState() -> t
+    int getDataActivity() -> u
+    int getDataState() -> v
+    int getActivePhoneType() -> w
+    int getCdmaEriIconIndex() -> x
+    int getCdmaEriIconMode() -> y
+    java.lang.String getCdmaEriText() -> z
+    boolean getCdmaNeedsProvisioning() -> A
+    int getVoiceMessageCount() -> B
+    int getNetworkType() -> C
+    boolean hasIccCard() -> D
+com.android.internal.telephony.ITelephony$Stub -> com.a.a.a.b:
+    com.android.internal.telephony.ITelephony asInterface(android.os.IBinder) -> a
+    boolean onTransact(int,android.os.Parcel,android.os.Parcel,int) -> onTransact
+com.android.internal.telephony.ITelephony$Stub$Proxy -> com.a.a.a.c:
+    android.os.IBinder mRemote -> a
+    android.os.IBinder asBinder() -> asBinder
+    void dial(java.lang.String) -> a
+    void call(java.lang.String) -> b
+    boolean showCallScreen() -> a
+    boolean showCallScreenWithDialpad(boolean) -> a
+    boolean endCall() -> b
+    void answerRingingCall() -> c
+    void silenceRinger() -> d
+    boolean isOffhook() -> e
+    boolean isRinging() -> f
+    boolean isIdle() -> g
+    boolean isRadioOn() -> h
+    boolean isSimPinEnabled() -> i
+    void cancelMissedCallsNotification() -> j
+    boolean supplyPin(java.lang.String) -> c
+    boolean handlePinMmi(java.lang.String) -> d
+    void toggleRadioOnOff() -> k
+    boolean setRadio(boolean) -> b
+    void updateServiceLocation() -> l
+    void enableLocationUpdates() -> m
+    void disableLocationUpdates() -> n
+    int enableApnType(java.lang.String) -> e
+    int disableApnType(java.lang.String) -> f
+    boolean enableDataConnectivity() -> o
+    boolean disableDataConnectivity() -> p
+    boolean isDataConnectivityPossible() -> q
+    android.os.Bundle getCellLocation() -> r
+    java.util.List getNeighboringCellInfo() -> s
+    int getCallState() -> t
+    int getDataActivity() -> u
+    int getDataState() -> v
+    int getActivePhoneType() -> w
+    int getCdmaEriIconIndex() -> x
+    int getCdmaEriIconMode() -> y
+    java.lang.String getCdmaEriText() -> z
+    boolean getCdmaNeedsProvisioning() -> A
+    int getVoiceMessageCount() -> B
+    int getNetworkType() -> C
+    boolean hasIccCard() -> D
+com.itheima.mobilesafe.AntiVirusActivity -> com.itheima.mobilesafe.AntiVirusActivity:
+    android.widget.ImageView iv_scan -> a
+    android.content.pm.PackageManager pm -> b
+    android.widget.TextView scan_status -> c
+    android.widget.ProgressBar pb -> d
+    android.widget.LinearLayout ll_container -> e
+    java.util.List virusInfos -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    android.content.pm.PackageManager access$0(com.itheima.mobilesafe.AntiVirusActivity) -> a
+    android.widget.ProgressBar access$1(com.itheima.mobilesafe.AntiVirusActivity) -> b
+    java.util.List access$2(com.itheima.mobilesafe.AntiVirusActivity) -> c
+    android.widget.TextView access$3(com.itheima.mobilesafe.AntiVirusActivity) -> d
+    android.widget.ImageView access$4(com.itheima.mobilesafe.AntiVirusActivity) -> e
+    android.widget.LinearLayout access$5(com.itheima.mobilesafe.AntiVirusActivity) -> f
+com.itheima.mobilesafe.AntiVirusActivity$1 -> com.itheima.mobilesafe.a:
+    com.itheima.mobilesafe.AntiVirusActivity this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Void) -> a
+    void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    com.itheima.mobilesafe.AntiVirusActivity access$2(com.itheima.mobilesafe.AntiVirusActivity$1) -> a
+com.itheima.mobilesafe.AntiVirusActivity$1$1 -> com.itheima.mobilesafe.b:
+    com.itheima.mobilesafe.AntiVirusActivity$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.AntiVirusActivity$1$2 -> com.itheima.mobilesafe.c:
+    com.itheima.mobilesafe.AntiVirusActivity$1 this$1 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.AppLockActivity -> com.itheima.mobilesafe.AppLockActivity:
+    android.widget.TextView tv_locked -> a
+    android.widget.TextView tv_unlock -> b
+    android.widget.LinearLayout ll_locked -> c
+    android.widget.LinearLayout ll_unlock -> d
+    android.widget.ListView lv_locked -> e
+    android.widget.ListView lv_unlock -> f
+    android.widget.TextView tv_locked_count -> g
+    android.widget.TextView tv_unlock_count -> h
+    com.itheima.mobilesafe.db.dao.AppLockDao dao -> i
+    java.util.List unlockAppInfos -> j
+    java.util.List lockedAppInfos -> k
+    com.itheima.mobilesafe.AppLockActivity$AppLockAdapter unlockAdapter -> l
+    com.itheima.mobilesafe.AppLockActivity$AppLockAdapter lockedAdapter -> m
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    android.widget.TextView access$0(com.itheima.mobilesafe.AppLockActivity) -> a
+    android.widget.TextView access$1(com.itheima.mobilesafe.AppLockActivity) -> b
+    android.widget.ListView access$2(com.itheima.mobilesafe.AppLockActivity) -> c
+    com.itheima.mobilesafe.db.dao.AppLockDao access$3(com.itheima.mobilesafe.AppLockActivity) -> d
+    java.util.List access$4(com.itheima.mobilesafe.AppLockActivity) -> e
+    java.util.List access$5(com.itheima.mobilesafe.AppLockActivity) -> f
+    com.itheima.mobilesafe.AppLockActivity$AppLockAdapter access$6(com.itheima.mobilesafe.AppLockActivity) -> g
+    android.widget.ListView access$7(com.itheima.mobilesafe.AppLockActivity) -> h
+    com.itheima.mobilesafe.AppLockActivity$AppLockAdapter access$8(com.itheima.mobilesafe.AppLockActivity) -> i
+com.itheima.mobilesafe.AppLockActivity$1 -> com.itheima.mobilesafe.d:
+    com.itheima.mobilesafe.AppLockActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    com.itheima.mobilesafe.AppLockActivity access$0(com.itheima.mobilesafe.AppLockActivity$1) -> a
+com.itheima.mobilesafe.AppLockActivity$1$1 -> com.itheima.mobilesafe.e:
+    com.itheima.mobilesafe.AppLockActivity$1 this$1 -> a
+    int val$position -> b
+    void onPreExecute() -> a
+    void onPostExecute() -> b
+    void doInBackground() -> c
+com.itheima.mobilesafe.AppLockActivity$2 -> com.itheima.mobilesafe.f:
+    com.itheima.mobilesafe.AppLockActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    com.itheima.mobilesafe.AppLockActivity access$0(com.itheima.mobilesafe.AppLockActivity$2) -> a
+com.itheima.mobilesafe.AppLockActivity$2$1 -> com.itheima.mobilesafe.g:
+    com.itheima.mobilesafe.AppLockActivity$2 this$1 -> a
+    int val$position -> c
+    void doInUiThread() -> a
+com.itheima.mobilesafe.AppLockActivity$AppLockAdapter -> com.itheima.mobilesafe.h:
+    java.util.List appinfos -> b
+    boolean unlock -> c
+    com.itheima.mobilesafe.AppLockActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.AppLockActivity$ViewHolder -> com.itheima.mobilesafe.i:
+    android.widget.TextView tv_name -> a
+    android.widget.ImageView iv_icon -> b
+    android.widget.ImageView iv_status -> c
+com.itheima.mobilesafe.AppManagerActivity -> com.itheima.mobilesafe.AppManagerActivity:
+    android.widget.TextView tv_appmanger_rom -> a
+    android.widget.TextView tv_appmanger_sd -> b
+    android.widget.ListView lv_appmanager -> c
+    java.util.List appInfos -> d
+    java.util.List userAppInfos -> e
+    java.util.List systemAppInfos -> f
+    android.widget.TextView tv_app_status -> g
+    android.widget.ProgressBar pb_appmanger -> h
+    boolean loadfinish -> i
+    android.widget.PopupWindow popwindow -> j
+    android.view.View ll_share -> k
+    android.view.View ll_start -> l
+    android.view.View ll_uninstall -> m
+    com.itheima.mobilesafe.domain.AppInfo selectedAppInfo -> n
+    void onCreate(android.os.Bundle) -> onCreate
+    void fillData() -> a
+    java.lang.String getAvailRom() -> b
+    java.lang.String getAvailSd() -> c
+    void dismissPopupWindow() -> d
+    void onDestroy() -> onDestroy
+    void onClick(android.view.View) -> onClick
+    void shareApk() -> e
+    void startApk() -> f
+    void uninstallApk() -> g
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    java.util.List access$0(com.itheima.mobilesafe.AppManagerActivity) -> a
+    java.util.List access$1(com.itheima.mobilesafe.AppManagerActivity) -> b
+    boolean access$2(com.itheima.mobilesafe.AppManagerActivity) -> c
+    android.widget.TextView access$3(com.itheima.mobilesafe.AppManagerActivity) -> d
+    void access$4(com.itheima.mobilesafe.AppManagerActivity) -> e
+    android.widget.ListView access$5(com.itheima.mobilesafe.AppManagerActivity) -> f
+    void access$6(com.itheima.mobilesafe.AppManagerActivity,com.itheima.mobilesafe.domain.AppInfo) -> a
+    void access$7(com.itheima.mobilesafe.AppManagerActivity,android.view.View) -> a
+    void access$8(com.itheima.mobilesafe.AppManagerActivity,android.view.View) -> b
+    void access$9(com.itheima.mobilesafe.AppManagerActivity,android.view.View) -> c
+    android.view.View access$10(com.itheima.mobilesafe.AppManagerActivity) -> g
+    android.view.View access$11(com.itheima.mobilesafe.AppManagerActivity) -> h
+    android.view.View access$12(com.itheima.mobilesafe.AppManagerActivity) -> i
+    void access$13(com.itheima.mobilesafe.AppManagerActivity,android.widget.PopupWindow) -> a
+    android.widget.PopupWindow access$14(com.itheima.mobilesafe.AppManagerActivity) -> j
+    android.widget.ProgressBar access$15(com.itheima.mobilesafe.AppManagerActivity) -> k
+    void access$16(com.itheima.mobilesafe.AppManagerActivity,boolean) -> a
+    void access$17(com.itheima.mobilesafe.AppManagerActivity,java.util.List) -> a
+    void access$18(com.itheima.mobilesafe.AppManagerActivity,java.util.List) -> b
+    void access$19(com.itheima.mobilesafe.AppManagerActivity,java.util.List) -> c
+    java.util.List access$20(com.itheima.mobilesafe.AppManagerActivity) -> l
+com.itheima.mobilesafe.AppManagerActivity$1 -> com.itheima.mobilesafe.j:
+    com.itheima.mobilesafe.AppManagerActivity this$0 -> a
+    void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
+    void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.itheima.mobilesafe.AppManagerActivity$2 -> com.itheima.mobilesafe.k:
+    com.itheima.mobilesafe.AppManagerActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.itheima.mobilesafe.AppManagerActivity$3 -> com.itheima.mobilesafe.l:
+    com.itheima.mobilesafe.AppManagerActivity this$0 -> a
+    void onPreExecute() -> a
+    void onPostExecute() -> b
+    void doInBackground() -> c
+com.itheima.mobilesafe.AppManagerActivity$AppManagerAdapter -> com.itheima.mobilesafe.m:
+    com.itheima.mobilesafe.AppManagerActivity this$0 -> a
+    boolean isEnabled(int) -> isEnabled
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.AppManagerActivity$ViewHolder -> com.itheima.mobilesafe.n:
+    android.widget.ImageView iv_icon -> a
+    android.widget.TextView tv_name -> b
+    android.widget.TextView tv_location -> c
+    android.widget.TextView tv_version -> d
+    android.widget.LinearLayout ll_info -> e
+com.itheima.mobilesafe.AtoolsActivity -> com.itheima.mobilesafe.AtoolsActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+    void numberAddressQuery(android.view.View) -> numberAddressQuery
+    void commonNumQuery(android.view.View) -> commonNumQuery
+    void backupSms(android.view.View) -> backupSms
+    void enterAppLock(android.view.View) -> enterAppLock
+com.itheima.mobilesafe.AtoolsActivity$1 -> com.itheima.mobilesafe.o:
+    android.app.ProgressDialog pd -> a
+    com.itheima.mobilesafe.AtoolsActivity this$0 -> b
+    java.lang.Boolean doInBackground(java.lang.String[]) -> a
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Boolean) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.itheima.mobilesafe.AtoolsActivity$1$1 -> com.itheima.mobilesafe.p:
+    com.itheima.mobilesafe.AtoolsActivity$1 this$1 -> a
+    void onBackUpProcess(int) -> a
+    void beforeBackup(int) -> b
+com.itheima.mobilesafe.CallSmsSafeActivity -> com.itheima.mobilesafe.CallSmsSafeActivity:
+    android.widget.ListView lv_callsms_safe -> a
+    com.itheima.mobilesafe.db.dao.BlackNumberDao dao -> b
+    java.util.List blackNumberInfos -> c
+    android.view.View loading -> d
+    int startIndex -> e
+    int maxNumber -> f
+    com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter adapter -> g
+    android.widget.EditText et_callsms_pagenumber -> h
+    android.widget.TextView tv_callsms_page_status -> i
+    int totalCount -> j
+    int totalPageNumber -> k
+    int pageNumber -> l
+    android.widget.EditText et_add_blacknumber -> m
+    android.widget.Button bt_add_ok -> n
+    android.widget.Button bt_add_cancle -> o
+    android.app.AlertDialog dialog -> p
+    android.widget.RadioGroup rg -> q
+    void onCreate(android.os.Bundle) -> onCreate
+    void onNewIntent(android.content.Intent) -> onNewIntent
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void fillData() -> a
+    void jump(android.view.View) -> jump
+    void initTotalPageNumber() -> b
+    void addBlackNumber(android.view.View) -> addBlackNumber
+    void showAddBlackNumberDialog(java.lang.String) -> a
+    void onClick(android.view.View) -> onClick
+    java.util.List access$0(com.itheima.mobilesafe.CallSmsSafeActivity) -> a
+    com.itheima.mobilesafe.db.dao.BlackNumberDao access$1(com.itheima.mobilesafe.CallSmsSafeActivity) -> b
+    com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter access$2(com.itheima.mobilesafe.CallSmsSafeActivity) -> c
+    int access$3(com.itheima.mobilesafe.CallSmsSafeActivity) -> d
+    void access$4(com.itheima.mobilesafe.CallSmsSafeActivity,int) -> a
+    void access$5(com.itheima.mobilesafe.CallSmsSafeActivity) -> e
+    int access$6(com.itheima.mobilesafe.CallSmsSafeActivity) -> f
+    int access$7(com.itheima.mobilesafe.CallSmsSafeActivity) -> g
+    void access$8(com.itheima.mobilesafe.CallSmsSafeActivity,java.util.List) -> a
+    android.view.View access$9(com.itheima.mobilesafe.CallSmsSafeActivity) -> h
+    void access$10(com.itheima.mobilesafe.CallSmsSafeActivity,com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter) -> a
+    android.widget.ListView access$11(com.itheima.mobilesafe.CallSmsSafeActivity) -> i
+com.itheima.mobilesafe.CallSmsSafeActivity$1 -> com.itheima.mobilesafe.q:
+    com.itheima.mobilesafe.CallSmsSafeActivity this$0 -> a
+    boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+com.itheima.mobilesafe.CallSmsSafeActivity$2 -> com.itheima.mobilesafe.r:
+    com.itheima.mobilesafe.CallSmsSafeActivity this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Void) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter -> com.itheima.mobilesafe.s:
+    com.itheima.mobilesafe.CallSmsSafeActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    com.itheima.mobilesafe.CallSmsSafeActivity access$1(com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter) -> a
+com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter$1 -> com.itheima.mobilesafe.t:
+    com.itheima.mobilesafe.CallSmsSafeActivity$CallSmsAdapter this$1 -> a
+    com.itheima.mobilesafe.domain.BlackNumberInfo val$info -> b
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.CallSmsSafeActivity$ViewHolder -> com.itheima.mobilesafe.u:
+    android.widget.TextView tv_mode -> a
+    android.widget.TextView tv_number -> b
+    android.widget.ImageView iv_delete_blacknumber -> c
+com.itheima.mobilesafe.CleanCacheActivity -> com.itheima.mobilesafe.CleanCacheActivity:
+    android.widget.ProgressBar pb -> a
+    android.widget.TextView tv_status -> b
+    android.widget.LinearLayout ll_container -> c
+    android.content.pm.PackageManager pm -> d
+    java.util.Map cacheInfo -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void cleanAll(android.view.View) -> cleanAll
+    java.util.Map access$0(com.itheima.mobilesafe.CleanCacheActivity) -> a
+    android.content.pm.PackageManager access$1(com.itheima.mobilesafe.CleanCacheActivity) -> b
+    android.widget.ProgressBar access$2(com.itheima.mobilesafe.CleanCacheActivity) -> c
+    android.widget.TextView access$3(com.itheima.mobilesafe.CleanCacheActivity) -> d
+    android.widget.LinearLayout access$4(com.itheima.mobilesafe.CleanCacheActivity) -> e
+com.itheima.mobilesafe.CleanCacheActivity$1 -> com.itheima.mobilesafe.v:
+    com.itheima.mobilesafe.CleanCacheActivity this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Void) -> a
+    void onProgressUpdate(java.lang.String[]) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
+    com.itheima.mobilesafe.CleanCacheActivity access$3(com.itheima.mobilesafe.CleanCacheActivity$1) -> a
+com.itheima.mobilesafe.CleanCacheActivity$1$1 -> com.itheima.mobilesafe.w:
+    com.itheima.mobilesafe.CleanCacheActivity$1 this$1 -> a
+    java.lang.String val$packname -> b
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.CleanCacheActivity$MyDataObersver -> com.itheima.mobilesafe.x:
+    com.itheima.mobilesafe.CleanCacheActivity this$0 -> a
+    void onRemoveCompleted(java.lang.String,boolean) -> a
+com.itheima.mobilesafe.CleanCacheActivity$MyObserver -> com.itheima.mobilesafe.y:
+    java.lang.String packname -> b
+    com.itheima.mobilesafe.CleanCacheActivity this$0 -> a
+    void onGetStatsCompleted(android.content.pm.PackageStats,boolean) -> a
+com.itheima.mobilesafe.CleanSDActivity -> com.itheima.mobilesafe.CleanSDActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.itheima.mobilesafe.CleanTabActivity -> com.itheima.mobilesafe.CleanTabActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+    android.view.View getTabView(int,java.lang.String) -> a
+com.itheima.mobilesafe.CommonNumberActivity -> com.itheima.mobilesafe.CommonNumberActivity:
+    android.widget.ExpandableListView elv -> a
+    java.util.List groupItems -> b
+    java.util.Map childrenCaches -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    java.util.List access$0(com.itheima.mobilesafe.CommonNumberActivity) -> a
+    void access$1(com.itheima.mobilesafe.CommonNumberActivity,java.util.List) -> a
+    java.util.Map access$2(com.itheima.mobilesafe.CommonNumberActivity) -> b
+com.itheima.mobilesafe.CommonNumberActivity$1 -> com.itheima.mobilesafe.z:
+    com.itheima.mobilesafe.CommonNumberActivity this$0 -> a
+    boolean onChildClick(android.widget.ExpandableListView,android.view.View,int,int,long) -> onChildClick
+com.itheima.mobilesafe.CommonNumberActivity$MyAdapter -> com.itheima.mobilesafe.aa:
+    com.itheima.mobilesafe.CommonNumberActivity this$0 -> a
+    int getGroupCount() -> getGroupCount
+    int getChildrenCount(int) -> getChildrenCount
+    java.lang.Object getGroup(int) -> getGroup
+    java.lang.Object getChild(int,int) -> getChild
+    long getGroupId(int) -> getGroupId
+    long getChildId(int,int) -> getChildId
+    boolean hasStableIds() -> hasStableIds
+    android.view.View getGroupView(int,boolean,android.view.View,android.view.ViewGroup) -> getGroupView
+    android.view.View getChildView(int,int,boolean,android.view.View,android.view.ViewGroup) -> getChildView
+    boolean isChildSelectable(int,int) -> isChildSelectable
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity -> com.itheima.mobilesafe.CopyOfCallSmsSafeActivity:
+    android.widget.ListView lv_callsms_safe -> a
+    com.itheima.mobilesafe.db.dao.BlackNumberDao dao -> b
+    java.util.List blackNumberInfos -> c
+    android.view.View loading -> d
+    int startIndex -> e
+    int maxNumber -> f
+    com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$CallSmsAdapter adapter -> g
+    int totalCount -> h
+    void onCreate(android.os.Bundle) -> onCreate
+    void fillData() -> a
+    java.util.List access$0(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> a
+    android.widget.ListView access$1(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> b
+    int access$2(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> c
+    int access$3(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> d
+    void access$4(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity,int) -> a
+    int access$5(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> e
+    void access$6(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> f
+    com.itheima.mobilesafe.db.dao.BlackNumberDao access$7(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> g
+    void access$8(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity,java.util.List) -> a
+    android.view.View access$9(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> h
+    com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$CallSmsAdapter access$10(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity) -> i
+    void access$11(com.itheima.mobilesafe.CopyOfCallSmsSafeActivity,com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$CallSmsAdapter) -> a
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$1 -> com.itheima.mobilesafe.ab:
+    com.itheima.mobilesafe.CopyOfCallSmsSafeActivity this$0 -> a
+    void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
+    void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$2 -> com.itheima.mobilesafe.ac:
+    com.itheima.mobilesafe.CopyOfCallSmsSafeActivity this$0 -> a
+    java.lang.Void doInBackground(java.lang.Void[]) -> a
+    void onPreExecute() -> onPreExecute
+    void onPostExecute(java.lang.Void) -> a
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$CallSmsAdapter -> com.itheima.mobilesafe.ad:
+    com.itheima.mobilesafe.CopyOfCallSmsSafeActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.CopyOfCallSmsSafeActivity$ViewHolder -> com.itheima.mobilesafe.ae:
+    android.widget.TextView tv_mode -> a
+    android.widget.TextView tv_number -> b
+com.itheima.mobilesafe.DragViewActivity -> com.itheima.mobilesafe.DragViewActivity:
+    android.widget.ImageView iv_drag_view -> a
+    android.widget.TextView tv_drag_view -> b
+    android.content.SharedPreferences sp -> c
+    android.view.WindowManager wm -> d
+    android.view.Display display -> e
+    long firstClickTime -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    long access$0(com.itheima.mobilesafe.DragViewActivity) -> a
+    android.widget.ImageView access$1(com.itheima.mobilesafe.DragViewActivity) -> b
+    android.view.Display access$2(com.itheima.mobilesafe.DragViewActivity) -> c
+    android.content.SharedPreferences access$3(com.itheima.mobilesafe.DragViewActivity) -> d
+    void access$4(com.itheima.mobilesafe.DragViewActivity,long) -> a
+    android.widget.TextView access$5(com.itheima.mobilesafe.DragViewActivity) -> e
+com.itheima.mobilesafe.DragViewActivity$1 -> com.itheima.mobilesafe.af:
+    com.itheima.mobilesafe.DragViewActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+    com.itheima.mobilesafe.DragViewActivity access$0(com.itheima.mobilesafe.DragViewActivity$1) -> a
+com.itheima.mobilesafe.DragViewActivity$1$1 -> com.itheima.mobilesafe.ag:
+    com.itheima.mobilesafe.DragViewActivity$1 this$1 -> a
+    void run() -> run
+com.itheima.mobilesafe.DragViewActivity$2 -> com.itheima.mobilesafe.ah:
+    int startX -> a
+    int startY -> b
+    com.itheima.mobilesafe.DragViewActivity this$0 -> c
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.itheima.mobilesafe.EditBlackNumberDialog -> com.itheima.mobilesafe.EditBlackNumberDialog:
+    android.widget.TextView tv_title -> a
+    android.widget.EditText et_add_blacknumber -> b
+    android.widget.RadioGroup radioGroup1 -> c
+    android.widget.RadioButton rb_all -> d
+    android.widget.RadioButton rb_phone -> e
+    android.widget.RadioButton rb_sms -> f
+    com.itheima.mobilesafe.db.dao.BlackNumberDao dao -> g
+    void onCreate(android.os.Bundle) -> onCreate
+    android.widget.RadioGroup access$0(com.itheima.mobilesafe.EditBlackNumberDialog) -> a
+    com.itheima.mobilesafe.db.dao.BlackNumberDao access$1(com.itheima.mobilesafe.EditBlackNumberDialog) -> b
+com.itheima.mobilesafe.EditBlackNumberDialog$1 -> com.itheima.mobilesafe.ai:
+    com.itheima.mobilesafe.EditBlackNumberDialog this$0 -> a
+    java.lang.String val$number -> b
+    com.itheima.mobilesafe.domain.BlackNumberInfo val$myblackInfo -> c
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.EditBlackNumberDialog$2 -> com.itheima.mobilesafe.aj:
+    com.itheima.mobilesafe.EditBlackNumberDialog this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.EnterPwdActivity -> com.itheima.mobilesafe.EnterPwdActivity:
+    android.widget.EditText et_password -> a
+    android.widget.ImageView iv_enter_pwd -> b
+    android.widget.TextView tv_enter_pwd -> c
+    java.lang.String packname -> d
+    android.content.Intent service -> e
+    com.itheima.mobilesafe.service.IService iService -> f
+    com.itheima.mobilesafe.EnterPwdActivity$MyConn conn -> g
+    void onCreate(android.os.Bundle) -> onCreate
+    void enter(android.view.View) -> enter
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void onDestroy() -> onDestroy
+    void access$0(com.itheima.mobilesafe.EnterPwdActivity,com.itheima.mobilesafe.service.IService) -> a
+com.itheima.mobilesafe.EnterPwdActivity$MyConn -> com.itheima.mobilesafe.ak:
+    com.itheima.mobilesafe.EnterPwdActivity this$0 -> a
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.itheima.mobilesafe.HomeActivity -> com.itheima.mobilesafe.HomeActivity:
+    android.widget.GridView gv_home -> a
+    android.content.SharedPreferences sp -> b
+    android.widget.EditText et_normal_entry_pwd -> c
+    android.widget.Button bt_normal_entry_ok -> d
+    android.widget.Button bt_normal_entry_cancle -> e
+    android.widget.EditText et_first_entry_pwd -> f
+    android.widget.EditText et_first_entry_pwd_confirm -> g
+    android.widget.Button bt_first_entry_ok -> h
+    android.widget.Button bt_first_entry_cancle -> i
+    android.app.AlertDialog dialog -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void showNormalEntryDialog() -> a
+    void showFirstEntryDialog() -> b
+    boolean isSetupPwd() -> c
+    void onClick(android.view.View) -> onClick
+    boolean access$0(com.itheima.mobilesafe.HomeActivity) -> a
+com.itheima.mobilesafe.HomeActivity$1 -> com.itheima.mobilesafe.al:
+    com.itheima.mobilesafe.HomeActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.itheima.mobilesafe.LostFindActivity -> com.itheima.mobilesafe.LostFindActivity:
+    android.content.SharedPreferences sp -> a
+    android.widget.TextView tv_lostfind_number -> b
+    android.widget.ImageView iv_lostfind_status -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    boolean isSetup() -> a
+    void reEntrySetup(android.view.View) -> reEntrySetup
+    android.content.SharedPreferences access$0(com.itheima.mobilesafe.LostFindActivity) -> a
+com.itheima.mobilesafe.LostFindActivity$1 -> com.itheima.mobilesafe.am:
+    com.itheima.mobilesafe.LostFindActivity this$0 -> a
+    android.widget.EditText val$et -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.MobliesafeApplication -> com.itheima.mobilesafe.MobliesafeApplication:
+    com.itheima.mobilesafe.domain.BlackNumberInfo info -> a
+    void onCreate() -> onCreate
+com.itheima.mobilesafe.MyExceptionHandler -> com.itheima.mobilesafe.an:
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+com.itheima.mobilesafe.NumberQueryActivity -> com.itheima.mobilesafe.NumberQueryActivity:
+    android.widget.EditText et_numberquery_number -> a
+    android.widget.TextView tv_numberquery_address -> b
+    android.os.Vibrator vibrator -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void query(android.view.View) -> query
+    android.widget.TextView access$0(com.itheima.mobilesafe.NumberQueryActivity) -> a
+com.itheima.mobilesafe.NumberQueryActivity$1 -> com.itheima.mobilesafe.ao:
+    com.itheima.mobilesafe.NumberQueryActivity this$0 -> a
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+com.itheima.mobilesafe.R -> com.itheima.mobilesafe.ap:
+com.itheima.mobilesafe.R$styleable -> com.itheima.mobilesafe.aq:
+    int[] SettingView -> SettingView
+    int SettingView_checked_text -> SettingView_checked_text
+    int SettingView_title -> SettingView_title
+    int SettingView_unchecked_text -> SettingView_unchecked_text
+com.itheima.mobilesafe.SelectContactActivity -> com.itheima.mobilesafe.SelectContactActivity:
+    java.util.List contactInfos -> a
+    android.widget.ListView lv_select_contact -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    java.util.List access$0(com.itheima.mobilesafe.SelectContactActivity) -> a
+com.itheima.mobilesafe.SelectContactActivity$1 -> com.itheima.mobilesafe.ar:
+    com.itheima.mobilesafe.SelectContactActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.itheima.mobilesafe.SelectContactActivity$SelectContactAdapter -> com.itheima.mobilesafe.as:
+    com.itheima.mobilesafe.SelectContactActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.SettingActivity -> com.itheima.mobilesafe.SettingActivity:
+    com.itheima.mobilesafe.ui.SettingView sv_setting_update -> a
+    android.content.SharedPreferences sp -> b
+    java.lang.String s -> c
+    com.itheima.mobilesafe.ui.SettingView sv_setting_showaddress -> d
+    android.content.Intent showAddressIntent -> e
+    com.itheima.mobilesafe.ui.SettingView sv_setting_firewall -> f
+    android.content.Intent callSmsFirewallIntent -> g
+    com.itheima.mobilesafe.ui.SettingView sv_setting_applock -> h
+    android.content.Intent appLockIntent -> i
+    android.widget.RelativeLayout rl_setting_changebg -> j
+    android.widget.TextView tv_setting_addressbg -> k
+    java.lang.String[] items -> l
+    android.widget.RelativeLayout rl_setting_change_location -> m
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onClick(android.view.View) -> onClick
+    com.itheima.mobilesafe.ui.SettingView access$0(com.itheima.mobilesafe.SettingActivity) -> a
+    android.content.SharedPreferences access$1(com.itheima.mobilesafe.SettingActivity) -> b
+    com.itheima.mobilesafe.ui.SettingView access$2(com.itheima.mobilesafe.SettingActivity) -> c
+    android.content.Intent access$3(com.itheima.mobilesafe.SettingActivity) -> d
+    com.itheima.mobilesafe.ui.SettingView access$4(com.itheima.mobilesafe.SettingActivity) -> e
+    android.content.Intent access$5(com.itheima.mobilesafe.SettingActivity) -> f
+    com.itheima.mobilesafe.ui.SettingView access$6(com.itheima.mobilesafe.SettingActivity) -> g
+    android.content.Intent access$7(com.itheima.mobilesafe.SettingActivity) -> h
+    android.widget.TextView access$8(com.itheima.mobilesafe.SettingActivity) -> i
+    java.lang.String[] access$9() -> a
+    java.lang.String access$10(com.itheima.mobilesafe.SettingActivity) -> j
+com.itheima.mobilesafe.SettingActivity$1 -> com.itheima.mobilesafe.at:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.SettingActivity$2 -> com.itheima.mobilesafe.au:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.SettingActivity$3 -> com.itheima.mobilesafe.av:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.SettingActivity$4 -> com.itheima.mobilesafe.aw:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.SettingActivity$5 -> com.itheima.mobilesafe.ax:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.SettingActivity$6 -> com.itheima.mobilesafe.ay:
+    com.itheima.mobilesafe.SettingActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.Setup1Activity -> com.itheima.mobilesafe.Setup1Activity:
+    void initView() -> a
+    void setupView() -> b
+    void showNext() -> c
+    void showPre() -> d
+com.itheima.mobilesafe.Setup2Activity -> com.itheima.mobilesafe.Setup2Activity:
+    android.widget.RelativeLayout rl_setup2_bind -> c
+    android.widget.ImageView iv_setup2_bindstatus -> d
+    android.telephony.TelephonyManager tm -> e
+    void initView() -> a
+    void setupView() -> b
+    void showNext() -> c
+    void showPre() -> d
+    android.telephony.TelephonyManager access$0(com.itheima.mobilesafe.Setup2Activity) -> a
+    android.widget.ImageView access$1(com.itheima.mobilesafe.Setup2Activity) -> b
+com.itheima.mobilesafe.Setup2Activity$1 -> com.itheima.mobilesafe.az:
+    com.itheima.mobilesafe.Setup2Activity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.itheima.mobilesafe.Setup3Activity -> com.itheima.mobilesafe.Setup3Activity:
+    android.widget.EditText et_setup3_phone -> c
+    void initView() -> a
+    void setupView() -> b
+    void showNext() -> c
+    void showPre() -> d
+    void selectContact(android.view.View) -> selectContact
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+com.itheima.mobilesafe.Setup4Activity -> com.itheima.mobilesafe.Setup4Activity:
+    android.widget.CheckBox cb_setup4_status -> c
+    void initView() -> a
+    void setupView() -> b
+    void showNext() -> c
+    void showPre() -> d
+    void activeAdmin(android.view.View) -> activeAdmin
+    android.widget.CheckBox access$0(com.itheima.mobilesafe.Setup4Activity) -> a
+com.itheima.mobilesafe.Setup4Activity$1 -> com.itheima.mobilesafe.ba:
+    com.itheima.mobilesafe.Setup4Activity this$0 -> a
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.itheima.mobilesafe.SetupBaseActivity -> com.itheima.mobilesafe.SetupBaseActivity:
+    android.content.SharedPreferences sp -> a
+    android.view.GestureDetector mGestureDetector -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    void initView() -> a
+    void setupView() -> b
+    void showNext() -> c
+    void showPre() -> d
+    void next(android.view.View) -> next
+    void pre(android.view.View) -> pre
+com.itheima.mobilesafe.SetupBaseActivity$1 -> com.itheima.mobilesafe.bb:
+    com.itheima.mobilesafe.SetupBaseActivity this$0 -> a
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+com.itheima.mobilesafe.SplashActivity -> com.itheima.mobilesafe.SplashActivity:
+    android.widget.TextView tv_splash_version -> a
+    android.widget.RelativeLayout rl_splash_bg -> b
+    android.app.ProgressDialog pd -> c
+    com.itheima.mobilesafe.domain.UpdateInfo updateInfo -> d
+    android.os.Handler handler -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void copyVirsuDB() -> d
+    void copyCommonNumDB() -> e
+    void copyAddressDB() -> f
+    void installApk(java.io.File) -> a
+    void showUpdateDialog() -> a
+    java.lang.String getAppVersion() -> b
+    void loadMainUI() -> c
+    com.itheima.mobilesafe.domain.UpdateInfo access$0(com.itheima.mobilesafe.SplashActivity) -> a
+    android.os.Handler access$1(com.itheima.mobilesafe.SplashActivity) -> b
+    void access$2(com.itheima.mobilesafe.SplashActivity,com.itheima.mobilesafe.domain.UpdateInfo) -> a
+    void access$3(com.itheima.mobilesafe.SplashActivity,android.app.ProgressDialog) -> a
+    android.app.ProgressDialog access$4(com.itheima.mobilesafe.SplashActivity) -> c
+com.itheima.mobilesafe.SplashActivity$1 -> com.itheima.mobilesafe.bc:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.itheima.mobilesafe.SplashActivity$2 -> com.itheima.mobilesafe.bd:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.SplashActivity$3 -> com.itheima.mobilesafe.be:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.SplashActivity$4 -> com.itheima.mobilesafe.bf:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.SplashActivity$5 -> com.itheima.mobilesafe.bg:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+    com.itheima.mobilesafe.SplashActivity access$0(com.itheima.mobilesafe.SplashActivity$5) -> a
+com.itheima.mobilesafe.SplashActivity$5$1 -> com.itheima.mobilesafe.bh:
+    com.itheima.mobilesafe.SplashActivity$5 this$1 -> a
+    java.io.File val$f -> b
+    void run() -> run
+com.itheima.mobilesafe.SplashActivity$6 -> com.itheima.mobilesafe.bi:
+    com.itheima.mobilesafe.SplashActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.itheima.mobilesafe.SplashActivity$CheckVersionTask -> com.itheima.mobilesafe.bj:
+    long startTime -> a
+    com.itheima.mobilesafe.SplashActivity this$0 -> b
+    void run() -> run
+com.itheima.mobilesafe.TaskManagerActivity -> com.itheima.mobilesafe.TaskManagerActivity:
+    android.widget.TextView tv_taskmanger_count -> a
+    android.widget.TextView tv_taskmanger_mem -> b
+    long availRam -> c
+    int processCount -> d
+    android.widget.ListView lv_taskmanager -> e
+    android.widget.ProgressBar pb_taskmanger -> f
+    java.util.List taskInfos -> g
+    java.util.List userTaskInfos -> h
+    java.util.List systemTaskInfos -> i
+    com.itheima.mobilesafe.TaskManagerActivity$TaskAdapter adapter -> j
+    void onCreate(android.os.Bundle) -> onCreate
+    void fillData() -> a
+    void selectAll(android.view.View) -> selectAll
+    void unSelectAll(android.view.View) -> unSelectAll
+    void killAll(android.view.View) -> killAll
+    void setting(android.view.View) -> setting
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    java.util.List access$0(com.itheima.mobilesafe.TaskManagerActivity) -> a
+    java.util.List access$1(com.itheima.mobilesafe.TaskManagerActivity) -> b
+    android.widget.ListView access$2(com.itheima.mobilesafe.TaskManagerActivity) -> c
+    android.widget.ProgressBar access$3(com.itheima.mobilesafe.TaskManagerActivity) -> d
+    void access$4(com.itheima.mobilesafe.TaskManagerActivity,com.itheima.mobilesafe.TaskManagerActivity$TaskAdapter) -> a
+    com.itheima.mobilesafe.TaskManagerActivity$TaskAdapter access$5(com.itheima.mobilesafe.TaskManagerActivity) -> e
+    void access$6(com.itheima.mobilesafe.TaskManagerActivity,java.util.List) -> a
+    void access$7(com.itheima.mobilesafe.TaskManagerActivity,java.util.List) -> b
+    void access$8(com.itheima.mobilesafe.TaskManagerActivity,java.util.List) -> c
+    java.util.List access$9(com.itheima.mobilesafe.TaskManagerActivity) -> f
+com.itheima.mobilesafe.TaskManagerActivity$1 -> com.itheima.mobilesafe.bk:
+    com.itheima.mobilesafe.TaskManagerActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.itheima.mobilesafe.TaskManagerActivity$2 -> com.itheima.mobilesafe.bl:
+    com.itheima.mobilesafe.TaskManagerActivity this$0 -> a
+    void onPreExecute() -> a
+    void onPostExecute() -> b
+    void doInBackground() -> c
+com.itheima.mobilesafe.TaskManagerActivity$TaskAdapter -> com.itheima.mobilesafe.bm:
+    com.itheima.mobilesafe.TaskManagerActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.TaskManagerActivity$ViewHolder -> com.itheima.mobilesafe.bn:
+    android.widget.TextView tv_name -> a
+    android.widget.TextView tv_mem -> b
+    android.widget.ImageView iv_icon -> c
+    android.widget.CheckBox cb -> d
+com.itheima.mobilesafe.TaskSettingActivity -> com.itheima.mobilesafe.TaskSettingActivity:
+    android.widget.CheckBox cb_tasksetting -> a
+    android.content.SharedPreferences sp -> b
+    android.widget.CheckBox cb_tasksetting_autokill -> c
+    android.content.Intent autoKillIntent -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    android.content.SharedPreferences access$0(com.itheima.mobilesafe.TaskSettingActivity) -> a
+    android.content.Intent access$1(com.itheima.mobilesafe.TaskSettingActivity) -> b
+com.itheima.mobilesafe.TaskSettingActivity$1 -> com.itheima.mobilesafe.bo:
+    com.itheima.mobilesafe.TaskSettingActivity this$0 -> a
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.itheima.mobilesafe.TaskSettingActivity$2 -> com.itheima.mobilesafe.bp:
+    com.itheima.mobilesafe.TaskSettingActivity this$0 -> a
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.itheima.mobilesafe.TrafficManagerActivity -> com.itheima.mobilesafe.TrafficManagerActivity:
+    void onCreate(android.os.Bundle) -> onCreate
+com.itheima.mobilesafe.adapter.HomeAdapter -> com.itheima.mobilesafe.a.a:
+    java.lang.String[] names -> a
+    int[] icons -> b
+    android.content.Context context -> c
+    android.content.SharedPreferences sp -> d
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.itheima.mobilesafe.db.ApplockDBOpenHelper -> com.itheima.mobilesafe.b.a:
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+com.itheima.mobilesafe.db.BlackNumberDBOpenHelper -> com.itheima.mobilesafe.b.b:
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+com.itheima.mobilesafe.db.dao.AddressDao -> com.itheima.mobilesafe.b.a.a:
+    java.lang.String getAddress(java.lang.String) -> a
+com.itheima.mobilesafe.db.dao.AppLockDao -> com.itheima.mobilesafe.b.a.b:
+    com.itheima.mobilesafe.db.ApplockDBOpenHelper helper -> a
+    boolean find(java.lang.String) -> a
+    void add(java.lang.String) -> b
+    void delete(java.lang.String) -> c
+com.itheima.mobilesafe.db.dao.BlackNumberDao -> com.itheima.mobilesafe.b.a.c:
+    com.itheima.mobilesafe.db.BlackNumberDBOpenHelper helper -> a
+    boolean find(java.lang.String) -> a
+    java.lang.String findMode(java.lang.String) -> b
+    void add(java.lang.String,java.lang.String) -> a
+    void update(java.lang.String,java.lang.String) -> b
+    void delete(java.lang.String) -> c
+    java.util.List findByPage(int,int) -> a
+    int getTotalCount() -> a
+com.itheima.mobilesafe.db.dao.CommonNumDao -> com.itheima.mobilesafe.b.a.d:
+    java.util.List getGroupInfos() -> a
+    java.util.List getChildrenInfosByGroupPostion(int) -> a
+com.itheima.mobilesafe.db.dao.VirusDao -> com.itheima.mobilesafe.b.a.e:
+    java.lang.String findVirsu(java.lang.String) -> a
+com.itheima.mobilesafe.domain.AppInfo -> com.itheima.mobilesafe.c.a:
+    android.graphics.drawable.Drawable appIcon -> a
+    java.lang.String appName -> b
+    boolean inRom -> c
+    java.lang.String packname -> d
+    java.lang.String version -> e
+    boolean userApp -> f
+    boolean useNetwork -> g
+    boolean useGPS -> h
+    boolean useContact -> i
+    boolean isUseNetwork() -> a
+    void setUseNetwork(boolean) -> a
+    boolean isUseGPS() -> b
+    void setUseGPS(boolean) -> b
+    boolean isUseContact() -> c
+    void setUseContact(boolean) -> c
+    boolean isUserApp() -> d
+    void setUserApp(boolean) -> d
+    android.graphics.drawable.Drawable getAppIcon() -> e
+    void setAppIcon(android.graphics.drawable.Drawable) -> a
+    java.lang.String getAppName() -> f
+    void setAppName(java.lang.String) -> a
+    boolean isInRom() -> g
+    void setInRom(boolean) -> e
+    java.lang.String getPackname() -> h
+    void setPackname(java.lang.String) -> b
+    java.lang.String getVersion() -> i
+    void setVersion(java.lang.String) -> c
+com.itheima.mobilesafe.domain.BlackNumberInfo -> com.itheima.mobilesafe.c.b:
+    java.lang.String number -> a
+    java.lang.String mode -> b
+    java.lang.String getNumber() -> a
+    void setNumber(java.lang.String) -> a
+    java.lang.String getMode() -> b
+    void setMode(java.lang.String) -> b
+    java.lang.String toString() -> toString
+com.itheima.mobilesafe.domain.ContactInfo -> com.itheima.mobilesafe.c.c:
+    java.lang.String name -> a
+    java.lang.String phone -> b
+    java.lang.String getName() -> a
+    void setName(java.lang.String) -> a
+    java.lang.String getPhone() -> b
+    void setPhone(java.lang.String) -> b
+com.itheima.mobilesafe.domain.TaskInfo -> com.itheima.mobilesafe.c.d:
+    java.lang.String name -> a
+    android.graphics.drawable.Drawable icon -> b
+    java.lang.String packname -> c
+    long memsize -> d
+    boolean userTask -> e
+    boolean checked -> f
+    boolean isChecked() -> a
+    void setChecked(boolean) -> a
+    java.lang.String getName() -> b
+    void setName(java.lang.String) -> a
+    android.graphics.drawable.Drawable getIcon() -> c
+    void setIcon(android.graphics.drawable.Drawable) -> a
+    java.lang.String getPackname() -> d
+    void setPackname(java.lang.String) -> b
+    long getMemsize() -> e
+    void setMemsize(long) -> a
+    boolean isUserTask() -> f
+    void setUserTask(boolean) -> b
+com.itheima.mobilesafe.domain.UpdateInfo -> com.itheima.mobilesafe.c.e:
+    java.lang.String version -> a
+    java.lang.String description -> b
+    java.lang.String apkurl -> c
+    java.lang.String getVersion() -> a
+    void setVersion(java.lang.String) -> a
+    java.lang.String getDescription() -> b
+    void setDescription(java.lang.String) -> b
+    java.lang.String getApkurl() -> c
+    void setApkurl(java.lang.String) -> c
+com.itheima.mobilesafe.engine.AppInfoProvider -> com.itheima.mobilesafe.engine.AppInfoProvider:
+    java.util.List getAppinfos(android.content.Context) -> a
+    boolean filterApp(android.content.pm.ApplicationInfo) -> a
+com.itheima.mobilesafe.engine.ContactInfoProvider -> com.itheima.mobilesafe.engine.a:
+    java.util.List getContactInfos(android.content.Context) -> a
+com.itheima.mobilesafe.engine.GPSInfoProvider -> com.itheima.mobilesafe.engine.b:
+    com.itheima.mobilesafe.engine.GPSInfoProvider mGpsInfoProvider -> a
+    android.location.LocationManager lm -> b
+    android.content.SharedPreferences sp -> c
+    com.itheima.mobilesafe.engine.GPSInfoProvider$MyListener listener -> d
+    com.itheima.mobilesafe.engine.GPSInfoProvider getInstance(android.content.Context) -> a
+    java.lang.String getPhoneLocation() -> a
+    android.content.SharedPreferences access$0() -> b
+com.itheima.mobilesafe.engine.GPSInfoProvider$MyListener -> com.itheima.mobilesafe.engine.c:
+    com.itheima.mobilesafe.engine.GPSInfoProvider this$0 -> a
+    void onLocationChanged(android.location.Location) -> onLocationChanged
+    void onStatusChanged(java.lang.String,int,android.os.Bundle) -> onStatusChanged
+    void onProviderEnabled(java.lang.String) -> onProviderEnabled
+    void onProviderDisabled(java.lang.String) -> onProviderDisabled
+com.itheima.mobilesafe.engine.SmsUtils -> com.itheima.mobilesafe.engine.d:
+    void backUp(android.content.Context,java.io.FileOutputStream,com.itheima.mobilesafe.engine.SmsUtils$BackUpStatusListener) -> a
+com.itheima.mobilesafe.engine.SmsUtils$BackUpStatusListener -> com.itheima.mobilesafe.engine.e:
+    void beforeBackup(int) -> b
+    void onBackUpProcess(int) -> a
+com.itheima.mobilesafe.engine.TaskInfoProvider -> com.itheima.mobilesafe.engine.f:
+    java.util.List getTaskInfos(android.content.Context) -> a
+com.itheima.mobilesafe.engine.UpdateInfoParser -> com.itheima.mobilesafe.engine.g:
+    com.itheima.mobilesafe.domain.UpdateInfo getUpdateInfo(java.io.InputStream) -> a
+com.itheima.mobilesafe.receiver.BootCompleteReceiver -> com.itheima.mobilesafe.receiver.BootCompleteReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.receiver.CustomBroadcastReceiver -> com.itheima.mobilesafe.receiver.CustomBroadcastReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.receiver.LockScreenReceiver -> com.itheima.mobilesafe.receiver.LockScreenReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.receiver.MyAdmin -> com.itheima.mobilesafe.receiver.MyAdmin:
+com.itheima.mobilesafe.receiver.MyWidget -> com.itheima.mobilesafe.receiver.MyWidget:
+    void onEnabled(android.content.Context) -> onEnabled
+    void onDisabled(android.content.Context) -> onDisabled
+    void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[]) -> onUpdate
+com.itheima.mobilesafe.receiver.OutCallReceiver -> com.itheima.mobilesafe.receiver.OutCallReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.receiver.SmsReceiver -> com.itheima.mobilesafe.receiver.SmsReceiver:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.AutoKillService -> com.itheima.mobilesafe.service.AutoKillService:
+    com.itheima.mobilesafe.receiver.LockScreenReceiver recevier -> a
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+com.itheima.mobilesafe.service.CallSmsFirewallService -> com.itheima.mobilesafe.service.CallSmsFirewallService:
+    com.itheima.mobilesafe.service.CallSmsFirewallService$InnerSmsReceiver receiver -> a
+    com.itheima.mobilesafe.db.dao.BlackNumberDao dao -> b
+    android.telephony.TelephonyManager tm -> c
+    com.itheima.mobilesafe.service.CallSmsFirewallService$PhoneListener listener -> d
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    void endCall(java.lang.String) -> a
+    void showNotification(java.lang.String) -> b
+    void deleteCallLog(java.lang.String) -> c
+    com.itheima.mobilesafe.db.dao.BlackNumberDao access$0(com.itheima.mobilesafe.service.CallSmsFirewallService) -> a
+com.itheima.mobilesafe.service.CallSmsFirewallService$CallLogObserver -> com.itheima.mobilesafe.service.a:
+    java.lang.String incomingNumber -> b
+    com.itheima.mobilesafe.service.CallSmsFirewallService this$0 -> a
+    void onChange(boolean) -> onChange
+com.itheima.mobilesafe.service.CallSmsFirewallService$InnerSmsReceiver -> com.itheima.mobilesafe.service.b:
+    com.itheima.mobilesafe.service.CallSmsFirewallService this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.CallSmsFirewallService$PhoneListener -> com.itheima.mobilesafe.service.c:
+    long startTime -> a
+    com.itheima.mobilesafe.service.CallSmsFirewallService this$0 -> b
+    void onCallStateChanged(int,java.lang.String) -> onCallStateChanged
+com.itheima.mobilesafe.service.CallSmsSafeService -> com.itheima.mobilesafe.service.CallSmsSafeService:
+    android.telephony.TelephonyManager tm -> a
+    com.itheima.mobilesafe.service.CallSmsSafeService$MyPhoneStateListener listener -> b
+    com.itheima.mobilesafe.service.CallSmsSafeService$InnerReceiver receiver -> c
+    android.view.WindowManager wm -> d
+    android.view.View view -> e
+    android.content.SharedPreferences sp -> f
+    android.view.WindowManager$LayoutParams params -> g
+    int[] bgs -> h
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void showLocation(java.lang.String) -> a
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    android.view.View access$0(com.itheima.mobilesafe.service.CallSmsSafeService) -> a
+    android.view.WindowManager access$1(com.itheima.mobilesafe.service.CallSmsSafeService) -> b
+    void access$2(com.itheima.mobilesafe.service.CallSmsSafeService,android.view.View) -> a
+    android.view.WindowManager$LayoutParams access$3(com.itheima.mobilesafe.service.CallSmsSafeService) -> c
+com.itheima.mobilesafe.service.CallSmsSafeService$1 -> com.itheima.mobilesafe.service.d:
+    int startX -> a
+    int startY -> b
+    com.itheima.mobilesafe.service.CallSmsSafeService this$0 -> c
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.itheima.mobilesafe.service.CallSmsSafeService$InnerReceiver -> com.itheima.mobilesafe.service.e:
+    com.itheima.mobilesafe.service.CallSmsSafeService this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.CallSmsSafeService$MyPhoneStateListener -> com.itheima.mobilesafe.service.f:
+    com.itheima.mobilesafe.service.CallSmsSafeService this$0 -> a
+    void onCallStateChanged(int,java.lang.String) -> onCallStateChanged
+com.itheima.mobilesafe.service.CopyOfWatchDogService -> com.itheima.mobilesafe.service.CopyOfWatchDogService:
+    android.app.ActivityManager am -> a
+    com.itheima.mobilesafe.db.dao.AppLockDao dao -> b
+    android.content.Intent intent -> c
+    boolean flag -> d
+    java.util.List tempStopProtectPackNames -> e
+    com.itheima.mobilesafe.service.CopyOfWatchDogService$InnerReceiver receiver -> f
+    com.itheima.mobilesafe.service.CopyOfWatchDogService$InnerScreenLockReceiver lockReceiver -> g
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    java.util.List access$0(com.itheima.mobilesafe.service.CopyOfWatchDogService) -> a
+    void access$1(com.itheima.mobilesafe.service.CopyOfWatchDogService,boolean) -> a
+    boolean access$2(com.itheima.mobilesafe.service.CopyOfWatchDogService) -> b
+    void access$3(com.itheima.mobilesafe.service.CopyOfWatchDogService,android.app.ActivityManager) -> a
+    android.app.ActivityManager access$4(com.itheima.mobilesafe.service.CopyOfWatchDogService) -> c
+    com.itheima.mobilesafe.db.dao.AppLockDao access$5(com.itheima.mobilesafe.service.CopyOfWatchDogService) -> d
+    android.content.Intent access$6(com.itheima.mobilesafe.service.CopyOfWatchDogService) -> e
+com.itheima.mobilesafe.service.CopyOfWatchDogService$1 -> com.itheima.mobilesafe.service.g:
+    com.itheima.mobilesafe.service.CopyOfWatchDogService this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.service.CopyOfWatchDogService$InnerReceiver -> com.itheima.mobilesafe.service.h:
+    com.itheima.mobilesafe.service.CopyOfWatchDogService this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.CopyOfWatchDogService$InnerScreenLockReceiver -> com.itheima.mobilesafe.service.i:
+    com.itheima.mobilesafe.service.CopyOfWatchDogService this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.IService -> com.itheima.mobilesafe.service.j:
+    void callTempStopProtect(java.lang.String) -> a
+com.itheima.mobilesafe.service.UpdateWidgetService -> com.itheima.mobilesafe.service.UpdateWidgetService:
+    java.util.Timer timer -> a
+    java.util.TimerTask task -> b
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+com.itheima.mobilesafe.service.UpdateWidgetService$1 -> com.itheima.mobilesafe.service.k:
+    com.itheima.mobilesafe.service.UpdateWidgetService this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.service.WatchDogService -> com.itheima.mobilesafe.service.WatchDogService:
+    android.app.ActivityManager am -> a
+    com.itheima.mobilesafe.db.dao.AppLockDao dao -> b
+    android.content.Intent intent -> c
+    boolean flag -> d
+    java.util.List tempStopProtectPackNames -> e
+    com.itheima.mobilesafe.service.WatchDogService$InnerScreenLockReceiver lockReceiver -> f
+    void methodInService(java.lang.String) -> a
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    void onCreate() -> onCreate
+    void onDestroy() -> onDestroy
+    java.util.List access$0(com.itheima.mobilesafe.service.WatchDogService) -> a
+    void access$1(com.itheima.mobilesafe.service.WatchDogService,boolean) -> a
+    boolean access$2(com.itheima.mobilesafe.service.WatchDogService) -> b
+    void access$3(com.itheima.mobilesafe.service.WatchDogService,android.app.ActivityManager) -> a
+    android.app.ActivityManager access$4(com.itheima.mobilesafe.service.WatchDogService) -> c
+    com.itheima.mobilesafe.db.dao.AppLockDao access$5(com.itheima.mobilesafe.service.WatchDogService) -> d
+    android.content.Intent access$6(com.itheima.mobilesafe.service.WatchDogService) -> e
+com.itheima.mobilesafe.service.WatchDogService$1 -> com.itheima.mobilesafe.service.l:
+    com.itheima.mobilesafe.service.WatchDogService this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.service.WatchDogService$InnerScreenLockReceiver -> com.itheima.mobilesafe.service.m:
+    com.itheima.mobilesafe.service.WatchDogService this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.itheima.mobilesafe.service.WatchDogService$MyBinder -> com.itheima.mobilesafe.service.n:
+    com.itheima.mobilesafe.service.WatchDogService this$0 -> a
+    void callTempStopProtect(java.lang.String) -> a
+com.itheima.mobilesafe.ui.FocusedTextView -> com.itheima.mobilesafe.ui.FocusedTextView:
+    boolean isFocused() -> isFocused
+com.itheima.mobilesafe.ui.SettingView -> com.itheima.mobilesafe.ui.SettingView:
+    android.widget.TextView tv_settingview_title -> a
+    android.widget.TextView tv_settingview_status -> b
+    android.widget.CheckBox cb_settingview_status -> c
+    java.lang.String check_text -> d
+    java.lang.String uncheck_text -> e
+    void initView(android.content.Context) -> a
+    void setTitle(java.lang.String) -> setTitle
+    void setContext(java.lang.String) -> setContext
+    void setChecked(boolean) -> setChecked
+    boolean isChecked() -> a
+com.itheima.mobilesafe.utils.AssetCopyUtils -> com.itheima.mobilesafe.d.a:
+    java.io.File copy(android.content.Context,java.lang.String,java.lang.String) -> a
+com.itheima.mobilesafe.utils.DelayExecuter -> com.itheima.mobilesafe.d.b:
+    android.os.Handler handler -> b
+    void doInUiThread() -> a
+    void delayExectue(long) -> a
+com.itheima.mobilesafe.utils.DelayExecuter$1 -> com.itheima.mobilesafe.d.c:
+    com.itheima.mobilesafe.utils.DelayExecuter this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.itheima.mobilesafe.utils.DelayExecuter$2 -> com.itheima.mobilesafe.d.d:
+    com.itheima.mobilesafe.utils.DelayExecuter this$0 -> a
+    long val$time -> b
+    void run() -> run
+com.itheima.mobilesafe.utils.DensityUtil -> com.itheima.mobilesafe.d.e:
+    int dip2px(android.content.Context,float) -> a
+com.itheima.mobilesafe.utils.DownLoadUtils -> com.itheima.mobilesafe.d.f:
+    java.io.File download(java.lang.String,java.lang.String,android.app.ProgressDialog) -> a
+    java.lang.String getFileName(java.lang.String) -> a
+com.itheima.mobilesafe.utils.Logger -> com.itheima.mobilesafe.d.g:
+    int VERBOSE -> a
+    int DEBUG -> b
+    int INFO -> c
+    int WARN -> d
+    int ERROR -> e
+    void i(java.lang.String,java.lang.String) -> a
+com.itheima.mobilesafe.utils.MD5Utils -> com.itheima.mobilesafe.d.h:
+    java.lang.String encode(java.lang.String) -> a
+com.itheima.mobilesafe.utils.MyAsyncTask -> com.itheima.mobilesafe.d.i:
+    android.os.Handler handler -> a
+    void onPreExecute() -> a
+    void onPostExecute() -> b
+    void doInBackground() -> c
+    void execute() -> d
+    android.os.Handler access$0(com.itheima.mobilesafe.utils.MyAsyncTask) -> a
+com.itheima.mobilesafe.utils.MyAsyncTask$1 -> com.itheima.mobilesafe.d.j:
+    com.itheima.mobilesafe.utils.MyAsyncTask this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.itheima.mobilesafe.utils.MyAsyncTask$2 -> com.itheima.mobilesafe.d.k:
+    com.itheima.mobilesafe.utils.MyAsyncTask this$0 -> a
+    void run() -> run
+com.itheima.mobilesafe.utils.MyToast -> com.itheima.mobilesafe.d.l:
+    void show(android.content.Context,int,java.lang.String) -> a
+com.itheima.mobilesafe.utils.ProcessStatusUtils -> com.itheima.mobilesafe.d.m:
+    int getProcessCount(android.content.Context) -> a
+    long getAvailRAM(android.content.Context) -> b
+    long getTotalRAM() -> a
+com.itheima.mobilesafe.utils.ServiceStatusUtil -> com.itheima.mobilesafe.d.n:
+    boolean isServiceRunning(android.content.Context,java.lang.String) -> a

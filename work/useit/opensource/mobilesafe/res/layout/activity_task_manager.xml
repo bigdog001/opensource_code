@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:background="#3185A3"
+            android:gravity="center"
+            android:text="进程管理器"
+            android:textColor="#B3EBFF"
+            android:textSize="25sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_taskmanger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_taskmanger_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进程数量:"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_taskmanger_mem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="剩余/总内存:"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_taskmanager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="100" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="killAll"
+            android:text="一键清理" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="selectAll"
+            android:text="全选" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="unSelectAll"
+            android:text="取消全选" />
+
+        <Button
+            android:onClick="setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置" />
+    </LinearLayout>
+
+</LinearLayout>

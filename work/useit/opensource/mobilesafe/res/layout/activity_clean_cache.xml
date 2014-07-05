@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:background="#3185A3"
+            android:gravity="center"
+            android:text="缓存清理"
+            android:textColor="#B3EBFF"
+            android:textSize="25sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg_selector"
+            android:onClick="cleanAll"
+            android:text="一键清理" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_scan_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描状态..."
+            android:textColor="#ff0000" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

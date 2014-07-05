@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="GBK"?>
+<project name="tuliao" default="uninstall" basedir=".">
+
+	<property file="local.properties" />
+
+	<!-- 定义自己的输出目录 -->
+
+	<property name="outdir" value="outdir" />
+
+	<property name="adb" value="${sdk-platform-tools}/adb" />
+
+	<property name="zipalign-package-ospath" value="${basedir}/${outdir}/${ant.project.name}_release.apk" />
+
+	<!-- 安装到默认的手机或模拟器 -->
+
+	<target name="uninstall">
+
+		<echo>开始卸载之前版本...</echo>
+
+		<exec executable="${adb}" failonerror="true">
+
+			<arg value="uninstall" />
+
+			<arg value="${package}" />
+
+		</exec>
+
+	</target>
+
+	<!-- 安装到默认的手机或模拟器 -->
+
+	<target name="install" depends="uninstall">
+
+		<echo>开始安装当前新版本...</echo>
+
+		<exec executable="${adb}" failonerror="true">
+
+			<arg value="install" />
+
+			<arg value="${zipalign-package-ospath}" />
+
+		</exec>
+
+	</target>
+
+	<!-- 启动已经安装的程序 -->
+
+	<target name="runapp" depends="install">
+
+		<echo>开始启动...</echo>
+
+		<exec executable="${adb}" failonerror="true">
+
+			<arg value="shell" />
+
+			<arg value="am start -n ${package}/${mainactivity}" />
+
+		</exec>
+
+	</target>
+	
+</project>

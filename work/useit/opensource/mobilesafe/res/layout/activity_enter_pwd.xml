@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="#3185A3"
+        android:gravity="center"
+        android:text="程序锁"
+        android:textColor="#B3EBFF"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/iv_enter_pwd"
+        android:layout_width="60dip"
+        android:layout_height="60dip" />
+
+    <TextView
+        android:id="@+id/tv_enter_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" >
+    </EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="enter"
+        android:text="确定" />
+
+</LinearLayout>

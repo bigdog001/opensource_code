@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:itheima="http://schemas.android.com/apk/res/com.itheima.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="#3185A3"
+        android:gravity="center"
+        android:text="设置中心"
+        android:textColor="#B3EBFF"
+        android:textSize="25sp" />
+
+    <com.itheima.mobilesafe.ui.SettingView
+        android:id="@+id/sv_setting_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:checked_text="自动更新已经开启"
+        itheima:title="自动更新设置"
+        itheima:unchecked_text="自动更新没有开启" >
+    </com.itheima.mobilesafe.ui.SettingView>
+
+    <com.itheima.mobilesafe.ui.SettingView
+        android:id="@+id/sv_setting_showaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:checked_text="归属地查询已经开启"
+        itheima:title="归属地查询设置"
+        itheima:unchecked_text="归属地查询没有开启" >
+    </com.itheima.mobilesafe.ui.SettingView>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_changebg"
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="@drawable/home_item_selector" >
+
+        <TextView
+            android:id="@+id/tv_setting_bg_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="5dip"
+            android:text="归属地提示框风格"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_setting_addressbg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_setting_bg_style"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="5dip"
+            android:text="半透明"
+            android:textColor="#99000000"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dip"
+            android:src="@drawable/jiantou1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_setting_change_location"
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="@drawable/home_item_selector" >
+
+        <TextView
+            android:id="@+id/tv_setting_bg_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="5dip"
+            android:text="归属地提示框位置"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_setting_bg_location"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="5dip"
+            android:text="设置归属地显示位置"
+            android:textColor="#99000000"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dip"
+            android:src="@drawable/jiantou1" />
+    </RelativeLayout>
+
+    <com.itheima.mobilesafe.ui.SettingView
+        android:id="@+id/sv_setting_firewall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:checked_text="黑名单拦截已经开启"
+        itheima:title="黑名单拦截服务设置"
+        itheima:unchecked_text="黑名单拦截没有开启" >
+    </com.itheima.mobilesafe.ui.SettingView>
+
+        <com.itheima.mobilesafe.ui.SettingView
+        android:id="@+id/sv_setting_applock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:checked_text="程序锁已经开启"
+        itheima:title="程序锁服务设置"
+        itheima:unchecked_text="程序锁没有开启" >
+    </com.itheima.mobilesafe.ui.SettingView>
+    
+</LinearLayout>

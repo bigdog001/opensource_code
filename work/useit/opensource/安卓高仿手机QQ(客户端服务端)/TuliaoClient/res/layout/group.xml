@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_child_selector" >
+
+    <RelativeLayout
+        android:id="@+id/group_item_head_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dip"
+        android:background="@drawable/faceback_manager" >
+
+        <ImageView
+            android:id="@+id/group_item_head"
+            android:layout_width="36dip"
+            android:layout_height="36dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/group_head" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/group_item_head_bg"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/groupname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dip" />
+
+        <TextView
+            android:id="@+id/groupnotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkgray" />
+    </LinearLayout>
+
+</RelativeLayout>
