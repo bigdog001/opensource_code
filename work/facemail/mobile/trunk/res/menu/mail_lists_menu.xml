@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="返回顶部" android:id="@+id/menu_album_top" android:icon="@drawable/menu_icon_return_top" ></item>
+</menu>

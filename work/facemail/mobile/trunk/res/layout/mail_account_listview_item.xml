@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:descendantFocusability="blocksDescendants">
+     <LinearLayout style="@style/FacemailWrap"
+             android:layout_margin="5dp"
+             >
+           <ImageView android:id="@+id/iv_email_account_image_vender"
+                      android:layout_width="wrap_content"
+                      android:layout_height="fill_parent"
+                      android:src="@drawable/sohu"
+                   />
+     </LinearLayout>
+    <LinearLayout style="@style/FacemailWrap"
+                  android:layout_margin="5dp"
+                  android:orientation="vertical"
+                  android:clickable="false"
+            >
+         <TextView style="@style/FacemailWrap"
+                 android:id="@+id/email_account_email_address"
+                 android:layout_margin="3dp"
+                 android:textColor="@drawable/account_list_selector"
+                 android:text="c1b22a333@sohu.com"
+                 />
+        <LinearLayout style="@style/FacemailWrap"
+                android:orientation="horizontal">
+        <TextView style="@style/FacemailWrap"
+                android:id="@+id/email_account_email_last_rcv"
+                android:clickable="false"
+                android:textColor="@drawable/account_list_selector"
+                android:text="04-22 21:19:14"/>
+            <TextView  style="@style/FacemailWrap" android:text=" ("></TextView>
+            <TextView  style="@style/FacemailWrap" android:text="0" android:id="@+id/mail_total"></TextView>
+            <TextView  style="@style/FacemailWrap" android:text=") "></TextView>
+            <LinearLayout style="@style/FacemailWrap" android:visibility="gone" android:id="@+id/mail_reveice_loading_container">
+                <ImageView  style="@style/FacemailWrap"  android:id="@+id/mail_reveice_loading" android:src="@drawable/mail_reveice_loading"></ImageView>
+            </LinearLayout>
+            <LinearLayout style="@style/FacemailWrap" android:visibility="gone" android:id="@+id/mail_reveice_count">
+            <TextView  style="@style/FacemailWrap" android:text="0" android:id="@+id/mail_number"></TextView>
+            <TextView  style="@style/FacemailWrap" android:text="/"></TextView>
+            <TextView  style="@style/FacemailWrap" android:text="x" android:id="@+id/mail_total_one_receive"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout  style="@style/FacemailWrap"
+                   android:layout_margin="5dp">
+                <ImageView android:layout_width="wrap_content"
+                             android:layout_height="fill_parent"
+                             android:id="@+id/ib_operation"
+                        android:src="@drawable/email_account_do"/>
+    </LinearLayout>
+</LinearLayout>
