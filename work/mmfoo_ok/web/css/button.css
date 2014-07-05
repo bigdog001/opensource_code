@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+
+a.fans {
+	margin-left: 20px;
+	background: url(../images/iconAdd.jpg) no-repeat 3px 2px #ec008b;
+	padding: 3px 6px 3px 20px;
+	color: #fff;
+}
+a.fans:hover {
+	text-decoration: underline;
+}
+
+a.msg {
+	margin-left: 20px;
+	background: url(../images/iconMsg.jpg) no-repeat 3px 2px #ec008b;
+	padding: 3px 6px 3px 20px;
+	color: #fff;
+}
+a.msg:hover {
+	text-decoration: underline;
+}
+a.vote2 {
+	background: url(../images/voteIcon.jpg) no-repeat 3px 4px #ec008b;
+	padding: 2px 6px 2px 17px;
+	color: #fff;
+	margin-left: 8px;
+}
+a.vote2:hover {
+	text-decoration: underline;
+}
+
+a.addFriend {
+	background:#ec008b;
+	padding: 2px 6px 2px 7px;
+	color: #fff;
+	margin-left: 32px;
+}
+a.addFriend:hover {
+	text-decoration: underline;
+}
+button {
+	background: #ec008b;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin-top: 10px;
+	font-size:14px;
+}
+a.pageLink {
+	padding: 4px 7px;
+	color: #ec008b;
+	margin-left: 8px;
+	float: left;
+	margin-top: 5px;
+	font-size: 14px;
+}
+a.pageLink:hover {
+	text-decoration: none; 
+	background: #ec008b;
+	color: #fff;
+}
+
+a.like {
+	padding: 3px 4px;
+	color: #ec008b;
+	margin-left: 8px;
+	float: right;
+	margin-top: 5px;
+	font-size: 12px;
+	font-weight: normal; 
+}
+a.like:hover {
+	text-decoration: none; 
+	background: #ec008b;
+	color: #fff;
+}
+
+
+

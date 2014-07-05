@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+h3.loginTitle {
+	font-size: 24px;
+	font-family: "微软雅黑", "黑体";
+	text-align: center;
+	line-height: 30px;
+	height: 40px;
+	color: #999;
+}
+.signBox {
+	margin-top:20px;
+}
+fieldset {
+	border: 0px;
+}
+.signLayer {
+	float: left;
+	margin-bottom: 80px;
+	font-size: 14px;
+}
+.signLayer .sheetItem {
+	width: 100%;
+}
+.mL00 {
+	margin-left: 40px;
+	_margin-left: 40px;
+}
+.mL000 {
+	float: left;
+	margin-left: 180px;
+	_margin-left: 100px;
+	margin-top: 30px;
+}
+.sheetItem2 {
+	line-height: 30px;
+}
+.sheetItem2 input {
+	padding: 5px 5px;
+	width: 250px;
+	border: 1px solid #ccc;
+	margin-top: 4px;
+}
+.signLayer h4 {
+	font-weight: normal;
+	line-height: 230px;
+	text-align: center;
+	color: #666;
+	font-size: 14px;
+}

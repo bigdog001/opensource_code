@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+.extRight{ float: left; width: 702px; border: 4px solid #ec008b; margin-top: 20px; padding-bottom: 30px;  }
+.extLeft{ float: left; width: 190px; margin-top: 20px; margin-bottom: 40px;  }
+
+.extLeft ul{ list-style: none; float: left; width: 100%; }
+.extLeft ul li{ float: left; width: 100%; line-height: 39px; height: 39px; color: #ec008b; font-weight: bold; font-size: 14px; border-bottom: 1px dotted #ec008b}
+.extLeft ul li.current2{ background: url(../images/extCurrent.jpg) left #ec008b no-repeat; color: #fff;}
+.extLeft ul li.current2 span{ padding-left: 40px; }
+.extLeft ul li a{ color: #ec008b; text-decoration: none; margin-left: 40px; }
+
+.extRight p{ float: left; text-indent: 2em; line-height: 30px; font-size: 14px; margin: 5px 15px;  width:652px}
+.llaa{ float: left; width: 600px; height: 200px; background: url(../images/colorline2.jpg) repeat-y; margin-left: 20px; margin-top: 30px; }
+
+.extRight p img{ border:1px solid #cccccc}

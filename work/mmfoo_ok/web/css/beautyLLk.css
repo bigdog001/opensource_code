@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+/* 爱情连连看 */
+.beautyLlk{clear:both; float:left;border: 1px solid #CCCCCC;margin:34px 0 5px 0;padding:26px 28px 131px;width:927px;}
+.beautyLlk h4 { color:#666666; font-weight:normal; font-size:12px}
+.beautyLlk h2{ color:#EC008C;font-size:14px;line-height:28px; }
+.llk_pic{ text-align:center;padding-top:86px}
+.But{ text-align:center;padding:34px 0 0 335px;}
+.But a{ color:#ffffff;margin:0 20px; font-weight:normal; display:inline}
+.But a:hover{ text-decoration:none}
+.But .submit{ background:url(../images/submit.jpg) no-repeat;width:111px; height:27px; text-align:center; line-height:27px; display:block; float:left;display:inline}
+.But .save{ background:url(../images/save.jpg) no-repeat;width:71px; height:27px; text-align:center; line-height:27px; display:block; float:left}
+/* 爱情连连看弹出层 
+.beautyLlk_window{padding:5px 10px 20px;width:670px; border:0;margin:0; }
+.beautyLlk_window h2{color:#333333; font-weight:normal; line-height:24px; font-size:14px}
+.beautyLlk_window input{width:335px; height:27px; border:1px solid #BBBBBB; float:left}
+.beautyLlk_window .uploading{ height:27px;}
+.beautyLlk_window .uploading a{ background:url(../images/save.jpg) no-repeat;width:71px; height:27px; text-align:center; line-height:27px; color:#ffffff;margin:0 7px; display:block; float:left; display:inline;margin-top:1px; font-weight:normal}
+.show_pic{float:left;margin:10px 0 0;width:470px;}
+.pic_show{width:467px; height:299px; background:#F3F2E7;  float:left}
+.pic_show .cut{ background:#ffffff;width:130px; height:140px;margin:77px 0 0 170px;}
+.But1{margin:29px 0 0 135px; float:left;display:inline}
+.But1 a{ background:url(../images/save.jpg) no-repeat;width:71px; height:27px; display:block; text-align:center; line-height:27px; color:#ffffff;margin:0 17px; font-weight:normal; float:left;display:inline}
+a:hover{ text-decoration:none}
+.But1 .cancel{background:url(../images/cancel.jpg) no-repeat;}
+
+.preview{margin:60px 0 0;width:170px; float:right;}
+.beautyLlk_window .preview h2{color:#333333; font-weight:700; line-height:24px; font-size:14px}
+.preview_img .img{ border:1px solid #BBBBBB;margin:11px 0 18px;width:130px; height:140px}
+.preview_But a{background:url(../images/cancel.jpg) no-repeat;width:71px; height:27px; display:block; text-align:center; line-height:27px; color:#ffffff;margin:0 30px; font-weight:normal; }
+*/
+/* 页面*/
+.beautyLlk_window{border: 1px solid #CCCCCC;clear: both;float: left;margin: 20px 0 5px;padding: 26px 70px 100px;width: 843px;border: 1px solid #CCCCCC }
+.beautyLlk_window h2{color:#333333; font-weight:normal; line-height:24px; font-size:14px}
+.beautyLlk_window input{width:335px; height:27px; border:1px solid #BBBBBB; float:left}
+.beautyLlk_window .uploading{ height:29px;}
+.beautyLlk_window .uploading a{ background:url(../images/save.jpg) no-repeat;width:71px; height:27px; text-align:center; line-height:27px; color:#ffffff;margin:0 7px; display:block; float:left; display:inline;margin-top:1px; font-weight:normal}
+.show_pic{float:left;margin:10px 0 0;width:470px;}
+.pic_show{width:467px; height:299px; background:#F3F2E7;  float:left}
+.pic_show .cut{ background:#ffffff;width:130px; height:140px;margin:77px 0 0 170px;}
+.But1{margin:29px 0 0 135px; float:left;display:inline}
+.But1 a{ background:url(../images/save.jpg) no-repeat;width:71px; height:27px; display:block; text-align:center; line-height:27px; color:#ffffff;margin:0 17px; font-weight:normal; float:left;display:inline}
+a:hover{ text-decoration:none}
+.But1 .cancel{background:url(../images/cancel.jpg) no-repeat;}
+
+.preview{margin:50px 0 0;width:250px; float:right;}
+.preview h2{color:#333333; font-weight:700; line-height:30px; font-size:14px}
+.preview_But{margin:30px 0 0px;}
+.preview_But a{background:url(../images/cancel.jpg) no-repeat;width:71px; height:27px; display:block; text-align:center; line-height:27px; color:#ffffff;margin:0 30px; font-weight:normal; }
+
+#rRightDown,#rLeftDown,#rLeftUp,#rRightUp,#rRight,#rLeft,#rUp,#rDown{
+	position:absolute;
+	background:#FFF;
+	border: 1px solid #333;
+	width: 6px;
+	height: 6px;
+	z-index:500;
+	font-size:0;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+}
+
+#rLeftDown,#rRightUp{cursor:ne-resize;}
+#rRightDown,#rLeftUp{cursor:nw-resize;}
+#rRight,#rLeft{cursor:e-resize;}
+#rUp,#rDown{cursor:n-resize;}
+
+#rLeftDown{left:-4px;bottom:-4px;}
+#rRightUp{right:-4px;top:-4px;}
+#rRightDown{right:-4px;bottom:-4px;background-color:#00F;}
+#rLeftUp{left:-4px;top:-4px;}
+#rRight{right:-4px;top:50%;margin-top:-4px;}
+#rLeft{left:-4px;top:50%;margin-top:-4px;}
+#rUp{top:-4px;left:50%;margin-left:-4px;}
+#rDown{bottom:-4px;left:50%;margin-left:-4px;}
+
+#bgDiv{width:205px; height:220px; border:1px solid #666666; position:relative;}
+#dragDiv{border:1px dashed #fff; width:120px; height:120px; top:50px; left:50px; cursor:move; }
+.cut{ height:220px;background:#F3F2E7;padding:40px 130px}
+/* 登录 */
+.beautyLlk_login{clear:both; float:left;border: 1px solid #CCCCCC;background:url(../images/loginBg.jpg) no-repeat center bottom;width:991px;margin:14px 0 5px 0; height:521px;}
+.loginInfo{padding:74px 0 0 279px;}
+.loginInfo .head{margin-left:94px;}
+.loginInfo .userLogin{ font-size:14px; font-weight:700;padding:34px 0 0}
+.loginInfo .userLogin input{width:267px; height:42px; border:2px solid #CCCCCC;margin-bottom:16px;line-height:40px; font-size:14px}
+.loginInfo .userLogin span{ display:block;width:90px; float:left; height:42px; line-height:42px;}
+.userLogin_But{ color:#666666; font-size:14px;padding:0 0 0 90px}
+.userLogin_But a{background:url(../images/submit.jpg) no-repeat;width:111px; height:27px; text-align:center; line-height:27px; display:block; color:#ffffff;font-size:12px; float:left; font-weight:normal}
+
+.userLogin_But .checkbox{border:1px solid #8E8F8F;width:13px;height:13px;margin:6px 3px 0 0;}
+
+.userLogin_But .forget{ background:none; color:#666666; display:inline; font-weight:normal;font-size:14px; float:none}
+.userLogin_But .rem{ float:left;margin-left:10px; height:27px; line-height:27px}
+/* 重置 */
+.reset_pswd{ clear:both; float:left;background:url(../images/loginBg.jpg) no-repeat center bottom;width:991px;margin:34px 0 5px 0; height:521px; border: 1px solid #CCCCCC;}
+.resetInfo{padding:74px 230px 0 278px;}
+.resetInfo .head{margin-left:94px;}
+.resetInfo h2{ font-weight:normal; font-size:14px; line-height:24px; color:#666666;margin-top:36px;}
+.resetInfo .reset{ color:#333333; font-size:14px; font-weight:700;margin-top:39px; line-height:40px}
+.resetInfo .reset span{ display:block;width:76px; float:left; height:42px; line-height:42px; color:#333333;}
+.resetInfo .reset input{width:377px; height:40px; border:2px solid #CCCCCC; line-height:40px; font-size:14px}
+.send a{background:url(../images/submit.jpg) no-repeat;width:111px; height:27px; text-align:center; line-height:27px; display:block; color:#ffffff;font-size:12px;font-weight:normal;margin:32px 0 36px 75px;}
+.resetInfo span{ font-size:14px; color:#666666;}
+.resetInfo span a{ color:#EC008C; font-weight:normal}
+
+
+

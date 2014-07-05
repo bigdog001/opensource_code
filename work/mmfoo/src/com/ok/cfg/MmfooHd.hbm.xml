@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.MmfooHd" table="mmfoohd">
+
+        <id name="hdid" type="java.lang.Integer">
+            <column name="hdid" />
+            <generator class="native" />
+        </id>
+
+        <property name="hdname" />
+        <property name="hdtitle" />
+        <property name="hdabstract" />
+        <property name="hdface" />
+        <property name="hdcontent" />
+        <property name="orders" />
+        <property name="starttime" />
+        <property name="endtime" />
+        <property name="createtime" />
+    </class>
+
+</hibernate-mapping>

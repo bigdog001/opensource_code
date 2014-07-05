@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+    <tlib-version>v1.0.1</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>mmfoo taglibs</short-name>
+    <!-- 标签的简写 -->
+    <tag>
+        <name>islogin</name>
+        <tag-class>com.ok.tags.IsLogin</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+    </tag>
+    <tag>
+        <name>shownews</name>
+        <tag-class>com.ok.tags.ShowNews</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>newsid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>文章id号</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>gethdname</name>
+        <tag-class>com.ok.tags.GetHdName</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>根据用户id号找这个用户参与的第一个活动</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getUserById</name>
+        <tag-class>com.ok.tags.GetUserById</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>根据用户id号找这个用户</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getImgsetbyid</name>
+        <tag-class>com.ok.tags.GetImgSetByid</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>找此用户所有的相册</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>要取多少个相册</description>
+        </attribute><attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getmmhd</name>
+        <tag-class>com.ok.tags.GetMmHdByid</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>hdid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>活动id号</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>gettophd</name>
+        <tag-class>com.ok.tags.getTopHd</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description></description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description></description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getusertop</name>
+        <tag-class>com.ok.tags.GetUserTop</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>取第几页</description>
+        </attribute><attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>取多少</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getusernew</name>
+        <tag-class>com.ok.tags.getUserNew</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    <tag>
+        <name>gethduser</name>
+        <tag-class>com.ok.tags.getHdUser</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>hdid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>活动id号</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>每页的个数</description>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+
+    </tag>
+
+    <tag>
+        <name>getfriendsbyid</name>
+        <tag-class>com.ok.tags.GetFriendsByid</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description></description>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>每页多少个</description>
+        </attribute>
+
+    </tag>
+    <tag>
+        <name>getuser</name>
+        <!--  取本月最美美女 -->
+        <tag-class>com.ok.tags.GetUserIdex</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <name>getimgsbysetid</name>
+        <tag-class>com.ok.tags.GetImgsBySetid</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>setid</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>活动id号</description>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>每页对少个</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getTimeDistance</name>
+        <tag-class>com.ok.tags.TimeDistance</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>start</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>要计算的时间</description>
+        </attribute>        
+    </tag>
+    <tag>
+        <name>savevisitfooter</name>
+        <tag-class>com.ok.tags.SaveVisitFooter</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>my_user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>我的id</description>
+        </attribute>
+        <attribute>
+            <name>friends_user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>被访问的孙子的id</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>get_shortmessage_byuser_id</name>
+        <tag-class>com.ok.tags.GetShortMessageByEmail</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>根据此emial取用户的心情</description>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>每页显示size个</description>
+        </attribute>
+    </tag>
+    <tag>
+        <name>getUserAccessMyspace</name>
+        <tag-class>com.ok.tags.GetUserAccessMyspace</tag-class>
+        <body-content>JSP</body-content>
+        <!-- 指定你的标签的类 -->
+        <attribute>
+            <name>my_user_id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description> 一周内有谁访问过我的空间</description>
+        </attribute>
+        <attribute>
+            <name>page</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>第几页</description>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>每页显示size个</description>
+        </attribute>
+    </tag>
+
+</taglib>  

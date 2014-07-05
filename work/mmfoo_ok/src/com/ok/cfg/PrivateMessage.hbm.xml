@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.PrivateMessage" table="privatemessage">
+
+        <id name="pmid" type="java.lang.Integer">
+            <column name="pmid" />
+            <generator class="native" />
+        </id>
+
+        <property name="createtime" />
+        <property name="user_id_to" />               
+        <property name="pm_return" />               
+        <property name="user_id_from" />
+        <property name="is_read" />
+        <property name="pm_content" />
+    </class>
+
+</hibernate-mapping>

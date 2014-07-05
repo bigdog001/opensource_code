@@ -1,0 +1,53 @@
+
+#slider {
+	OVERFLOW: hidden;
+	position: relative;
+	HEIGHT: 292px;
+	margin-bottom: 5px;
+	*margin-bottom: 0px;
+}
+#slideshowHolder {
+	OVERFLOW: hidden;
+	POSITION: relative;
+	HEIGHT: 292px
+}
+#ft-prev-slideshowHolder {
+	DISPLAY: none
+}
+#ft-next-slideshowHolder {
+	DISPLAY: none
+}
+#ft-buttons-slideshowHolder {
+	WIDTH: auto! important;
+	BOTTOM: 50px;
+	left: 400px;
+	POSITION: relative;
+	TEXT-ALIGN: center! important;
+}
+.ft-button-slideshowHolder {
+	PADDING-RIGHT: 0px! important;
+	PADDING-LEFT: 0px! important;
+	FONT-SIZE: 0px;
+	BACKGROUND: url(../images/bull.png) no-repeat 0px 0px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px! important;
+	MARGIN-LEFT: 6px;
+	OVERFLOW: hidden;
+	WIDTH: 23px;
+	COLOR: #fff;
+	LINE-HEIGHT: 0;
+	PADDING-TOP: 0px! important;
+	HEIGHT: 23px;
+	TEXT-DECORATION: none;
+}
+.ft-button-slideshowHolder:hover {
+	BACKGROUND-POSITION: 0px -23px;
+	COLOR: #000
+}
+.ft-button-slideshowHolder-active {
+	BACKGROUND-POSITION: 0px -23px;
+	COLOR: #000
+}
+.first_column {
+	PADDING-BOTTOM: 80px
+}

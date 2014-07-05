@@ -1,0 +1,210 @@
+@charset "utf-8";
+/* CSS Document */
+
+.importantes p {
+	width: 95%;
+	float: left;
+	margin: 8px 10px;
+	_margin: 8px 5px;
+	line-height: 24px;
+	color: #666;
+}
+.importantes p span {
+	color: #333;
+}
+.friendContent {
+	float: left;
+	width: 100%;
+	border-top: 1px dotted #333;
+}
+.friendCell {
+	float: left;
+	width: 49px;
+	margin-right: 15px;
+	margin-top: 20px;
+}
+.friendCell h5 {
+	text-align: center;
+	width: 100%;
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+	line-height: 24px;
+}
+.friendCell h6 {
+	text-align: center;
+	width: 100%;
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+	line-height: 24px;
+}
+.mL2 {
+	margin-left: 25px;
+}
+.btnMl2 {
+	margin-left: 143px;
+}
+.invateBox {
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+}
+.btmB {
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #333;
+	margin-bottom: 20px;
+}
+.invateBox h4 {
+	line-height: 36px;
+	width: 100%;
+	font-size: 12px;
+	color: #333;
+}
+.invateBox h4 span {
+	padding-left: 10px;
+}
+.invateBox p {
+	float: left;
+	width: 95%;
+	color: #666;
+	line-height: 18px;
+	margin-left: 10px;
+}
+.linkBox {
+	width: 95%;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.invateBox input.link {
+	border: 1px solid #ccc;
+	padding: 4px 5px;
+	width: 500px;
+	margin-right: 10px;
+}
+.invateBox button.funcE {
+	padding: 4px 5px;
+	background: #f5054a;
+	color: #fff;
+	font-size: 12px;
+	border: 0px;
+	cursor: pointer
+}
+.msgBox, .msgBox2 {
+	float: left;
+	width: 410px;
+	margin-top: 10px;
+}
+.msgBox2 {
+	width: 160px;
+	*width: 190px;
+}
+.msgBox h4 {
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: normal;
+	width: 100%;
+	clear:both
+}
+.msgBox textarea.emailBox, .msgBox textarea.emailBox2 {
+	border: 1px solid #ccc;
+	width: 90%;
+	padding: 4px 5px;
+	margin-top: 5px;
+	height: 80px;
+	font-size: 12px;
+}
+.msgBox textarea.emailBox2 {
+	height: 100px;
+}
+.invate {
+	width: 95%;
+	float: left;
+	border-top: 1px dotted #ccc;
+	margin-top: 20px;
+	padding-top: 10px;
+}
+.invate h4 {
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: normal;
+	width: 100%;
+	clear:both
+}
+.invate textarea.emailBox2 {
+	border: 1px solid #ccc;
+	width: 90%;
+	padding: 4px 5px;
+	margin-top: 5px;
+	height: 80px;
+	font-size: 12px;
+}
+.invate textarea.emailBox2 {
+	height: 100px;
+}
+.preview {
+	float: left;
+	width: 90%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.preview h4 {
+	font-size: 12px;
+	line-height: 36px;
+	color: #333;
+	width: 100%;
+}
+.preview .mail {
+	width: 93%;
+	_width: 90%;
+	border: 1px solid #ccc;
+	height: auto;
+	float: left;
+	background: #f1f1f1;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.preview .mail .avatar {
+	width: 93px;
+	margin-right: 10px;
+	float: left;
+	margin-left: 10px;
+	margin-top:10px;
+}
+.preview .mail .avatar h5 {
+	font-weight: normal;
+	color: #666;
+	text-align: center;
+	line-height: 24px;
+	width: 100%;
+	clear: both;
+	font-size: 12px;
+}
+.preview .mail .con {
+	float: left;
+	width: 402px;
+	_width: 402px;
+}
+.preview .mail .con p {
+	float: left;
+	margin: 5px;
+	font-size: 12px;
+	color: #333;
+	line-height: 18px;
+}
+.preview .mail .con p span {
+	font-weight: bold;
+	padding-top: 10px;
+}
+.preview .mail .con a {
+	font-size: 12px;
+}
+.mL3 {
+	margin-left: 18px;
+}
+.mL4 {
+	margin-left: 8px;
+}

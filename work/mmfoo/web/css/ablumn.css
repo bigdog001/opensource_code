@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS Document */
+
+.myAblum {
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
+.ablumContent {
+	width: 100%;
+	float: left;
+	border-top: 1px dotted #333;
+	clear: both;
+}
+.albumCell {
+	float: left;
+	margin-right: 40px;
+	width: 175px;
+	background:url(../images/albumBgt.jpg) top no-repeat;
+}
+.albumCell .c {
+	background: url(../images/albumBgc.jpg) repeat-y;
+	width: 175px;
+	height: auto;
+}
+.albumCell .b, .albumCell .c {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}
+.albumCell .c {
+	margin-top: 6px;
+}
+.albumCell .c img {
+	margin-left: 6px;
+	border: 0px;
+}
+.albumCell .t {
+	height: 6px;
+}
+.albumCell h5 {
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+	line-height: 24px;
+	font-weight: normal;
+	width: 100%;
+	float: left;
+}
+.mr2 {
+	margin-right: 10px;
+}
+.photoCell {
+	float: left;
+	margin-right: 20px;
+}
+.photoCell .box {
+	border: 1px solid #ccc;
+}
+.photoCell .box img {
+	margin: 4px;
+}
+.photoCell h5 {
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+	line-height: 24px;
+	font-weight: normal;
+	width: 100%;
+}
+.otherForm {
+	border: 1px solid #ccc;
+	display: inline;
+	padding: 4px 5px;
+	width: 300px;
+}
+.albumProject {
+	float: left;
+	clear: both;
+	float: left;
+	font-size: 12px;
+	font-family: "宋体";
+	color: #666;
+	margin-top: 10px;
+	width: 100%;
+}
+.albumProject ul {
+	list-style: none;
+	width: 100%;
+	clear: both;
+	float: left;
+}
+.albumProject ul li {
+	float: left;
+	line-height: 36px;
+	text-indent:1em;
+}
+.albumProject ul li p {
+	margin: 0px 12px;
+	line-height: 3px;
+	text-indent: 0px;
+}
+.albumProject ul li.tl {
+	width: 91px;
+}
+.albumProject ul li.tr {
+	width: 325px;
+	overflow:hidden;
+}
+.albumProject ul li.tr a {
+	color: #f5054a;
+	text-decoration: none;
+}
+.albumProject ul li.tr a:hover {
+	text-decoration: underline;
+}
+.albumProject ul li.show {
+	text-indent: 0px;
+}
+.btnMl {
+	margin-left: 100px;
+	margin-top: 30px;
+}
+.ablumContent h4 {
+	line-height: 36px;
+	font-size: 12px;
+}
+.ablumContent h4 span {
+	padding-left: 10px;
+}
+.edit {
+	float: left;
+	width: 90%;
+	margin-left: 10px;
+	_margin-left: 5px;
+	margin-top: 10px;
+}
+.edit p {
+	color: #666;
+	line-height: 18px;
+	width: 100%;
+	float: left;
+	margin-bottom: 8px;
+}
+.edit ul {
+	list-style: none;
+	float: left;
+	width: 100%;
+}
+.edit ul li {
+	float: left;
+	width: 100%;
+	background: #f1f1f1;
+	margin-bottom: 1px;
+	padding: 10px 5px;
+}
+.edit ul li.control {
+	background: none;
+	margin-bottom: 8px;
+	line-height: 36px;
+}
+.edit ul li.control input {
+	display: inline;
+	margin-left: 20px;
+	margin-right: 15px;
+	margin-top: 5px;
+}
+.x, .y, .z {
+	float: left;
+}
+.x {
+	width: 50px;
+	vertical-align: middle;
+	text-align: center;
+}
+.x input {
+	margin-top: 50px;
+}
+.y {
+	width: 170px;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+.y img {
+	margin: 5px;
+}
+.z {
+	width: 380px;
+	margin-left: 10px;
+}
+.z textarea.editInput {
+	width: 370px;
+	border: 1px solid #ccc;
+	height: 90px;
+	padding: 4px 5px;
+	font-size: 12px;
+	color: #666;
+}
+.mR2 {
+	margin-right: 8px;
+	margin-left: 40px;
+}
+.noF {
+	float: none;
+}

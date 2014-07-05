@@ -1,0 +1,60 @@
+.dock{ float: left; margin-bottom: 10px;}
+
+#banner
+{    
+	width: 900px;
+	position: relative;
+}
+
+	#banner #viewline
+	{
+		background-color: #fff;
+		position: relative;
+		height: 172px;
+		overflow: hidden;
+	}
+	#banner #viewline div{ margin: 0px 8px;}
+	#banner #left-arrow, #banner #right-arrow
+	{
+		position: absolute;
+		background-image: url(../images/arrows2.png);
+		cursor: pointer;
+		height: 38px;
+		width: 27px;
+		text-align: center;
+		font-size: 18px;
+		color: #fff;
+		left: -40px;
+		z-index: 50;
+		background-position: 0 0px;
+	}
+	
+	#banner #left-arrow:hover, #banner #right-arrow:hover
+	{
+		background-position: 0 -40px;
+	}
+	
+	#banner #right-arrow
+	{
+		left: auto;
+		right: -40px;
+		background-position: -25px 0px;
+	}
+	
+	#banner #right-arrow:hover
+	{
+		background-position: -25px -40px;
+	}
+	
+	#banner .caption
+	{
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		background-image: url(../images/caption-bg2.png);
+		padding: 20px;
+		color: #fff;
+		z-index: 40;
+	}

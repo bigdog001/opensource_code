@@ -1,0 +1,13 @@
+.container_24 {
+	MARGIN-LEFT: auto;
+	WIDTH: 900px;
+	MARGIN-RIGHT: auto
+}
+.grid_24 {
+	DISPLAY: inline;
+	FLOAT: left;
+	POSITION: relative
+}
+.container_24 .grid_24 {
+	width: 100%;
+}

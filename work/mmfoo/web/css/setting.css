@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+
+#sheet-form{ 	margin-top: 20px; float: left;}
+#sheet-form FIELDSET {
+	border: 0px;
+
+}
+.sheetItem {
+	clear: both;
+	margin-left: 40px;
+	width: 90%;
+	line-height: 30px;
+	height: 48px;
+}
+.sheetItem span {
+	color: #c00;
+	font-weight: bold;
+	padding-right: 5px;
+	float: right
+}
+.sheetItem label, .sheetItem p.label,.sheetItem label.tt {
+	width: 19%;
+	_width: 10%;
+	color: #666;
+	display: inline;
+	float: left;
+	line-height: 30px;
+	height: 30px;
+	margin-left: 0px;
+}
+.sheetItem label.tt{ width: 34%; _width: 20%; }
+.sheetItem input.textInput {
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px 17px;
+	width: 70%;
+	margin-right: 4px;
+}
+.sheetItem .alternate {
+	width: 100%;
+	display: inline;
+}
+.sheetItem .alternate li {
+	float: left;
+	width: 100px;
+}
+.sheetItem .alternate li span {
+	padding-left: 5px;
+	font-weight: normal;
+	font-size: 12px;
+	color: #333;
+	float: left;
+}
+.sheetItem input.sizeA {
+	width: 30%;
+}
+.sheetItem input.sizeB {
+	width: 7%;
+}
+.sheetItem input.sizeC {
+	width: 20%;
+}
+.sheetItem input.sizeD {
+	width: 50%;
+}
+.sheetItem input.mar {
+	margin-right: 10px;
+}
+.sheetItem p.formHint {
+	width: 80%;
+	text-align: left;
+	color: #999;
+	line-height: 33px;
+	height: 33px;
+	margin-left: 160px;
+	_margin-left: 65px;
+	clear: both;
+	line-height: 18px;
+	margin-bottom: 8px;
+}
+
+.btnHold{ width: 50%; margin-left: 105px; _margin-left: 109px; margin-top: 30px; }
+.mL7{ margin-left: 10px; }
+
+.avatarPreview{ float: left; border: 1px solid #ccc; margin-left: 10px; margin-top: 20px; }
+.avatarPreview img{ margin: 5px; }
+

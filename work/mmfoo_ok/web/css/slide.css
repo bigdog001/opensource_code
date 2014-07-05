@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav {
+	margin-bottom: 15px;
+}
+.peKenBurns {
+	width: 993px;
+	height: 400px;
+	float: left;
+}
+/* set border size to 0px */
+		.peKenBurns .peKb_slides {
+	padding: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+/* set controls margins to 0px */
+		.peKenBurns .peKb_controlsInner .peKb_holder {
+	margin: 0px;
+}

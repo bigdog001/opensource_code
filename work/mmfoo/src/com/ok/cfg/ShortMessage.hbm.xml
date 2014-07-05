@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.ShortMessage" table="shortmessage">
+
+        <id name="mesageid" type="java.lang.Integer">
+            <column name="mesageid" />
+            <generator class="native" />
+        </id>
+
+        <property name="user_id" />
+        <property name="ownertruename" />
+        <property name="messagecontent" />
+        <property name="messagetime" />
+    </class>
+
+</hibernate-mapping>

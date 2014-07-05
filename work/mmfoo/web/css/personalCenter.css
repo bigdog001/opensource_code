@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+
+.topBar {
+	width: 100%;
+	background: #ed008c;
+	height: 47px;
+	line-height: 47px;
+}
+.topBar .logoP{ float: left; width: 162px; height: 46px; border: 1px solid #ed008c; border-top: 0px; background: #FFF }
+.topBar .logoP img{ margin-left: 8px; margin-top: 4px; }
+.topBar .sig {
+	line-height: 46px;
+	color: #000;
+	float: left;
+	width: 270px;
+	text-align: right;
+	margin-left: 35px;
+	margin-left: 35px\9;
+ *margin-left: 35px;
+	_margin-left: 15px;
+}
+.topBar .sig a {
+	color: #000;
+	text-decoration: none;
+	margin-left: 10px;
+	margin-right: 10px;
+	line-height: 46px;
+	font-size: 12px;
+	font-weight: normal;
+}
+.topBar .sig a:hover {
+	text-decoration: underline;
+}
+.topBar ul {
+	list-style: none;
+	float: left;
+}
+.topBar ul li {
+	float: left;
+	color: #fff;
+	font-size: 14px;
+	line-height: 46px;
+	width: 100px;
+	margin-left: 20px;
+}
+.topBar ul li a {
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: none;
+}
+.topBar ul li a:hover {
+	text-decoration: underline;
+}
+#left {
+	float: left;
+	margin-top: 20px;
+	margin-right: 29px;
+	width: 162px;
+	border-right: 1px solid #ed008c
+}
+#left .avatar {
+	float: left;
+	width: 100%;
+}
+#left h5 {
+	font-size: 14px;
+	color: #000;
+	line-height: 36px;
+	height: 36px;
+	text-align: center;
+	float: left;
+	width: 100%;
+}
+ul.per {
+	float: left;
+	clear: both;
+	list-style: none;
+	width: 100%;
+	border-bottom: 1px dotted #999;
+	border-top: 1px dotted #999;
+	margin-bottom: 10px;
+}
+ul.per li {
+	float: left;
+	color: #666;
+	line-height: 36px;
+	*line-height: 24px;
+	_height: 24px;
+	*padding-top: 9px;
+	_padding-top: 9px;
+}
+ul.per li img {
+	margin-top: 9px;
+	*margin-top: 0px;
+	_margin-top: 0px;
+	margin-left: 35px;
+	margin-right: 5px;
+}
+ul.per li span{ padding-left: 5px; padding-right: 5px; }
+ul.sideNav {
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	border-top: 1px solid #ed008c;
+	list-style: none;
+}
+ul.sideNav li {
+	float: left;
+	float: none;
+	padding: 8px 67px;
+	padding: 8px 67px;
+ *padding: 8px 67px;
+	_padding: 8px 67px;
+	color:#ed008c;
+	font-size: 12px;
+	border-bottom: 1px solid #ed008c;
+	clear: both
+}
+ul.sideNav li.current2 {
+	padding: 8px 68px;
+	background: url(../images/albumIcon.gif) no-repeat 45px 9px #ed008c;
+	color: #fff;
+	font-size: 12px;
+}
+ul.sideNav li.current1 {
+	padding: 8px 68px;
+	background: url(../images/feelingIcon.gif) no-repeat 45px 9px #ed008c;
+	color: #fff;
+	font-size: 12px;
+}
+ul.sideNav li.current3 {
+	padding: 8px 68px;
+	background: url(../images/friendIcon.gif) no-repeat 45px 9px #ed008c;
+	color: #fff;
+	font-size: 12px;
+}
+ul.sideNav li.current4 {
+	padding: 8px 68px;
+	background: url(../images/msgIcon.gif) no-repeat 45px 9px #ed008c;
+	color: #fff;
+	font-size: 12px;
+}
+ul.sideNav li.current5 {
+	padding: 8px 68px;
+	background: url(../images/setIcon.gif) no-repeat 45px 9px #ed008c;
+	color: #fff;
+	font-size: 12px;
+}
+ul.dideNav li a {
+	color: #ed008c;
+	text-decoration: underline;
+}
+ul.dideNav li a:hover {
+	text-decoration: underline;
+}
+.visitor {
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+.visitor h3{ font-size: 12px; border-top: 1px dotted #CCC; line-height: 30px; height: 30px; border-bottom: 0px;  }
+.visitor .cell {
+	float: left;
+	width: 49px;
+	margin: 8px 2px;
+	_margin: 8px 2px;
+}
+.visitor .cell h4 {
+	width: 100%;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: center;
+	line-height: 24px;
+}
+.visitor .cell h4 a {
+	color: #ed008c;
+	text-decoration: none;
+}
+.visitor .cell h4 a:hover {
+	text-decoration: underline;
+}
+#right {
+	float: left;
+	margin-top: 20px;
+	width: 718px;
+}

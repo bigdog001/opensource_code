@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+h4.tl {
+	font-weight: normal;
+	line-height: 30px;
+	height: 18px;
+	color: #666;
+	font-size: 12px;
+	margin-bottom:5px;
+}
+.signLayer {
+	width: 80%;
+	margin: 10px auto;
+}
+.signLayer button{ margin-left: 120px; }
+.signLayer h4 {
+	font-weight: normal;
+	line-height: 230px;
+	text-align: center;
+	color: #666;
+	font-size: 14px;
+}
+
+ul.blockLabels li{ width: 60px; float: left; }

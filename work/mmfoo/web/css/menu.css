@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 25px;
+	background: #000
+}
+#nav li {
+	float:left;
+	border-right: 1px solid #FFF;
+	background: #000
+}
+#nav li a {
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	line-height:30px;
+	padding:0 79px 0 69px;
+	padding:0 60px 0 59px\9;
+ *padding:0 60px 0 60px;
+	_padding:0 58px 0 59px;
+	float:left;
+	background:#000;
+}
+#nav2 li a {
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+	line-height:30px;
+	padding:0 64px 0 64px!important;
+	float:left;
+	background:#000;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+#nav li a {
+ padding:0 57px 0 57px;
+}
+}
+#nav li.trail {
+	border: 0px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+#nav li.trail {
+border: 0px;
+}
+}
+#nav li.trail a {
+	padding: 0px 102px 0px 62px;
+	padding: 0 69px 0 69px\9;
+ *padding: 0 68px 0 69px;
+	_padding: 0 64px 0 64px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+#nav li.trail a {
+ padding: 0px 68px 0px 68px;
+ border-right: 0px;
+}
+}
+#nav li a:hover, #nav li a.current {
+	background:#ec008c;
+}

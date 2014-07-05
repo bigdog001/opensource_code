@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mT{ margin-top: 10px; }
+.mL5{ margin-left: 10px;}
+
+.noticeBox{ float: left; width: 100%; border-top: 1px dotted #333; padding-top: 10px;  }
+.notice{ list-style: none; float: left; width: 90%; }
+.notice li{ width: 100%; float: left; color: #666; border-bottom: 1px dotted #ccc; padding-top: 5px; padding-bottom: 5px; margin-top: 5px;   }
+.notice li .co{ width: 92%; float: left; }
+.notice li .co p{ color: #666; line-height: 18px; width: 100%; }
+.notice li .co span{ color: #999; line-height: 24px; padding-left: 12px; font-family: Arial, Helvetica, sans-serif; } 
+
+
+.messageProject {
+	float: left;
+	clear: both;
+	float: left;
+	font-size: 12px;
+	font-family: "宋体";
+	color: #666;
+	margin-top: 10px;
+	width: 100%;
+}
+.messageProject ul {
+	list-style: none;
+	width: 100%;
+	clear: both;
+	float: left;
+}
+.messageProject ul li {
+	float: left;
+	line-height: 24px;
+	text-indent:1em;
+}
+.messageProject ul li.tl {
+	width: 91px;
+	padding-top: 20px;
+	_padding-top: 12px;
+}
+.messageProject ul li.tr {
+	width: 425px;
+	overflow:hidden;
+	line-height: normal;
+}
+.messageProject input,.messageProject textarea{ border: 1px solid #ccc; padding: 4px 5px; font-size: 12px; color: #666; width: 200px; margin-top: 22px; }
+.messageProject textarea{ width: 400px; height: 100px; }
+
+.mL6{ margin-left: 15px; _margin-left: 0px; margin-top: 20px; }

@@ -1,0 +1,57 @@
+<project name="DGSX" default="copy" basedir=".">
+    <property name="src" location="src"/>
+    <property name="lib" location="lib"/>
+    <property name="build" location="classes"/>
+    <!--<property name="win32" location="e:/ifeng1"/>-->
+    <property name="jsp" location="run"/>
+
+    <path id="dist.classpath">
+        <pathelement path="${build}"/>
+        <fileset dir="${lib}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    <target name="compile">
+        <delete dir="${build}"/>
+        <mkdir dir="${build}"/>
+        <javac encoding="utf-8" srcdir="${src}" destdir="${build}" classpathref="dist.classpath" debug="on"/>
+        <copy todir="${build}">
+            <fileset dir="${src}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="copy" depends="compile">
+        <!--<delete dir="${win32}"/>-->
+        <delete dir="${jsp}">
+            <exclude name="**/*.tt"/>
+            <exclude name="**/*.sh"/>
+        </delete>
+        <delete dir="${jsp}/lib/">
+            <exclude name="**/*.tt"/>
+        </delete>
+        <!--<mkdir dir="${win32}"/>
+        <copy todir="${win32}">
+            <fileset dir="${jsp}">
+                <exclude name="**/*.xx"/>
+            </fileset>
+        </copy>-->
+
+        <copy todir="${jsp}">
+            <fileset dir="${build}">
+                <exclude name="**/*.xx"/>
+            </fileset>
+        </copy>
+        <copy todir="${jsp}/lib/">
+            <fileset dir="${lib}">
+                <exclude name="**/*.xx"/>
+            </fileset>
+        </copy>
+        <delete dir="${build}">
+            <exclude name="**/*.tt"/>
+        </delete>
+
+    </target>
+
+</project>

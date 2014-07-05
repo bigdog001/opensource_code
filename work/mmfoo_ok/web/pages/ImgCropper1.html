@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<script type="text/javascript" src="../js/cutit.js"></script>
+<script type="text/javascript" src="../js/Drag.js"></script>
+<script type="text/javascript" src="../js/Resize.js"></script>
+<LINK rel="stylesheet" type="text/css" href="../css/cutit.css">
+
+
+        <table width="700" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="300">
+                    <div id="bgDiv">
+                        <div id="dragDiv">
+                            <div id="rRightDown"></div>
+                            <div id="rLeftDown"></div>
+                            <div id="rRightUp"></div>
+                            <div id="rLeftUp"></div>
+                            <div id="rRight"></div>
+                            <div id="rLeft"></div>
+                            <div id="rUp"></div>
+                            <div id="rDown"></div>
+                        </div>
+                    </div>
+                </td>
+                <td align="center">
+                    <div id="viewDiv" style="width:300px; height:300px;"></div>
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+
+            var ic = new ImgCropper("bgDiv", "dragDiv", "http://www.mmfoo.com/images/upload/3434.jpg", {
+                Width: 300, Height: 400, Color: "#000",
+                Resize: true,
+                Right: "rRight", Left: "rLeft", Up:    "rUp", Down: "rDown",
+                RightDown: "rRightDown", LeftDown: "rLeftDown", RightUp: "rRightUp", LeftUp: "rLeftUp",
+                Preview: "viewDiv"
+            });
+        </script>
+        <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+        <img src="" id="pic_cuted">
+    
+
+</body>
+
+</html>

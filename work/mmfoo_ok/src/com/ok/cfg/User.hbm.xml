@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.User" table="user">
+
+        <id name="user_id" type="java.lang.Integer">
+            <column name="user_id"/>
+            <generator class="native"/>
+        </id>
+
+        <property name="see_cnt"/>
+        <property name="user_star"/>
+        <property name="worspace"/>
+        <property name="aihao"/>
+        <property name="jinli"/>
+        <property name="email"/>
+        <property name="jichu"/>
+        <property name="education"/>
+        <property name="huojiang"/>
+        <property name="point_cnt"/>
+        <property name="user_order"/>
+        <property name="discuss"/>
+        <property name="user_msn"/>
+        <property name="visit_cnt"/>
+        <property name="user_name"/>
+        <property name="activetys"/>
+        <property name="is_activety"/>
+        <property name="truename"/>
+        <property name="province"/>
+        <property name="city"/>
+        <property name="sex"/>
+        <property name="nickname"/>
+        <property name="address"/>
+        <property name="mobile"/>
+        <property name="password"/>
+        <property name="reg_time"/>
+        <property name="birthday"/>
+        <property name="height"/>
+        <property name="hd_ok"/>
+        <property name="school"/>
+        <property name="hometown"/>
+        <property name="blood"/>
+        <property name="qqnumber"/>
+        <property name="declaration"/>
+        <property name="userimg"/>
+        <property name="userthumb"/>
+        <property name="heavy"/>
+        <property name="age"/>
+        <property name="sanwei"/>
+        <property name="selfsite"/>
+        <property name="friendlist"/>
+        <property name="selfdynamic"/>
+        <property name="piclist"/>
+        <property name="lovemusic"/>
+        <property name="lovestar"/>
+        <property name="lovemovie"/>
+        <property name="lovetv"/>
+        <property name="lovesport"/>
+        <property name="lovereading"/>
+        <property name="peixun"/>
+        <property name="zuopin"/>
+        <property name="zhanlan"/>
+        <property name="meiticaifang"/>
+        <property name="chuxihuodong"/>
+
+
+    </class>
+
+</hibernate-mapping>

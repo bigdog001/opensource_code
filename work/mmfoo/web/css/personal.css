@@ -1,0 +1,468 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+html, body {
+	height:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	padding: 0px;
+	margin: 0px;
+}
+body {
+	font-family:"宋体";
+	font-size: 12px;
+	line-height: 18px;
+	background:url(../images/personalBg.jpg);
+}
+img {
+	border:0;
+	vertical-align:top;
+	text-align:left;
+}
+object {
+	vertical-align:top;
+	outline:none;
+}
+ul, ol {
+	list-style:none;
+}
+button {
+	border: 0px;
+}
+a {
+	color: #ec008b;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+}
+.clearit {
+	clear: both;
+	width: 100%;
+	margin-bottom: 5px;
+	height: 5px;
+	overflow: hidden;
+}
+#layout {
+	margin: 0px auto;
+	width: 890px;
+}
+#top {
+	width: 890px;
+	height: 36px;
+	line-height: 36px;
+	background: #000;
+	margin: 0px auto;
+}
+ul.topNav {
+	list-style: none;
+	float: left;
+	_float: left;
+}
+ul.topNav li {
+	float: left;
+}
+ul.topNav li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 5px 20px;
+}
+ul.topNav li a:hover {
+	background: #ec008c;
+}
+ul.signLink {
+	list-style: none;
+	float: right;
+	_float: right;
+}
+ul.signLink li {
+	float: left;
+	color: #ec008c
+}
+ul.signLink li a {
+	color: #ec008c;
+	text-decoration: none;
+	font-size: 12px;
+	padding: 5px 10px;
+	font-weight: normal;
+}
+ul.signLink li a:hover {
+	text-decoration: underline;
+}
+.slide {
+	top: 40px;
+	width: 100%;
+	position:relative;
+	z-index:1;
+}
+/*左侧*/
+.promoteBox {
+	position:relative;
+	margin-top: 40px;
+	width: 100%;
+}
+.avatarPromote {
+	width: 162px;
+	height: 172px;
+	position: absolute;
+	left: 27px;
+	z-index: 300;
+	border: 5px solid #ec008c;
+}
+.timer {
+	width: 300px;
+	height: 144px;
+	position:absolute;
+	right:0;
+	top: 6px;
+	z-index:200;
+}
+.side {
+	background: #F2F2F2;
+	width: 220px;
+	float: left;
+	padding-bottom: 30px;
+}
+.side h3 {
+	float: left;
+	width: 100%;
+	margin-top: 155px;
+	text-align: center;
+	font-size: 14px;
+}
+.side h2 {
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: normal;
+}
+ul.paraBox {
+	list-style: none;
+	float: left;
+	width: 150px;
+	margin-left: 40px;
+	_margin-left: 20px;
+	margin-top: 10px;
+	border-top: 1px dotted #CCC;
+	border-bottom: 1px solid #ccc;
+}
+ul.paraBox li {
+	width: 100%;
+	float: left;
+	color: #666;
+	line-height: 36px;
+ *line-height: 24px;
+	_height: 24px;
+ *padding-top: 9px;
+	_padding-top: 9px;
+}
+ul.paraBox li img {
+	margin-top: 9px;
+ *margin-top: 0px;
+	_margin-top: 0px;
+	margin-right: 5px;
+	margin-left: 20px;
+}
+ul.buttonBox {
+	list-style: none;
+	float: left;
+	width: 150px;
+	margin-left: 40px;
+	_margin-left: 20px;
+	margin-top: 10px;
+}
+ul.buttonBox li {
+	width: 100%;
+	float: left;
+	color: #666;
+	line-height: 36px;
+}
+.side h4 {
+	float: left;
+	margin-left: 40px;
+	_margin-left: 20px;
+	width: 150px;
+	line-height: 36px;
+	border-top: 1px solid #ccc;
+	margin-top: 15px;
+	font-size: 12px;
+}
+ul.friGroup {
+	list-style: none;
+	float: left;
+	width: 220px;
+	margin-left: 30px;
+	_margin-left: 0px;
+	margin-top: 10px;
+}
+ul.friGroup li {
+	width: 49px;
+	float: left;
+	color: #666;
+	text-align: center;
+	line-height: 36px;
+	margin-right: 10px;
+}
+ul.friGroup li h5 {
+	font-weight: normal;
+	font-size: 12px;
+}
+/*右侧*/
+.content {
+	float: left;
+	width: 670px;
+	background: #fff;
+	padding-bottom: 31px;
+	height: auto;
+}
+.content h5{ width: 90%; float: left; line-height: 36px; height: 36px; font-size: 14px; margin-left: 20px; margin-top: 10px; }
+.content h5 span{ float: right; width: 190px }
+.content .showBox{ float: left; width: 93%; margin-left: 20px; _margin-left: 0px; margin-top: 10px; }
+
+.content table{ line-height: 30px; }
+
+#search-form {
+	margin-top: 3px;
+	margin-right: 8px;
+	margin-right: 8px\9;
+ *margin-right: 8px;
+	_margin-right: 0px;
+}
+#search-form fieldset {
+	border: 0px;
+}
+#search-form input {
+	float: left;
+}
+#search-form input.text {
+	border: 1px solid #ec008c;
+	border-right: 0px;
+	padding: 7px 8px 6px 8px;
+	padding: 7px 8px 6px 8px\9;
+ *padding: 7px 8px 6px 8px;
+	_padding: 7px 8px 5px 8px;
+	color:#ccc;
+	width:123px;
+}
+#search-form input.submit {
+	background:url(../images/searchBtn.jpg) 0px 0px no-repeat;
+	width:31px;
+	height:30px;
+	border:none;
+	cursor:pointer;
+}
+/*footer*/
+#footer {
+	float: left;
+	width: 890px;
+	margin-top: 50px;
+	height: 160px;
+	background: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+ul.listFoot {
+	list-style: none;
+	float: left;
+	width: 140px;
+}
+ul.listFoot li {
+	width: 100%;
+	float: left;
+	line-height: 30px;
+	color: #333;
+}
+.ml40 {
+	margin-left: 40px;
+	_margin-left: 20px;
+}
+.mrBorder {
+	border-right: 1px dotted #999;
+}
+#subscribe {
+	float: left;
+	margin-top: 5px;
+}
+#subscribe fieldset {
+	border:none;
+}
+#subscribe input {
+	float: left;
+}
+#subscribe input.text {
+	border: 1px solid #e7e7e7;
+	border-right: 0px;
+	padding: 8px 10px 7px 10px;
+	color:#747273;
+	width:126px;
+}
+#subscribe input.submit {
+	background: #e7e7e7;
+	width:49px;
+	height:32px;
+	border:none;
+	cursor:pointer;
+}
+.trailor {
+	width: 890px;
+	;
+	clear: both;
+	margin: 0px auto;
+	line-height:30px;
+	color: #000;
+}
+.trailor span {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.content h5 {
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+	line-height: 36px;
+	width: 300px;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+.photoView {
+	float: left;
+	width: 600px;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+.photoBox {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+	width: 600px;
+}
+.tools {
+	border-bottom: 1px dotted #999;
+	width: 100%;
+	height: 36px;
+	border-top: 1px dotted #999;
+	float: left;
+}
+.passit_def_divBox {
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+/*fresh*/
+.fresh .item {
+	float: left;
+	width: 95%;
+	margin-bottom: 8px;
+	clear: both;
+	border-bottom: 1px dotted #EBEBEB;
+	padding-bottom: 8px;
+	margin-left: 15px;
+	margin-top: 8px;
+}
+.fresh .item .avatar {
+	float: left;
+	width: 49px;
+	margin-right: 15px;
+}
+.fresh .item .rightInfo {
+	float: left;
+	width: 505px;
+}
+.fresh .item .rightInfo h6 {
+	line-height: 24px;
+	font-weight: normal;
+	width: 100%;
+	color: #666;
+	font-size: 12px;
+}
+.fresh .item .rightInfo h6 a {
+	color: #ed008c;
+	text-decoration: none;
+	margin-right: 5px;
+}
+.fresh .item .rightInfo h6 a:hover {
+	text-decoration: underline;
+}
+.fresh .item .rightInfo h6 span {
+	color: #999;
+	padding-left: 10px;
+}
+.fresh .rep {
+	float: left;
+	clear: both;
+	margin-top: 10px;
+	background: #fef0f3;
+	width: 80%;
+	padding: 5px;
+}
+.fresh .rep input.text {
+	border: 0px;
+	color: #999;
+	padding: 4px 6px;
+	font-size: 12px;
+	width: 85%;
+	float: left;
+	line-height: 14px;
+}
+.fresh .rep input.submit {
+	border: 0px;
+	color: #ae6d81;
+	font-size: 12px;
+	padding: 4px 6px;
+	padding: 4px 6px\9;
+ *padding: 4px 4px;
+	_padding: 4px 4px;
+	background: none;
+	margin-left: 2px;
+	margin-left: 0px\9;
+ *margin-left: 0px;
+	_margin-left: 0px;
+	cursor: pointer
+}
+/*msg BOX*/
+.msgBox {
+	width: 95%;
+	float: left;
+	background: #f8f8f8;
+	height: 105px;
+	margin-left: 15px;
+	_margin-left: 10px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.msgBox h4 {
+	font-size: 14px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 24px;
+	margin-top: 5px;
+	text-align: left;
+	float: left;
+}
+.msgBox h4 span {
+	padding-left: 12px;
+}
+.msgBox textarea.inn {
+	border: 1px solid #ccc;
+	float: left;
+	padding: 3px 5px;
+	width: 80%;
+	height: 50px;
+	float: left;
+	margin-left: 12px;
+	margin-left: 12px\9;
+ *margin-left: 0px;
+	_margin-left: 0px;
+	margin-right: 20px;
+}
+
+

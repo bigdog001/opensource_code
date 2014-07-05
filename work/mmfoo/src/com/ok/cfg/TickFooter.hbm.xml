@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.TickFooter" table="tickfooter">
+
+        <id name="tickid" type="java.lang.Integer">
+            <column name="tickid" />
+            <generator class="native" />
+        </id>
+
+        <property name="user_id" />
+        <property name="be_tick_user_id" />
+        <property name="tick_time" />
+    </class>
+
+</hibernate-mapping>

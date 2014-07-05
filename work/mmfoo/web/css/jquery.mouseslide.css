@@ -1,0 +1,12 @@
+.mouseslider > li {
+	margin-left:3px !important;
+	float: left;
+	list-style-type: none;
+}
+.mouseslider > li img {
+	background: rgb(255, 255, 255);
+	border: 6px solid #F5F5F5;
+}
+.mouseslider > li a:hover img {
+	border: 6px solid #feafcd;
+}

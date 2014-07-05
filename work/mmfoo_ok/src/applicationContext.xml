@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd"
+        default-autowire="autodetect">
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://localhost:3306/mmfoo?useUnicode=true&amp;characterEncoding=UTF8"/>
+        <property name="user" value="root"/>
+        <property name="password" value="r4h8k9n9n8"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="50"/>
+        <property name="initialPoolSize" value="15"/>
+        <property name="maxIdleTime" value="120"/>
+        <property name="acquireIncrement" value="10"/>
+        <property name="idleConnectionTestPeriod" value="180"/>
+        <property name="acquireRetryAttempts" value="30"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/ok/cfg/User.hbm.xml</value>
+                <value>com/ok/cfg/News.hbm.xml</value>
+                <value>com/ok/cfg/UserImg.hbm.xml</value>
+                <value>com/ok/cfg/UserHd.hbm.xml</value>
+                <value>com/ok/cfg/ShortMessage.hbm.xml</value>
+                <value>com/ok/cfg/MmfooHd.hbm.xml</value>
+                <value>com/ok/cfg/ImgSet.hbm.xml</value>
+                <value>com/ok/cfg/UserFriends.hbm.xml</value>
+                <value>com/ok/cfg/visitfooter.hbm.xml</value>
+                <value>com/ok/cfg/UserSee.hbm.xml</value>
+                <value>com/ok/cfg/TickFooter.hbm.xml</value>
+                <value>com/ok/cfg/PrivateMessage.hbm.xml</value>
+                <value>com/ok/cfg/Blacker.hbm.xml</value>
+                <value>com/ok/cfg/IndexImg.hbm.xml</value>
+                <value>com/ok/cfg/Comment.hbm.xml</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.generate_statistics">true</prop>
+                <prop key="hibernate.connection.release_mode">auto</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="cottonBase" class="com.ok.dao.OkBase">
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+        <property name="sessionfactory">
+            <ref local="sessionFactory"/>
+        </property>
+    </bean>
+
+    <bean id="userdao" class="com.ok.daoimpl.UserImpl" scope="prototype" parent="cottonBase">
+    </bean>
+    <bean id="userservice" class="com.ok.service.UserService" scope="prototype">
+        <property name="ud">
+            <ref local="userdao"/>
+        </property>
+    </bean>
+
+    <bean id="useraction" class="com.ok.action.UserAction" scope="prototype">
+        <property name="us">
+            <ref local="userservice"/>
+        </property>
+    </bean>
+    <bean id="newsdao" class="com.ok.daoimpl.NewsDaoImpl" parent="cottonBase" scope="prototype"/>
+    <bean id="admindao" class="com.ok.daoimpl.AdminDaoImpl" parent="cottonBase" scope="prototype"/>
+    <bean id="adminservice" class="com.ok.service.AdminService" scope="prototype">
+        <property name="ad">
+            <ref local="admindao"/>
+        </property>
+        
+    </bean>
+    <bean id="NewsService" class="com.ok.service.NewsService">
+        <property name="nd">
+            <ref local="newsdao"/>
+        </property>
+    </bean>
+    <bean id="adminaction" class="com.ok.action.AdminAction">
+        <property name="as">
+            <ref local="adminservice"/>
+        </property>
+        <property name="us">
+            <ref local="userservice"/>
+        </property>
+        <property name="ns">
+            <ref local="NewsService"/>
+        </property>
+    </bean>
+  <bean id="uloadAction" class="com.ok.action.uloadAction">
+      <property name="us">
+          <ref local="userservice"/>
+      </property>
+  </bean>
+
+</beans>

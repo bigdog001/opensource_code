@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main_contant{padding:15px 20px 0px 8px;width:926px}
+.sear{margin:0 0 0 195px; font-family:"宋体"}
+.sear .t_b{width:384px; height:42px; border:1px solid #BBBBBB; font-size:14px; line-height:42px; float:left;margin-right:10px;}
+.sear a{ background:url(../images/sear.jpg) no-repeat; width:70px; height:44px; line-height:44px; display:block; font-size:14px; color:#ffffff; font-family:"宋体";padding-left:57px; font-weight:700; float:left}
+.sear a:hover{ text-decoration:none;color:#ffffff}
+.sear .fl{ float:left;font-size:14px; color:#666666;margin-top:9px;width:400px}
+.sear .fl input{margin-right:2px}
+.result{ float:left;margin:80px 0 0 0;width:940px}
+.result span{ color:#666666; font-size:14px; font-weight:700}
+.result .searLi{padding-top:50px; float:left}
+.result .searLi li{ float:left;border-bottom:1px dashed #BBBBBB;padding:18px 0;width:940px;}
+.result .searLi li span{ display:block;width:181px; float:left; text-align:center; color:#666666; font-weight:normal; font-size:12px}
+.result .searLi .tu_bt{width:170px;padding:0 0 0 10px;}
+.result .searLi .tu_bt img{ float:left; border:1px solid #BBBBBB;}
+.result .searLi .tu_bt .TBT{ float:left;margin-left:10px; display:inline;width:105px; text-align:left}
+.result .searLi .tu_bt .TBT a{ text-decoration:none}
+.result .searLi .tu_bt .TBT b{width:105px; font-weight:normal; display:block}
+.result .searLi li span a{ text-decoration:underline}
+.result .searLi li span h2{ display:inline; color:#FF0099; font-size:12px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

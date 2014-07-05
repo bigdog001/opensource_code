@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.ok.bean.UserImg" table="userimg">
+
+        <id name="imgid" type="java.lang.Integer">
+            <column name="imgid" />
+            <generator class="native" />
+        </id>
+
+        <property name="setid" />
+        <property name="is_face" />
+        <property name="thumb_img" />
+        <property name="email" />
+        <property name="imgname" />
+        <property name="createtime" />
+        <property name="img_name" />
+        <property name="img_discribe" />
+        <property name="img_whosee" />
+    </class>
+
+</hibernate-mapping>

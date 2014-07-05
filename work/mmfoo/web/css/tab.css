@@ -1,0 +1,91 @@
+
+#organic-tabs ul {
+	list-style: none;
+	width: 252px;
+	border-bottom: 1px solid #ec008b;
+}
+#organic-tabs ul li a {
+	display: block;
+	padding: 4px;
+	color: #666;
+}
+#organic-tabs ul li a:hover {
+	background: #ec008b;
+	color: white;
+}
+#organic-tabs ul li:last-child a {
+	border: none;
+}
+#organic-tabs {
+	padding: 10px 0px;
+	margin: 0 0 15px 0;
+}
+#all-list-wrap {
+	float: left;
+	width: 100%;
+}
+#explore-nav {
+	overflow: hidden;
+	margin: 0 0 10px 0;
+	font-size: 12px;
+	float: left;
+}
+#explore-nav li {
+	float: right;
+	margin: 0 5px 0 0;
+}
+#explore-nav li.last {
+	margin-right: 0;
+}
+#explore-nav li a {
+	display: block;
+	padding: 5px;
+	background: #efefef;
+	color: white;
+	font-size: 10px;
+	text-align: center;
+	border: 0;
+	font-size: 12px;
+}
+#explore-nav li a:hover {
+	background-color: #111;
+}
+
+#jquerytuts, #core, #classics {
+	display: none;
+}
+#explore-nav li#ex-featured a {
+	background: #fff;
+}
+#explore-nav li#ex-core a {
+	background: #fff;
+}
+#explore-nav li#ex-jquery a {
+	background: #fff;
+}
+
+#explore-nav li#ex-featured a.current, ul#featured li a:hover {
+	background-color: #ec008b;
+	color: white;
+	text-decoration: none;
+}
+#explore-nav li#ex-core a.current, ul#core li a:hover {
+	background-color: #ec008b;
+	color: white;
+	text-decoration: none;
+}
+#explore-nav li#ex-jquery a.current, ul#jquerytuts li a:hover {
+	background-color: #ec008b;
+	color: white;
+	text-decoration: none;
+}
+#explore-nav li#ex-classics a.current, ul#classics li a:hover {
+	background-color: #ec008b;
+	color: white;
+	text-decoration: none;
+}
+#featured, #core, #jquery, #classics {
+	line-height: 24px;
+	overflow: hidden;
+	text-decoration: none;
+}
