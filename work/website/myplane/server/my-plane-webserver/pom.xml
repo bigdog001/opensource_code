@@ -34,18 +34,10 @@
         <jsr250-api.version>1.0</jsr250-api.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <hibernate-c3p0.version>3.3.1.GA</hibernate-c3p0.version>
-        <spring-aspects.version>2.0.6</spring-aspects.version>
-        <derby.db.version>10.6.1.0</derby.db.version>
+        <spring-aspects.version>2.0.6</spring-aspects.version>        
     </properties>
     
     <dependencies>
-        
-        <dependency> 
-            <groupId>org.apache.derby</groupId> 
-            <artifactId>derby</artifactId> 
-            <version>${derby.db.version}</version> 
-            <scope>test</scope> 
-        </dependency> 
         
         <!-- Junit================================ -->
         <dependency>
