@@ -32,7 +32,7 @@
 
                                 <div class="col-md-12 algin-center" style="margin:40px 0px 0px;">
                                     <button style="border: 1px solid #fff;border-bottom: 4px solid #fff;padding: 10px 20px;color:#fff;font-size:18px;line-height:36px;">
-                                        <span style="font-weight:bold;font-size:60px;line-height:30px;float:left;">+</span>飞机试驾</button>				
+                                        飞机试驾</button>				
                                 </div>
 
                             </div>
