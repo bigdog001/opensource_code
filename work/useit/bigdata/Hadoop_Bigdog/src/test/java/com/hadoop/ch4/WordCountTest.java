@@ -8,7 +8,7 @@ import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class WordCountTest {
+public class WordCountTest { 
 	/*** Mapper.Context类. */
 	private org.apache.hadoop.mapreduce.Mapper.Context mapContext;
 	/*** Reducer.Context类. */
