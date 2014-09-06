@@ -1,0 +1,210 @@
+.container{
+    width:1170px;
+}
+.diandi-header{
+    background:#1C8DE7;
+    height:350px;
+    width:100%;
+}
+.diandi-header h2{
+    font-family: 微软雅黑;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    padding-bottom:30px;
+}
+.diandi-header .header-content{
+    padding:20px 0px;
+}
+.diandi-header .strong-num{
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    color: #3FA757;
+}
+
+.diandi-header .txt{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.algin-center{
+    text-align: center;
+}
+.diandi-title{
+    font-size:21px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    color:#333333;
+    display:block;
+    padding:15px 0;
+}
+.diandi-fix-left{
+    padding-left:0;
+    padding-right:0;
+}
+.bug-fix{
+    font-size:16px;
+    font-style:normal;
+    text-decoration:none;
+    color:#FFFFFF;
+    background-color:#FF845B;
+    display:block;
+    width:100px;
+    text-align:center;
+    padding: 5px;
+}
+.product-sug{
+    font-size:12px;
+    font-style:normal;
+    text-decoration:none;
+    color:#FFFFFF;
+    background-color:#64B878;
+    display:block;
+    width:70px;
+    text-align:center;
+    padding: 3px;
+}
+.diandi-body{
+    padding: 30px;
+    font-size: 14px;
+    width:100%;
+    color:#666;
+}
+
+.diandi-item>a:link,.diandi-item>a:visited {
+    color: #3fa757;
+}
+
+
+.clear{
+    clear: both;
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner,a::-moz-focus-inner{
+    border:0;
+    padding:0;
+    outline:0
+}
+button{
+    background:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    vertical-align:middle;
+    line-height:normal;
+    cursor:pointer;
+    font-family:"Microsoft Yahei",sans-serif;
+}
+.button{
+    height:43px;
+    -webkit-border-radius:5px;
+    -webkit-background-clip:padding-box;
+    -moz-border-radius:5px;
+    -moz-background-clip:padding;
+    border-radius:5px;
+    background-clip:padding-box;
+    font-family:"Microsoft Yahei",sans-serif;
+    font-size:18px;
+    text-shadow:0 1px 1px rgba(0,0,0,.2);
+    line-height:43px;
+    text-transform:uppercase;
+    display:inline-block;
+    padding:0 25px;
+    white-space:nowrap;
+    border-bottom:0;
+    padding-top:2px;
+    -webkit-transition:background-color .1s linear -webkit-box-shadow .1s linear;
+    -moz-transition:background-color .1s linear -moz-box-shadow .1s linear;
+    -o-transition:background-color .1s linear box-shadow .1s linear;
+    -ms-transition:background-color .1s linear box-shadow .1s linear;
+    transition:background-color .1s linear box-shadow .1s linear;
+    background-color:#95999b;
+    -webkit-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #95999b;
+    -moz-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #95999b;
+    box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #95999b;
+    color:#fff;
+    position:relative;
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    -o-transform:translate3d(0,0,0);
+    -ms-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0)
+}
+.button:hover{
+    background-color:#9da1a2
+}
+.button:active{
+    -webkit-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #95999b;
+    -moz-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #95999b;
+    box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #95999b
+}
+.button:active{
+    -webkit-transform:translate3d(0,2px,0);
+    -moz-transform:translate3d(0,2px,0);
+    -o-transform:translate3d(0,2px,0);
+    -ms-transform:translate3d(0,2px,0);
+    transform:translate3d(0,2px,0)
+}
+.button.blue{
+    background-color:#3498db;
+    -webkit-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #3498db;
+    -moz-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #3498db;
+    box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #3498db;
+    color:#fff
+}
+.button.blue:hover{
+    background-color:#419fdd
+}
+.button.blue:active{
+    -webkit-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #3498db;
+    -moz-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #3498db;
+    box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #3498db
+}
+.button.green{
+    background-color:#4ec067;
+    -webkit-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #4ec067;
+    -moz-box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #4ec067;
+    box-shadow:0 2px 0 rgba(0,0,0,.15),0 2px 0 #4ec067;
+    color:#fff
+}
+.button.green:hover{
+    background-color:#59c471
+}
+.button.green:active{
+    -webkit-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #4ec067;
+    -moz-box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #4ec067;
+    box-shadow:0 0 0 rgba(0,0,0,.15),0 0 0 #4ec067
+}
+.button.green strong{
+    text-shadow:0 1px 1px rgba(15,146,70,.75);
+    display:block
+}
+.button.green span{
+    display:block;
+    color:#11773d;
+    font-size:12px;
+    text-shadow:0 1px 0 rgba(255,255,255,.29);
+    position:relative;
+    top:-17px
+}
+.button.green.big{
+    height:63px;
+    text-align:center
+}
+
+
+.diandi-item{
+    background-color:#fff;
+    height:200px;
+    margin-bottom:60px;
+}
