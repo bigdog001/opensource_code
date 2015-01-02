@@ -4,7 +4,7 @@
          <tlib-version>1.0</tlib-version>
          <short-name>bigdog</short-name>
          <uri>/bigdog-tags</uri>
-         <!-- 输出新闻列表标签  -->
+         <!-- 输出新闻列表标签123=======================  -->
          <tag>
              <description>输出新闻标签</description>
              <name>getIt</name>

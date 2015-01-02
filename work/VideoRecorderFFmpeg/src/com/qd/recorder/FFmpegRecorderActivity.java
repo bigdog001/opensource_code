@@ -1,67 +1,41 @@
 package com.qd.recorder;
 
-import static com.googlecode.javacv.cpp.opencv_core.IPL_DEPTH_8U;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.Buffer;
-import java.nio.ShortBuffer;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.YuvImage;
+import android.graphics.*;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
-import android.hardware.Camera.PreviewCallback;
 import android.hardware.Camera.Size;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.os.PowerManager;
+import android.os.*;
 import android.provider.MediaStore.Video;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
+import android.view.*;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
+import android.widget.*;
 import com.googlecode.javacv.FrameRecorder;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import com.qd.recorder.ProgressView.State;
 import com.qd.videorecorder.R;
+import com.usb.camera.android.CameraUtil;
+
+import java.io.*;
+import java.nio.Buffer;
+import java.nio.ShortBuffer;
+import java.util.Collections;
+import java.util.List;
+
+import static com.googlecode.javacv.cpp.opencv_core.IPL_DEPTH_8U;
 
 
 
@@ -70,62 +44,64 @@ import com.qd.videorecorder.R;
 
 public class FFmpegRecorderActivity extends Activity implements OnClickListener, OnTouchListener {
 
-	private final static String CLASS_LABEL = "RecordActivity";
-	private final static String LOG_TAG = CLASS_LABEL;
+    private final static String CLASS_LABEL = "RecordActivity";
+    private final static String LOG_TAG = CLASS_LABEL;
 
-	private PowerManager.WakeLock mWakeLock;
-	//ÊÓÆµÎÄ¼şµÄ´æ·ÅµØÖ·
-	private String strVideoPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "rec_video.mp4";
-	//ÊÓÆµÎÄ¼ş¶ÔÏó
-	private File fileVideoPath = null;
-	//ÊÓÆµÎÄ¼şÔÚÏµÍ³ÖĞ´æ·ÅµÄurl
-	private Uri uriVideoPath = null;
-	//ÅĞ¶ÏÊÇ·ñĞèÒªÂ¼ÖÆ£¬µã»÷ÏÂÒ»²½Ê±ÔİÍ£Â¼ÖÆ
-	private boolean rec = false;
-	//ÅĞ¶ÏÊÇ·ñĞèÒªÂ¼ÖÆ£¬ÊÖÖ¸°´ÏÂ¼ÌĞø£¬Ì§ÆğÊ±ÔİÍ£
-	boolean recording = false;
-	//ÅĞ¶ÏÊÇ·ñ¿ªÊ¼ÁËÂ¼ÖÆ£¬µÚÒ»´Î°´ÏÂÆÁÄ»Ê±ÉèÖÃÎªtrue
-	boolean	isRecordingStarted = false;
-	//ÊÇ·ñ¿ªÆôÉÁ¹âµÆ
-	boolean isFlashOn = false;
-	TextView txtTimer, txtRecordingSize;
-	//·Ö±ğÎªÉÁ¹âµÆ°´Å¥¡¢È¡Ïû°´Å¥¡¢ÏÂÒ»²½°´Å¥¡¢×ªÖÃÉãÏñÍ·°´Å¥
-	Button flashIcon = null,cancelBtn,nextBtn,switchCameraIcon = null;
-	boolean nextEnabled = false;
-	
-	//Â¼ÖÆÊÓÆµºÍ±£´æÒôÆµµÄÀà
-	private volatile NewFFmpegFrameRecorder videoRecorder;
-	
-	//ÅĞ¶ÏÊÇ·ñÊÇÇ°ÖÃÉãÏñÍ·
-	private boolean isPreviewOn = false;
-	//µ±Ç°Â¼ÖÆµÄÖÊÁ¿£¬»áÓ°ÏìÊÓÆµÇåÎú¶ÈºÍÎÄ¼ş´óĞ¡
-	private int currentResolution = CONSTANTS.RESOLUTION_MEDIUM_VALUE;
-	private Camera mCamera;
+    private CameraUtil cameraUtil;//usbç›¸æœºé€šä¿¡æ¨¡å—
 
-	//Ô¤ÀÀµÄ¿í¸ßºÍÆÁÄ»¿í¸ß
-	private int previewWidth = 480, screenWidth = 480;
-	private int previewHeight = 480, screenHeight = 800;
-	
-	//ÒôÆµµÄ²ÉÑùÂÊ£¬recorderParametersÖĞ»áÓĞÄ¬ÈÏÖµ
-	private int sampleRate = 44100;
-	//µ÷ÓÃÏµÍ³µÄÂ¼ÖÆÒôÆµÀà
-	private AudioRecord audioRecord; 
-	//Â¼ÖÆÒôÆµµÄÏß³Ì
-	private AudioRecordRunnable audioRecordRunnable;
-	private Thread audioThread;
-	//¿ªÆôºÍÍ£Ö¹Â¼ÖÆÒôÆµµÄ±ê¼Ç
-	volatile boolean runAudioThread = true;
+    private PowerManager.WakeLock mWakeLock;
+    //è§†é¢‘æ–‡ä»¶çš„å­˜æ”¾åœ°å€
+    private String strVideoPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "rec_video.mp4";
+    //è§†é¢‘æ–‡ä»¶å¯¹è±¡
+    private File fileVideoPath = null;
+    //è§†é¢‘æ–‡ä»¶åœ¨ç³»ç»Ÿä¸­å­˜æ”¾çš„url
+    private Uri uriVideoPath = null;
+    //åˆ¤æ–­æ˜¯å¦éœ€è¦å½•åˆ¶ï¼Œç‚¹å‡»ä¸‹ä¸€æ­¥æ—¶æš‚åœå½•åˆ¶
+    private boolean rec = false;
+    //åˆ¤æ–­æ˜¯å¦éœ€è¦å½•åˆ¶ï¼Œæ‰‹æŒ‡æŒ‰ä¸‹ç»§ç»­ï¼ŒæŠ¬èµ·æ—¶æš‚åœ
+    boolean recording = false;
+    //åˆ¤æ–­æ˜¯å¦å¼€å§‹äº†å½•åˆ¶ï¼Œç¬¬ä¸€æ¬¡æŒ‰ä¸‹å±å¹•æ—¶è®¾ç½®ä¸ºtrue
+    boolean	isRecordingStarted = false;
+    //æ˜¯å¦å¼€å¯é—ªå…‰ç¯
+    boolean isFlashOn = false;
+    TextView txtTimer, txtRecordingSize;
+    //åˆ†åˆ«ä¸ºé—ªå…‰ç¯æŒ‰é’®ã€å–æ¶ˆæŒ‰é’®ã€ä¸‹ä¸€æ­¥æŒ‰é’®ã€è½¬ç½®æ‘„åƒå¤´æŒ‰é’®
+    Button flashIcon = null,cancelBtn,nextBtn,switchCameraIcon = null;
+    boolean nextEnabled = false;
 
-	//ÉãÏñÍ·ÒÔ¼°ËüµÄ²ÎÊı
-	private Camera cameraDevice;
-	private CameraView cameraView;
-	Parameters cameraParameters = null;
-	//IplImage¶ÔÏó,ÓÃÓÚ´æ´¢ÉãÏñÍ··µ»ØµÄbyte[]£¬ÒÔ¼°Í¼Æ¬µÄ¿í¸ß£¬depth£¬channelµÈ
-	private IplImage yuvIplImage = null;
-	//·Ö±ğÎª Ä¬ÈÏÉãÏñÍ·£¨ºóÖÃ£©¡¢Ä¬ÈÏµ÷ÓÃÉãÏñÍ·µÄ·Ö±æÂÊ¡¢±»Ñ¡ÔñµÄÉãÏñÍ·£¨Ç°ÖÃ»òÕßºóÖÃ£©
-	int defaultCameraId = -1, defaultScreenResolution = -1 , cameraSelection = 0;
+    //å½•åˆ¶è§†é¢‘å’Œä¿å­˜éŸ³é¢‘çš„ç±»
+    private volatile NewFFmpegFrameRecorder videoRecorder;
 
-	//Handler handler = new Handler();
+    //åˆ¤æ–­æ˜¯å¦æ˜¯å‰ç½®æ‘„åƒå¤´
+    private boolean isPreviewOn = false;
+    //å½“å‰å½•åˆ¶çš„è´¨é‡ï¼Œä¼šå½±å“è§†é¢‘æ¸…æ™°åº¦å’Œæ–‡ä»¶å¤§å°
+    private int currentResolution = CONSTANTS.RESOLUTION_MEDIUM_VALUE;
+    private Camera mCamera;
+
+    //é¢„è§ˆçš„å®½é«˜å’Œå±å¹•å®½é«˜
+    private int previewWidth = 480, screenWidth = 480;
+    private int previewHeight = 480, screenHeight = 800;
+
+    //éŸ³é¢‘çš„é‡‡æ ·ç‡ï¼ŒrecorderParametersä¸­ä¼šæœ‰é»˜è®¤å€¼
+    private int sampleRate = 44100;
+    //è°ƒç”¨ç³»ç»Ÿçš„å½•åˆ¶éŸ³é¢‘ç±»
+    private AudioRecord audioRecord;
+    //å½•åˆ¶éŸ³é¢‘çš„çº¿ç¨‹
+    private AudioRecordRunnable audioRecordRunnable;
+    private Thread audioThread;
+    //å¼€å¯å’Œåœæ­¢å½•åˆ¶éŸ³é¢‘çš„æ ‡è®°
+    volatile boolean runAudioThread = true;
+
+    //æ‘„åƒå¤´ä»¥åŠå®ƒçš„å‚æ•°
+    private Camera cameraDevice;
+    private CameraView cameraView;
+    Parameters cameraParameters = null;
+    //IplImageå¯¹è±¡,ç”¨äºå­˜å‚¨æ‘„åƒå¤´è¿”å›çš„byte[]ï¼Œä»¥åŠå›¾ç‰‡çš„å®½é«˜ï¼Œdepthï¼Œchannelç­‰
+    private IplImage yuvIplImage = null;
+    //åˆ†åˆ«ä¸º é»˜è®¤æ‘„åƒå¤´ï¼ˆåç½®ï¼‰ã€é»˜è®¤è°ƒç”¨æ‘„åƒå¤´çš„åˆ†è¾¨ç‡ã€è¢«é€‰æ‹©çš„æ‘„åƒå¤´ï¼ˆå‰ç½®æˆ–è€…åç½®ï¼‰
+    int defaultCameraId = -1, defaultScreenResolution = -1 , cameraSelection = 0;
+
+    //Handler handler = new Handler();
 	/*private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
 			if(rec)
@@ -134,1191 +110,1183 @@ public class FFmpegRecorderActivity extends Activity implements OnClickListener,
 		}
 	};*/
 
-	private Dialog dialog = null;
-	//°üº¬ÏÔÊ¾ÉãÏñÍ·Êı¾İµÄsurfaceView
-	RelativeLayout topLayout = null;
+    private Dialog dialog = null;
+    //åŒ…å«æ˜¾ç¤ºæ‘„åƒå¤´æ•°æ®çš„surfaceView
+    RelativeLayout topLayout = null;
 
-	//µÚÒ»´Î°´ÏÂÆÁÄ»Ê±¼ÇÂ¼µÄÊ±¼ä
-	long firstTime = 0;
-	//ÊÖÖ¸Ì§ÆğÊ±µÄÊ±¼ä
-	long startPauseTime = 0;
-	//Ã¿´Î°´ÏÂÊÖÖ¸ºÍÌ§ÆğÖ®¼äµÄÔİÍ£Ê±¼ä
-	long totalPauseTime = 0;
-	//ÊÖÖ¸Ì§ÆğÊ±µÄÊ±¼ä
-	long pausedTime = 0;
-	//×ÜµÄÔİÍ£Ê±¼ä
-	long stopPauseTime = 0;
-	//Â¼ÖÆµÄÓĞĞ§×ÜÊ±¼ä
-	long totalTime = 0;
-	//ÊÓÆµÖ¡ÂÊ
-	private int frameRate = 30;
-	//Â¼ÖÆµÄ×î³¤Ê±¼ä
-	private int recordingTime = 8000;
-	//Â¼ÖÆµÄ×î¶ÌÊ±¼ä
-	private int recordingMinimumTime = 6000;
-	//ÌáÊ¾»»¸ö³¡¾°
-	private int recordingChangeTime = 3000;
-	
-	boolean recordFinish = false;
-	private  Dialog creatingProgress;
-	
-	//ÒôÆµÊ±¼ä´Á
-	private volatile long mAudioTimestamp = 0L;
-	//ÒÔÏÂÁ½¸öÖ»×öÍ¬²½±êÖ¾£¬Ã»ÓĞÊµ¼ÊÒâÒå
-	private final int[] mVideoRecordLock = new int[0];
-	private final int[] mAudioRecordLock = new int[0];
-	private long mLastAudioTimestamp = 0L;
-	private volatile long mAudioTimeRecorded;
-	private long frameTime = 0L;
-	//Ã¿Ò»¬µÄÊı¾İ½á¹¹
-	private SavedFrames lastSavedframe = new SavedFrames(null,0L);
-	//ÊÓÆµÊ±¼ä´Á
-	private long mVideoTimestamp = 0L;
-	//ÊÇ·ñ±£´æ¹ıÊÓÆµÎÄ¼ş
-	private boolean isRecordingSaved = false;
-	private boolean isFinalizing = false;
-	
-	//½ø¶ÈÌõ
-	private ProgressView progressView;
-	//²¶»ñµÄµÚÒ»¬µÄÍ¼Æ¬
-	private String imagePath = null;
-	private RecorderState currentRecorderState = RecorderState.PRESS;
-	private ImageView stateImageView;
-	
-	private byte[] firstData = null;
-	
-	private Handler mHandler;
-	private void initHandler(){
-		mHandler = new Handler(){
-			@Override
-			public void dispatchMessage(Message msg) {
-				switch (msg.what) {			
-				case 2:
-					
-					//¶ÔÓÚµ±Ç°µÄ×´Ì¬½øĞĞÌáÊ¾
-					int resId = 0;
-					if(currentRecorderState == RecorderState.PRESS){
-						resId = R.drawable.video_text01;//ÏÔÊ¾°´×¡ÆÁÄ»ÈÎÒâÎ»ÖÃ¿ªÊ¼ÅÄÉã
-					}else if(currentRecorderState == RecorderState.LOOSEN){
-						resId = R.drawable.video_text02;//ËÉ¿ªÔİÍ£ÅÄÉã
-					}else if(currentRecorderState == RecorderState.CHANGE){
-						resId = R.drawable.video_text03;//»»¸ö³¡¾°¼ÌĞøÅÄÉã
-					}else if(currentRecorderState == RecorderState.SUCCESS){
-						resId = R.drawable.video_text04;//Íê³ÉÅÄÉã µã»÷ÏÂÒ»²½
-					}
-					stateImageView.setImageResource(resId);
-					break;
-					
-				case 3:
-					if(!recording)
-						initiateRecording(true);
-					else{
-						//¸üĞÂÔİÍ£µÄÊ±¼ä
-						stopPauseTime = System.currentTimeMillis();
-						totalPauseTime = stopPauseTime - startPauseTime - ((long) (1.0/(double)frameRate)*1000);
-						pausedTime += totalPauseTime;
-					}
-					rec = true;
-					//¿ªÊ¼½ø¶ÈÌõÔö³¤
-					progressView.setCurrentState(State.START);
-					//setTotalVideoTime();
-				break;
-				case 4:
-					//ÉèÖÃ½ø¶ÈÌõÔİÍ£×´Ì¬
-					progressView.setCurrentState(State.PAUSE);
-					//½«ÔİÍ£µÄÊ±¼ä´ÁÌí¼Óµ½½ø¶ÈÌõµÄ¶ÓÁĞÖĞ
-					progressView.putProgressList((int) totalTime);
-					rec = false;
-					startPauseTime = System.currentTimeMillis();
-					if(totalTime >= recordingMinimumTime){
-						currentRecorderState = RecorderState.SUCCESS;
-						mHandler.sendEmptyMessage(2);
-					}else if(totalTime >= recordingChangeTime){
-						currentRecorderState = RecorderState.CHANGE;
-						mHandler.sendEmptyMessage(2);
-					}
-					break;
-				case 5:
-					currentRecorderState = RecorderState.SUCCESS;
-					mHandler.sendEmptyMessage(2);
-					break;
-				default:
-					break;
-				}
-			}
-		};
-	}
-	
-	//neon¿â¶Ôopencv×öÁËÓÅ»¯
-	static {
-		System.loadLibrary("checkneon");
-	}
+    //ç¬¬ä¸€æ¬¡æŒ‰ä¸‹å±å¹•æ—¶è®°å½•çš„æ—¶é—´
+    long firstTime = 0;
+    //æ‰‹æŒ‡æŠ¬èµ·æ—¶çš„æ—¶é—´
+    long startPauseTime = 0;
+    //æ¯æ¬¡æŒ‰ä¸‹æ‰‹æŒ‡å’ŒæŠ¬èµ·ä¹‹é—´çš„æš‚åœæ—¶é—´
+    long totalPauseTime = 0;
+    //æ‰‹æŒ‡æŠ¬èµ·æ—¶çš„æ—¶é—´
+    long pausedTime = 0;
+    //æ€»çš„æš‚åœæ—¶é—´
+    long stopPauseTime = 0;
+    //å½•åˆ¶çš„æœ‰æ•ˆæ€»æ—¶é—´
+    long totalTime = 0;
+    //è§†é¢‘å¸§ç‡
+    private int frameRate = 30;
+    //å½•åˆ¶çš„æœ€é•¿æ—¶é—´
+    private int recordingTime = 8000;
+    //å½•åˆ¶çš„æœ€çŸ­æ—¶é—´
+    private int recordingMinimumTime = 6000;
+    //æç¤ºæ¢ä¸ªåœºæ™¯
+    private int recordingChangeTime = 3000;
 
-	public native static int  checkNeonFromJNI();
-	private boolean initSuccess = false;
+    boolean recordFinish = false;
+    private  Dialog creatingProgress;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    //éŸ³é¢‘æ—¶é—´æˆ³
+    private volatile long mAudioTimestamp = 0L;
+    //ä»¥ä¸‹ä¸¤ä¸ªåªåšåŒæ­¥æ ‡å¿—ï¼Œæ²¡æœ‰å®é™…æ„ä¹‰
+    private final int[] mVideoRecordLock = new int[0];
+    private final int[] mAudioRecordLock = new int[0];
+    private long mLastAudioTimestamp = 0L;
+    private volatile long mAudioTimeRecorded;
+    private long frameTime = 0L;
+    //æ¯ä¸€å¹€çš„æ•°æ®ç»“æ„
+    private SavedFrames lastSavedframe = new SavedFrames(null,0L);
+    //è§†é¢‘æ—¶é—´æˆ³
+    private long mVideoTimestamp = 0L;
+    //æ˜¯å¦ä¿å­˜è¿‡è§†é¢‘æ–‡ä»¶
+    private boolean isRecordingSaved = false;
+    private boolean isFinalizing = false;
 
-		setContentView(R.layout.activity_recorder);
+    //è¿›åº¦æ¡
+    private ProgressView progressView;
+    //æ•è·çš„ç¬¬ä¸€å¹€çš„å›¾ç‰‡
+    private String imagePath = null;
+    private RecorderState currentRecorderState = RecorderState.PRESS;
+    private ImageView stateImageView;
 
-		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE); 
-		mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, CLASS_LABEL); 
-		mWakeLock.acquire(); 
+    private byte[] firstData = null;
 
-		DisplayMetrics displaymetrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-		//Find screen dimensions
-		screenWidth = displaymetrics.widthPixels;
-		screenHeight = displaymetrics.heightPixels;
-		
-		initHandler();
-		
-		initLayout();
-	}
-	
-	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
-		if(!initSuccess)
-			return false;
-		return super.dispatchTouchEvent(ev);
-	}
+    private Handler mHandler;
+    private void initHandler(){
+        mHandler = new Handler(){
+            @Override
+            public void dispatchMessage(Message msg) {
+                switch (msg.what) {
+                    case 2:
 
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		mHandler.sendEmptyMessage(2);
-		
-		if (mWakeLock == null) {
-			//»ñÈ¡»½ĞÑËø,±£³ÖÆÁÄ»³£ÁÁ
-			PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-			mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, CLASS_LABEL);
-			mWakeLock.acquire();
-		}
-	}
+                        //å¯¹äºå½“å‰çš„çŠ¶æ€è¿›è¡Œæç¤º
+                        int resId = 0;
+                        if(currentRecorderState == RecorderState.PRESS){
+                            resId = R.drawable.video_text01;//æ˜¾ç¤ºæŒ‰ä½å±å¹•ä»»æ„ä½ç½®å¼€å§‹æ‹æ‘„
+                        }else if(currentRecorderState == RecorderState.LOOSEN){
+                            resId = R.drawable.video_text02;//æ¾å¼€æš‚åœæ‹æ‘„
+                        }else if(currentRecorderState == RecorderState.CHANGE){
+                            resId = R.drawable.video_text03;//æ¢ä¸ªåœºæ™¯ç»§ç»­æ‹æ‘„
+                        }else if(currentRecorderState == RecorderState.SUCCESS){
+                            resId = R.drawable.video_text04;//å®Œæˆæ‹æ‘„ ç‚¹å‡»ä¸‹ä¸€æ­¥
+                        }
+                        stateImageView.setImageResource(resId);
+                        break;
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		if(!isFinalizing)
-			finish();
-		
-		if (mWakeLock != null) {
-			mWakeLock.release();
-			mWakeLock = null;
-		}
-	}
+                    case 3:
+                        if(!recording)
+                            initiateRecording(true);
+                        else{
+                            //æ›´æ–°æš‚åœçš„æ—¶é—´
+                            stopPauseTime = System.currentTimeMillis();
+                            totalPauseTime = stopPauseTime - startPauseTime - ((long) (1.0/(double)frameRate)*1000);
+                            pausedTime += totalPauseTime;
+                        }
+                        rec = true;
+                        //å¼€å§‹è¿›åº¦æ¡å¢é•¿
+                        progressView.setCurrentState(State.START);
+                        //setTotalVideoTime();
+                        break;
+                    case 4:
+                        //è®¾ç½®è¿›åº¦æ¡æš‚åœçŠ¶æ€
+                        progressView.setCurrentState(State.PAUSE);
+                        //å°†æš‚åœçš„æ—¶é—´æˆ³æ·»åŠ åˆ°è¿›åº¦æ¡çš„é˜Ÿåˆ—ä¸­
+                        progressView.putProgressList((int) totalTime);
+                        rec = false;
+                        startPauseTime = System.currentTimeMillis();
+                        if(totalTime >= recordingMinimumTime){
+                            currentRecorderState = RecorderState.SUCCESS;
+                            mHandler.sendEmptyMessage(2);
+                        }else if(totalTime >= recordingChangeTime){
+                            currentRecorderState = RecorderState.CHANGE;
+                            mHandler.sendEmptyMessage(2);
+                        }
+                        break;
+                    case 5:
+                        currentRecorderState = RecorderState.SUCCESS;
+                        mHandler.sendEmptyMessage(2);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+    }
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		//Log.i("video", this.getLocalClassName()+"¡ªdestory");
-		recording = false;
-		runAudioThread = false;
-		
-		releaseResources();
-			
-		if (cameraView != null) {
-			cameraView.stopPreview();
-			if(cameraDevice != null){
-				cameraDevice.setPreviewCallback(null);
-				cameraDevice.release();
-			}
-			cameraDevice = null;
-		}
-		firstData = null;
-		mCamera = null;
-		cameraView = null;
-		if (mWakeLock != null) {
-			mWakeLock.release();
-			mWakeLock = null;
-		}
-	}
-	private void initLayout()
-	{
-		stateImageView = (ImageView) findViewById(R.id.recorder_surface_state);
-		
-		progressView = (ProgressView) findViewById(R.id.recorder_progress);
-		cancelBtn = (Button) findViewById(R.id.recorder_cancel);
-		cancelBtn.setOnClickListener(this);
-		nextBtn = (Button) findViewById(R.id.recorder_next);
-		nextBtn.setOnClickListener(this);
-		//txtTimer = (TextView)findViewById(R.id.txtTimer);
-		flashIcon = (Button)findViewById(R.id.recorder_flashlight);
-		switchCameraIcon = (Button)findViewById(R.id.recorder_frontcamera);
-		flashIcon.setOnClickListener(this);
-		
-		if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
-			switchCameraIcon.setVisibility(View.VISIBLE);
-		}
-		initCameraLayout();
-	}
+    //neonåº“å¯¹opencvåšäº†ä¼˜åŒ–
+    static {
+        System.loadLibrary("checkneon");
+    }
 
-	private void initCameraLayout() {
-		new AsyncTask<String, Integer, Boolean>(){
+    public native static int  checkNeonFromJNI();
+    private boolean initSuccess = false;
 
-			@Override
-			protected Boolean doInBackground(String... params) {
-				boolean result = setCamera();
-				
-				if(!initSuccess){
-					
-					initVideoRecorder();//³õÊ¼»¯¿ÌÂ¼Ïß³Ì
-					startRecording();//Æô¶¯¿ÌÂ¼Ïß³ÌºÍÂ¼ÒôÏß³Ì
-					
-					initSuccess = true;
-				}
-				
-				return result;
-			}
-			
-			@Override
-			protected void onPostExecute(Boolean result) {
-				if(!result || cameraDevice == null){
-					//FuncCore.showToast(FFmpegRecorderActivity.this, "ÎŞ·¨Á¬½Óµ½Ïà»ú");
-					finish();
-					return;
-				}
-				
-				topLayout = (RelativeLayout) findViewById(R.id.recorder_surface_parent);
-				if(topLayout != null && topLayout.getChildCount() > 0)
-					topLayout.removeAllViews();
-				
-				cameraView = new CameraView(FFmpegRecorderActivity.this, cameraDevice);//ÓÃÏà»ú¶ÔÏó³õÊ¼»¯ÏÔÊ¾»­ÃæµÄsurfaceview È¡µ½µÄ»­ÃæÏÔÊ¾ÔÚÕâ¸ösurfaceviewÉÏ
-				
-				handleSurfaceChanged();
-				//ÉèÖÃsurfaceµÄ¿í¸ß
-				RelativeLayout.LayoutParams layoutParam1 = new RelativeLayout.LayoutParams(screenWidth,(int) (screenWidth*(previewWidth/(previewHeight*1f))));
-				layoutParam1.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-				//int margin = Util.calculateMargin(previewWidth, screenWidth);
-				//layoutParam1.setMargins(0,margin,0,margin);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-				RelativeLayout.LayoutParams layoutParam2 = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
-				layoutParam2.topMargin = screenWidth;
-				
-				View view = new View(FFmpegRecorderActivity.this);
-				view.setFocusable(false);
-				view.setBackgroundColor(Color.BLACK);
-				view.setFocusableInTouchMode(false);
-				
-				topLayout.addView(cameraView, layoutParam1);
-				topLayout.addView(view,layoutParam2);
-				
-				topLayout.setOnTouchListener(FFmpegRecorderActivity.this);
-				
-				switchCameraIcon.setOnClickListener(FFmpegRecorderActivity.this);
-				if(cameraSelection == CameraInfo.CAMERA_FACING_FRONT)
-					flashIcon.setVisibility(View.GONE);
-				else
-					flashIcon.setVisibility(View.VISIBLE);
-			}
-			
-		}.execute("start");
-	}
+        setContentView(R.layout.activity_recorder);
 
-	private boolean setCamera()
-	{
-		try
-		{
-			
-			if(Build.VERSION.SDK_INT > Build.VERSION_CODES.FROYO)
-			{
-				int numberOfCameras = Camera.getNumberOfCameras();
-				
-				CameraInfo cameraInfo = new CameraInfo();
-				for (int i = 0; i < numberOfCameras; i++) {
-					Camera.getCameraInfo(i, cameraInfo);
-					if (cameraInfo.facing == cameraSelection) {
-						defaultCameraId = i;
-					}
-				}
-			}
-			stopPreview();
-			if(mCamera != null)
-				mCamera.release();
-			
-			if(defaultCameraId >= 0)
-				cameraDevice = Camera.open(defaultCameraId);
-			else
-				cameraDevice = Camera.open();
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        mWakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, CLASS_LABEL);
+        mWakeLock.acquire();
 
-		}
-		catch(Exception e)
-		{	
-			return false;
-		}
-		return true;
-	}
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        //Find screen dimensions
+        screenWidth = displaymetrics.widthPixels;
+        screenHeight = displaymetrics.heightPixels;
 
 
-	private void initVideoRecorder() {
-		strVideoPath = Util.createFinalPath(this);//Util.createTempPath(tempFolderPath); ³õÊ¼»¯Â¼ÏñÎÄ¼şµÄ´æ´¢Â·¾¶
-		
-		RecorderParameters recorderParameters = Util.getRecorderParameter(currentResolution);//»ñÈ¡²¢³õÊ¼»¯¿ÌÂ¼Ê±²ÎÊı
-		sampleRate = recorderParameters.getAudioSamplingRate();
-		frameRate = recorderParameters.getVideoFrameRate();
-		frameTime = (1000000L / frameRate);
-		
-		fileVideoPath = new File(strVideoPath); 
-		videoRecorder = new NewFFmpegFrameRecorder(strVideoPath, 480, 480, 1);
-		videoRecorder.setFormat(recorderParameters.getVideoOutputFormat());
-		videoRecorder.setSampleRate(recorderParameters.getAudioSamplingRate());
-		videoRecorder.setFrameRate(recorderParameters.getVideoFrameRate());
-		videoRecorder.setVideoCodec(recorderParameters.getVideoCodec());
-		videoRecorder.setVideoQuality(recorderParameters.getVideoQuality()); 
-		videoRecorder.setAudioQuality(recorderParameters.getVideoQuality());
-		videoRecorder.setAudioCodec(recorderParameters.getAudioCodec());
-		videoRecorder.setVideoBitrate(recorderParameters.getVideoBitrate());
-		videoRecorder.setAudioBitrate(recorderParameters.getAudioBitrate());
-		
-		audioRecordRunnable = new AudioRecordRunnable();
-		audioThread = new Thread(audioRecordRunnable);
-	}
 
-	public void startRecording() {
+        initHandler();
 
-		try {
-			videoRecorder.start();//Æô¶¯¿ÌÂ¼Ïß³Ì
-			audioThread.start();//Æô¶¯Â¼ÒôÏß³Ì
+        initLayout();
+    }
 
-		} catch (NewFFmpegFrameRecorder.Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Í£Ö¹Â¼ÖÆ
-	 * @author QD
-	 *
-	 */
-	public class AsyncStopRecording extends AsyncTask<Void,Integer,Void>{
-		
-		private ProgressBar bar;
-		private TextView progress;
-		@Override
-		protected void onPreExecute() {
-			isFinalizing = true;
-			recordFinish = true;
-			runAudioThread = false;
-			
-			//´´½¨´¦Àí½ø¶ÈÌõ
-			creatingProgress= new Dialog(FFmpegRecorderActivity.this,R.style.Dialog_loading_noDim);
-			Window dialogWindow = creatingProgress.getWindow();
-			WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-			lp.width = (int) (getResources().getDisplayMetrics().density*240);
-			lp.height = (int) (getResources().getDisplayMetrics().density*80);
-			lp.gravity = Gravity.CENTER;
-			dialogWindow.setAttributes(lp);
-			creatingProgress.setCanceledOnTouchOutside(false);
-			creatingProgress.setContentView(R.layout.activity_recorder_progress);
-			
-			progress = (TextView) creatingProgress.findViewById(R.id.recorder_progress_progresstext);
-			bar = (ProgressBar) creatingProgress.findViewById(R.id.recorder_progress_progressbar);
-			creatingProgress.show();
-			
-			//txtTimer.setVisibility(View.INVISIBLE);
-			//handler.removeCallbacks(mUpdateTimeTask);
-			super.onPreExecute();
-		}
-		
-		@Override
-		protected void onProgressUpdate(Integer... values) {
-			progress.setText(values[0]+"%");
-			bar.setProgress(values[0]);
-		}
-		
-		/**
-		 * ÒÀ¾İbyte[]ÀïµÄÊı¾İºÏ³ÉÒ»ÕÅbitmap£¬
-		 * ½Ø³É480*480£¬²¢ÇÒĞı×ª90¶Èºó£¬±£´æµ½ÎÄ¼ş
-		 * @param data
-		 */
-		private void getFirstCapture(byte[] data){
-			
-			publishProgress(10);
-			
-			String captureBitmapPath = CONSTANTS.CAMERA_FOLDER_PATH;
-			
-			captureBitmapPath = Util.createImagePath(FFmpegRecorderActivity.this);
-			YuvImage localYuvImage = new YuvImage(data, 17, previewWidth,previewHeight, null);
-			ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			FileOutputStream outStream = null;
-			
-			publishProgress(50);
-			
-			try {
-				File file = new File(captureBitmapPath);
-				if(!file.exists())
-					file.createNewFile();
-				localYuvImage.compressToJpeg(new Rect(0, 0, previewWidth, previewHeight),100, bos);
-				Bitmap localBitmap1 = BitmapFactory.decodeByteArray(bos.toByteArray(),
-						0,bos.toByteArray().length);
-				
-				bos.close();
-				
-				Matrix localMatrix = new Matrix();
-				if (cameraSelection == 0)
-					localMatrix.setRotate(90.0F);
-				else
-					localMatrix.setRotate(270.0F);
-				
-				Bitmap	localBitmap2 = Bitmap.createBitmap(localBitmap1, 0, 0,
-									localBitmap1.getHeight(),
-									localBitmap1.getHeight(),
-									localMatrix, true);
-				
-				publishProgress(70);
-				
-				ByteArrayOutputStream bos2 = new ByteArrayOutputStream();
-				localBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, bos2);
-					 
-				outStream = new FileOutputStream(captureBitmapPath);
-				outStream.write(bos2.toByteArray());
-				outStream.close();
-				
-				localBitmap1.recycle();
-				localBitmap2.recycle();
-				
-				publishProgress(90);
-				
-				isFirstFrame = false;
-				imagePath = captureBitmapPath;
-			} catch (FileNotFoundException e) {
-				isFirstFrame = true;
-				e.printStackTrace();
-			} catch (IOException e) {
-				isFirstFrame = true;
-				e.printStackTrace();
-			}        
-		}
-			
-		
-		@Override
-		protected Void doInBackground(Void... params) {
-			if(firstData != null)
-				getFirstCapture(firstData);
-			isFinalizing = false;
-			if (videoRecorder != null && recording) {
-				recording = false;
-				releaseResources();
-			}
-			publishProgress(100);
-			return null;
-		}
-		
-		@Override
-		protected void onPostExecute(Void result) {
-			creatingProgress.dismiss();
-			registerVideo();
-			returnToCaller(true);
-			videoRecorder = null;
-		}
-		
-	}
-	
-	/**
-	 * ·ÅÆúÊÓÆµÊ±µ¯³ö¿ò
-	 */
-	private void showCancellDialog(){
-		Util.showDialog(FFmpegRecorderActivity.this, "ÌáÊ¾", "È·¶¨Òª·ÅÆú±¾ÊÓÆµÂğ£¿", 2, new Handler(){
-			@Override
-			public void dispatchMessage(Message msg) {
-				if(msg.what == 1)
-					videoTheEnd(false);
-			}
-		});
-	}
-	
-	@Override
-	public void onBackPressed() {
-		if (recording) 
-			showCancellDialog();
-		else
-			videoTheEnd(false);
-	}
-
-	/**
-	 * Â¼ÖÆÒôÆµµÄÏß³Ì
-	 * @author QD
-	 *
-	 */
-	class AudioRecordRunnable implements Runnable {
-		
-		int bufferSize;
-		short[] audioData;
-		int bufferReadResult;
-		private final AudioRecord audioRecord;
-		public volatile boolean isInitialized;
-		private int mCount =0;
-		private AudioRecordRunnable()
-		{
-			bufferSize = AudioRecord.getMinBufferSize(sampleRate, 
-					AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
-			audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, 
-					AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT,bufferSize);
-			audioData = new short[bufferSize];
-		}
-
-		/**
-		 * shortBuffer°üº¬ÁËÒôÆµµÄÊı¾İºÍÆğÊ¼Î»ÖÃ
-		 * @param shortBuffer
-		 */
-		private void record(ShortBuffer shortBuffer)
-		{
-			try
-			{
-				synchronized (mAudioRecordLock)
-				{
-					if (videoRecorder != null)
-					{
-						this.mCount += shortBuffer.limit();
-						videoRecorder.record(0,new Buffer[] {shortBuffer});
-					}
-					return;
-				}
-			}
-			catch (FrameRecorder.Exception localException){}
-		}
-		
-		/**
-		 * ¸üĞÂÒôÆµµÄÊ±¼ä´Á
-		 */
-		private void updateTimestamp()
-		{
-			if (videoRecorder != null)
-			{
-				int i = Util.getTimeStampInNsFromSampleCounted(this.mCount);
-				if (mAudioTimestamp != i)
-				{
-					mAudioTimestamp = i;
-					mAudioTimeRecorded =  System.nanoTime();
-				}
-			}
-		}
-
-		public void run()
-		{
-			android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
-			this.isInitialized = false;
-			if(audioRecord != null)
-			{
-				//ÅĞ¶ÏÒôÆµÂ¼ÖÆÊÇ·ñ±»³õÊ¼»¯
-				while (this.audioRecord.getState() == 0)
-				{
-					try
-					{
-						Thread.sleep(100L);
-					}
-					catch (InterruptedException localInterruptedException)
-					{
-					}
-				}
-				this.isInitialized = true;
-				this.audioRecord.startRecording();
-				while (((runAudioThread) || (mVideoTimestamp > mAudioTimestamp)) && (mAudioTimestamp < (1000 * recordingTime)))
-				{
-					updateTimestamp();
-					bufferReadResult = this.audioRecord.read(audioData, 0, audioData.length);
-					if ((bufferReadResult > 0) && ((recording && rec) || (mVideoTimestamp > mAudioTimestamp)))
-						record(ShortBuffer.wrap(audioData, 0, bufferReadResult));
-				}
-				this.audioRecord.stop();
-				this.audioRecord.release();
-			}
-		}
-	}
-	
-	//»ñÈ¡µÚÒ»¬µÄÍ¼Æ¬
-	private boolean isFirstFrame = true;
-	
-		
-	/**
-	 * ÏÔÊ¾ÉãÏñÍ·µÄÄÚÈİ£¬ÒÔ¼°·µ»ØÉãÏñÍ·µÄÃ¿Ò»Ö¡Êı¾İ
-	 * @author QD
-	 *
-	 */
-	class CameraView extends SurfaceView implements SurfaceHolder.Callback, PreviewCallback {
-
-		private SurfaceHolder mHolder;
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(!initSuccess)
+            return false;
+        return super.dispatchTouchEvent(ev);
+    }
 
 
-		public CameraView(Context context, Camera camera) {
-			super(context);
-			mCamera = camera;
-			cameraParameters = mCamera.getParameters();
-			mHolder = getHolder();
-			mHolder.addCallback(CameraView.this);
-			mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-			mCamera.setPreviewCallback(CameraView.this);
-		}
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-		@Override
-		public void surfaceCreated(SurfaceHolder holder) {
-			try {
-				stopPreview();
-				mCamera.setPreviewDisplay(holder);
-			} catch (IOException exception) {
-				mCamera.release();
-				mCamera = null;
-			}
-		}
+    }
 
-		public void surfaceChanged(SurfaceHolder  holder, int format, int width, int height) {
-			if (isPreviewOn)
-				mCamera.stopPreview();
-			handleSurfaceChanged();
-			startPreview();  
-			mCamera.autoFocus(null);
-		}
+    @Override
+    protected void onPause() {
+        super.onPause();
 
-		@Override
-		public void surfaceDestroyed(SurfaceHolder holder) {
-			try {
-				mHolder.addCallback(null);
-				mCamera.setPreviewCallback(null);
-				
-			} catch (RuntimeException e) {
-			}
-		}
+    }
 
-		public void startPreview() {
-			if (!isPreviewOn && mCamera != null) {
-				isPreviewOn = true;
-				mCamera.startPreview();
-			}
-		}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Log.i("video", this.getLocalClassName()+"â€”destory");
+        recording = false;
+        runAudioThread = false;
 
-		public void stopPreview() {
-			if (isPreviewOn && mCamera != null) {
-				isPreviewOn = false;
-				mCamera.stopPreview();
-			}
-		}
-	private byte[] rotateYUV420Degree90(byte[] data, int imageWidth, int imageHeight) 
-	{
-		
-		byte [] yuv = new byte[imageWidth*imageHeight*3/2];
-	    // Rotate the Y luma
-	    int i = 0;
-	    for(int x = 0;x < imageWidth;x++)
-	    {
-	        for(int y = imageHeight-1;y >= 0;y--)                               
-	        {
-	            yuv[i] = data[y*imageWidth+x];
-	            i++;
-	        }
+        releaseResources();
 
-	    }
-	    // Rotate the U and V color components 
-	    i = imageWidth*imageHeight*3/2-1;
-	    for(int x = imageWidth-1;x > 0;x=x-2)
-	    {
-	        for(int y = 0;y < imageHeight/2;y++)                                
-	        {
-	            yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+x];
-	            i--;
-	            yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+(x-1)];
-	            i--;
-	        }
-	    }
-	    return yuv;
-	}
-	
-	private byte[] rotateYUV420Degree180(byte[] data, int imageWidth, int imageHeight) 
-	{
-		byte [] yuv = new byte[imageWidth*imageHeight*3/2];
-		int i = 0;
-		int count = 0;
+        firstData = null;
+        mCamera = null;
+        cameraView = null;
+        if (mWakeLock != null) {
+            mWakeLock.release();
+            mWakeLock = null;
+        }
+    }
+    private void initLayout()
+    {
+        stateImageView = (ImageView) findViewById(R.id.recorder_surface_state);
 
-		for (i = imageWidth * imageHeight - 1; i >= 0; i--) {
-			yuv[count] = data[i];
-			count++;
-		}
+        progressView = (ProgressView) findViewById(R.id.recorder_progress);
+        cancelBtn = (Button) findViewById(R.id.recorder_cancel);
+        cancelBtn.setOnClickListener(this);
+        nextBtn = (Button) findViewById(R.id.recorder_next);
+        nextBtn.setOnClickListener(this);
+        //txtTimer = (TextView)findViewById(R.id.txtTimer);
+        flashIcon = (Button)findViewById(R.id.recorder_flashlight);
+        switchCameraIcon = (Button)findViewById(R.id.recorder_frontcamera);
+        flashIcon.setOnClickListener(this);
 
-		i = imageWidth * imageHeight * 3 / 2 - 1;
-		for (i = imageWidth * imageHeight * 3 / 2 - 1; i >= imageWidth
-				* imageHeight; i -= 2) {
-			yuv[count++] = data[i - 1];
-			yuv[count++] = data[i];
-		}
-		return yuv;
-	}
-	
-	private byte[] rotateYUV420Degree270(byte[] data, int imageWidth, int imageHeight) 
-	{
-	    byte [] yuv = new byte[imageWidth*imageHeight*3/2];
-	    int nWidth = 0, nHeight = 0;
-	    int wh = 0;
-	    int uvHeight = 0;
-	    if(imageWidth != nWidth || imageHeight != nHeight)
-	    {
-	        nWidth = imageWidth;
-	        nHeight = imageHeight;
-	        wh = imageWidth * imageHeight;
-	        uvHeight = imageHeight >> 1;//uvHeight = height / 2
-	    }
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
+            switchCameraIcon.setVisibility(View.VISIBLE);
+        }
+        initCameraLayout();
+    }
 
-	    //Ğı×ªY
-	    int k = 0;
-	    for(int i = 0; i < imageWidth; i++) {
-	        int nPos = 0;
-	        for(int j = 0; j < imageHeight; j++) {
-	        	yuv[k] = data[nPos + i];
-	            k++;
-	            nPos += imageWidth;
-	        }
-	    }
+    private void initCameraLayout() {
+        new AsyncTask<String, Integer, Boolean>(){
 
-	    for(int i = 0; i < imageWidth; i+=2){
-	        int nPos = wh;
-	        for(int j = 0; j < uvHeight; j++) {
-	        	yuv[k] = data[nPos + i];
-	        	yuv[k + 1] = data[nPos + i + 1];
-	            k += 2;
-	            nPos += imageWidth;
-	        }
-	    }
-	    //ÕâÒ»²¿·Ö¿ÉÒÔÖ±½ÓĞı×ª270¶È£¬µ«ÊÇÍ¼ÏñÑÕÉ«²»¶Ô
-//	    // Rotate the Y luma
-//	    int i = 0;
-//	    for(int x = imageWidth-1;x >= 0;x--)
-//	    {
-//	        for(int y = 0;y < imageHeight;y++)                                 
-//	        {
-//	            yuv[i] = data[y*imageWidth+x];
-//	            i++;
-//	        }
-//
-//	    }
-//	    // Rotate the U and V color components 
-//		i = imageWidth*imageHeight;
-//	    for(int x = imageWidth-1;x > 0;x=x-2)
-//	    {
-//	        for(int y = 0;y < imageHeight/2;y++)                                
-//	        {
-//	            yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+x];
-//	            i++;
-//	            yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+(x-1)];
-//	            i++;
-//	        }
-//	    }
-	    return rotateYUV420Degree180(yuv,imageWidth,imageHeight);
-	}
-	
-	public byte[] cropYUV420(byte[] data,int imageW,int imageH,int newImageH){
-		int cropH;
-		int i,j,count,tmp;
-		byte[] yuv = new byte[imageW*newImageH*3/2];
- 
-		cropH = (imageH - newImageH)/2;
- 
-		count = 0;
-		for(j=cropH;j<cropH+newImageH;j++){
-			for(i=0;i<imageW;i++){
-				yuv[count++] = data[j*imageW+i];
-			}
-		}
- 
-		//Cr Cb
-		tmp = imageH+cropH/2;
-		for(j=tmp;j<tmp + newImageH/2;j++){
-			for(i=0;i<imageW;i++){
-				yuv[count++] = data[j*imageW+i];
-			}
-		}
- 
-		return yuv;
-	}
-								
-	
-	//Ã¿Ò»Ö¡»­ÃæÀ´µ½µÄÊ±ºòµ÷ÓÃ
-	@Override
-	public void onPreviewFrame(byte[] data, Camera camera) {
-		//¼ÆËãÊ±¼ä´Á
-		long frameTimeStamp = 0L;
-		if(mAudioTimestamp == 0L && firstTime > 0L)
-			frameTimeStamp = 1000L * (System.currentTimeMillis() -firstTime);
-		else if (mLastAudioTimestamp == mAudioTimestamp)
-			frameTimeStamp = mAudioTimestamp + frameTime;
-		else
-		{
-			long l2 = (System.nanoTime() - mAudioTimeRecorded) / 1000L;
-			frameTimeStamp = l2 + mAudioTimestamp;
-			mLastAudioTimestamp = mAudioTimestamp;
-		}
-		
-		//Â¼ÖÆÊÓÆµ
-		synchronized (mVideoRecordLock) {
-			if (recording && rec && lastSavedframe != null && lastSavedframe.getFrameBytesData() != null && yuvIplImage != null) 
-			{
-				//±£´æÄ³Ò»¬µÄÍ¼Æ¬
-				if(isFirstFrame){
-					isFirstFrame = false;
-					firstData = data;
+            @Override
+            protected Boolean doInBackground(String... params) {
+//				boolean result = setCamera();
+
+                if(!initSuccess){
+
+                    initVideoRecorder();//åˆå§‹åŒ–åˆ»å½•çº¿ç¨‹
+                    startRecording();//å¯åŠ¨åˆ»å½•çº¿ç¨‹å’Œå½•éŸ³çº¿ç¨‹
+
+                    initSuccess = true;
+                }
+
+                return true;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean result) {
+                if(!result ){
+                    //FuncCore.showToast(FFmpegRecorderActivity.this, "æ— æ³•è¿æ¥åˆ°ç›¸æœº");
+                    finish();
+                    return;
+                }
+
+                topLayout = (RelativeLayout) findViewById(R.id.recorder_surface_parent);
+                if(topLayout != null && topLayout.getChildCount() > 0)
+                    topLayout.removeAllViews();
+
+                cameraView = new CameraView(FFmpegRecorderActivity.this);//ç”¨ç›¸æœºå¯¹è±¡åˆå§‹åŒ–æ˜¾ç¤ºç”»é¢çš„surfaceview å–åˆ°çš„ç”»é¢æ˜¾ç¤ºåœ¨è¿™ä¸ªsurfaceviewä¸Š
+
+                handleSurfaceChanged();
+                //è®¾ç½®surfaceçš„å®½é«˜
+                RelativeLayout.LayoutParams layoutParam1 = new RelativeLayout.LayoutParams(screenWidth,(int) (screenWidth*(previewWidth/(previewHeight*1f))));
+                layoutParam1.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+                //int margin = Util.calculateMargin(previewWidth, screenWidth);
+                //layoutParam1.setMargins(0,margin,0,margin);
+
+                RelativeLayout.LayoutParams layoutParam2 = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+                layoutParam2.topMargin = screenWidth;
+
+                View view = new View(FFmpegRecorderActivity.this);
+                view.setFocusable(false);
+                view.setBackgroundColor(Color.BLACK);
+                view.setFocusableInTouchMode(false);
+
+                topLayout.addView(cameraView, layoutParam1);
+                topLayout.addView(view,layoutParam2);
+
+                topLayout.setOnTouchListener(FFmpegRecorderActivity.this);
+
+                switchCameraIcon.setOnClickListener(FFmpegRecorderActivity.this);
+                if(cameraSelection == CameraInfo.CAMERA_FACING_FRONT)
+                    flashIcon.setVisibility(View.GONE);
+                else
+                    flashIcon.setVisibility(View.VISIBLE);
+            }
+
+        }.execute("start");
+    }
+
+    private boolean setCamera()
+    {
+        try
+        {
+
+            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.FROYO)
+            {
+                int numberOfCameras = Camera.getNumberOfCameras();
+
+                CameraInfo cameraInfo = new CameraInfo();
+                for (int i = 0; i < numberOfCameras; i++) {
+                    Camera.getCameraInfo(i, cameraInfo);
+                    if (cameraInfo.facing == cameraSelection) {
+                        defaultCameraId = i;
+                    }
+                }
+            }
+
+            if(mCamera != null)
+                mCamera.release();
+
+            if(defaultCameraId >= 0)
+                cameraDevice = Camera.open(defaultCameraId);
+            else
+                cameraDevice = Camera.open();
+
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+    private void initVideoRecorder() {
+        strVideoPath = Util.createFinalPath(this);//Util.createTempPath(tempFolderPath); åˆå§‹åŒ–å½•åƒæ–‡ä»¶çš„å­˜å‚¨è·¯å¾„
+
+        RecorderParameters recorderParameters = Util.getRecorderParameter(currentResolution);//è·å–å¹¶åˆå§‹åŒ–åˆ»å½•æ—¶å‚æ•°
+        sampleRate = recorderParameters.getAudioSamplingRate();
+        frameRate = recorderParameters.getVideoFrameRate();
+        frameTime = (1000000L / frameRate);
+
+        fileVideoPath = new File(strVideoPath);
+        videoRecorder = new NewFFmpegFrameRecorder(strVideoPath, 480, 480, 1);
+        videoRecorder.setFormat(recorderParameters.getVideoOutputFormat());
+        videoRecorder.setSampleRate(recorderParameters.getAudioSamplingRate());
+        videoRecorder.setFrameRate(recorderParameters.getVideoFrameRate());
+        videoRecorder.setVideoCodec(recorderParameters.getVideoCodec());
+        videoRecorder.setAudioQuality(recorderParameters.getVideoQuality());
+        videoRecorder.setAudioCodec(recorderParameters.getAudioCodec());
+        videoRecorder.setVideoBitrate(recorderParameters.getVideoBitrate());
+        videoRecorder.setAudioBitrate(recorderParameters.getAudioBitrate());
+
+
+        Log.d("bigdog","videoRecorder.fileVideoPath="+fileVideoPath);
+        Log.d("bigdog","videoRecorder.Format="+recorderParameters.getVideoOutputFormat());
+        Log.d("bigdog","videoRecorder.SampleRate="+recorderParameters.getAudioSamplingRate());
+        Log.d("bigdog","videoRecorder.FrameRate="+recorderParameters.getVideoFrameRate());
+        Log.d("bigdog","videoRecorder.VideoCodec="+recorderParameters.getVideoCodec());
+        Log.d("bigdog","videoRecorder.VideoQuality="+recorderParameters.getVideoQuality());
+        Log.d("bigdog","videoRecorder.AudioCodec="+recorderParameters.getAudioCodec());
+        Log.d("bigdog","videoRecorder.VideoBitrate="+recorderParameters.getVideoBitrate());
+        Log.d("bigdog","videoRecorder.AudioBitrate="+recorderParameters.getAudioBitrate());
+
+        audioRecordRunnable = new AudioRecordRunnable();
+//		audioThread = new Thread(audioRecordRunnable);
+    }
+
+    public void startRecording() {
+
+        try {
+            videoRecorder.start();//å¯åŠ¨åˆ»å½•çº¿ç¨‹
+//			audioThread.start();//å¯åŠ¨å½•éŸ³çº¿ç¨‹
+
+        } catch (NewFFmpegFrameRecorder.Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * åœæ­¢å½•åˆ¶
+     * @author QD
+     *
+     */
+    public class AsyncStopRecording extends AsyncTask<Void,Integer,Void>{
+
+        private ProgressBar bar;
+        private TextView progress;
+        @Override
+        protected void onPreExecute() {
+            isFinalizing = true;
+            recordFinish = true;
+            runAudioThread = false;
+
+            //åˆ›å»ºå¤„ç†è¿›åº¦æ¡
+            creatingProgress= new Dialog(FFmpegRecorderActivity.this,R.style.Dialog_loading_noDim);
+            Window dialogWindow = creatingProgress.getWindow();
+            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+            lp.width = (int) (getResources().getDisplayMetrics().density*240);
+            lp.height = (int) (getResources().getDisplayMetrics().density*80);
+            lp.gravity = Gravity.CENTER;
+            dialogWindow.setAttributes(lp);
+            creatingProgress.setCanceledOnTouchOutside(false);
+            creatingProgress.setContentView(R.layout.activity_recorder_progress);
+
+            progress = (TextView) creatingProgress.findViewById(R.id.recorder_progress_progresstext);
+            bar = (ProgressBar) creatingProgress.findViewById(R.id.recorder_progress_progressbar);
+            creatingProgress.show();
+
+            //txtTimer.setVisibility(View.INVISIBLE);
+            //handler.removeCallbacks(mUpdateTimeTask);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            progress.setText(values[0]+"%");
+            bar.setProgress(values[0]);
+        }
+
+        /**
+         * ä¾æ®byte[]é‡Œçš„æ•°æ®åˆæˆä¸€å¼ bitmapï¼Œ
+         * æˆªæˆ480*480ï¼Œå¹¶ä¸”æ—‹è½¬90åº¦åï¼Œä¿å­˜åˆ°æ–‡ä»¶
+         * @param data
+         */
+        private void getFirstCapture(byte[] data){
+
+            publishProgress(10);
+
+            String captureBitmapPath = CONSTANTS.CAMERA_FOLDER_PATH;
+
+            captureBitmapPath = Util.createImagePath(FFmpegRecorderActivity.this);
+            YuvImage localYuvImage = new YuvImage(data, 17, previewWidth,previewHeight, null);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            FileOutputStream outStream = null;
+
+            publishProgress(50);
+
+            try {
+                File file = new File(captureBitmapPath);
+                if(!file.exists())
+                    file.createNewFile();
+                localYuvImage.compressToJpeg(new Rect(0, 0, previewWidth, previewHeight),100, bos);
+                Bitmap localBitmap1 = BitmapFactory.decodeByteArray(bos.toByteArray(),
+                        0,bos.toByteArray().length);
+
+                bos.close();
+
+                Matrix localMatrix = new Matrix();
+                if (cameraSelection == 0)
+                    localMatrix.setRotate(90.0F);
+                else
+                    localMatrix.setRotate(270.0F);
+
+                Bitmap	localBitmap2 = Bitmap.createBitmap(localBitmap1, 0, 0,
+                        localBitmap1.getHeight(),
+                        localBitmap1.getHeight(),
+                        localMatrix, true);
+
+                publishProgress(70);
+
+                ByteArrayOutputStream bos2 = new ByteArrayOutputStream();
+                localBitmap2.compress(Bitmap.CompressFormat.JPEG, 100, bos2);
+
+                outStream = new FileOutputStream(captureBitmapPath);
+                outStream.write(bos2.toByteArray());
+                outStream.close();
+
+                localBitmap1.recycle();
+                localBitmap2.recycle();
+
+                publishProgress(90);
+
+                isFirstFrame = false;
+                imagePath = captureBitmapPath;
+            } catch (FileNotFoundException e) {
+                isFirstFrame = true;
+                e.printStackTrace();
+            } catch (IOException e) {
+                isFirstFrame = true;
+                e.printStackTrace();
+            }
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            if(firstData != null)
+                getFirstCapture(firstData);
+            isFinalizing = false;
+            if (videoRecorder != null && recording) {
+                recording = false;
+                releaseResources();
+            }
+            publishProgress(100);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            creatingProgress.dismiss();
+            registerVideo();
+            returnToCaller(true);
+            videoRecorder = null;
+        }
+
+    }
+
+    /**
+     * æ”¾å¼ƒè§†é¢‘æ—¶å¼¹å‡ºæ¡†
+     */
+    private void showCancellDialog(){
+        Util.showDialog(FFmpegRecorderActivity.this, "æç¤º", "ç¡®å®šè¦æ”¾å¼ƒæœ¬è§†é¢‘å—ï¼Ÿ", 2, new Handler(){
+            @Override
+            public void dispatchMessage(Message msg) {
+                if(msg.what == 1)
+                    videoTheEnd(false);
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (recording)
+            showCancellDialog();
+        else
+            videoTheEnd(false);
+    }
+
+    /**
+     * å½•åˆ¶éŸ³é¢‘çš„çº¿ç¨‹
+     * @author QD
+     *
+     */
+    class AudioRecordRunnable implements Runnable {
+
+        int bufferSize;
+        short[] audioData;
+        int bufferReadResult;
+        private final AudioRecord audioRecord;
+        public volatile boolean isInitialized;
+        private int mCount =0;
+        private AudioRecordRunnable()
+        {
+            bufferSize = AudioRecord.getMinBufferSize(sampleRate,
+                    AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
+            audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate,
+                    AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT,bufferSize);
+            audioData = new short[bufferSize];
+        }
+
+        /**
+         * shortBufferåŒ…å«äº†éŸ³é¢‘çš„æ•°æ®å’Œèµ·å§‹ä½ç½®
+         * @param shortBuffer
+         */
+        private void record(ShortBuffer shortBuffer)
+        {
+            try
+            {
+                synchronized (mAudioRecordLock)
+                {
+                    if (videoRecorder != null)
+                    {
+                        this.mCount += shortBuffer.limit();
+                        videoRecorder.record(0,new Buffer[] {shortBuffer});
+                    }
+                    return;
+                }
+            }
+            catch (FrameRecorder.Exception localException){}
+        }
+
+        /**
+         * æ›´æ–°éŸ³é¢‘çš„æ—¶é—´æˆ³
+         */
+        private void updateTimestamp()
+        {
+            if (videoRecorder != null)
+            {
+                int i = Util.getTimeStampInNsFromSampleCounted(this.mCount);
+                if (mAudioTimestamp != i)
+                {
+                    mAudioTimestamp = i;
+                    mAudioTimeRecorded =  System.nanoTime();
+                }
+            }
+        }
+
+        public void run()
+        {
+            android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
+            this.isInitialized = false;
+            if(audioRecord != null)
+            {
+                //åˆ¤æ–­éŸ³é¢‘å½•åˆ¶æ˜¯å¦è¢«åˆå§‹åŒ–
+                while (this.audioRecord.getState() == 0)
+                {
+                    try
+                    {
+                        Thread.sleep(100L);
+                    }
+                    catch (InterruptedException localInterruptedException)
+                    {
+                    }
+                }
+                this.isInitialized = true;
+                this.audioRecord.startRecording();
+                while (((runAudioThread) || (mVideoTimestamp > mAudioTimestamp)) && (mAudioTimestamp < (1000 * recordingTime)))
+                {
+                    updateTimestamp();
+                    bufferReadResult = this.audioRecord.read(audioData, 0, audioData.length);
+                    if ((bufferReadResult > 0) && ((recording && rec) || (mVideoTimestamp > mAudioTimestamp)))
+                        record(ShortBuffer.wrap(audioData, 0, bufferReadResult));
+                }
+                this.audioRecord.stop();
+                this.audioRecord.release();
+            }
+        }
+    }
+
+    //è·å–ç¬¬ä¸€å¹€çš„å›¾ç‰‡
+    private boolean isFirstFrame = true;
+
+
+    /**
+     * æ˜¾ç¤ºæ‘„åƒå¤´çš„å†…å®¹ï¼Œä»¥åŠè¿”å›æ‘„åƒå¤´çš„æ¯ä¸€å¸§æ•°æ®
+     * @author QD
+     *
+     */
+    class CameraView extends SurfaceView implements Runnable,SurfaceHolder.Callback {
+
+        private SurfaceHolder mHolder;
+        private boolean shouldStop=false;
+
+        public CameraView(Context context ) {
+            super(context);
+
+
+            mHolder = getHolder();
+            mHolder.addCallback(CameraView.this);
+            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+            if(cameraUtil == null){
+                cameraUtil = new CameraUtil();
+            }
+        }
+
+        @Override
+        public void surfaceCreated(SurfaceHolder holder) {
+            for(int i=0 ; i<2 ; i++){
+                if(cameraUtil.bmp[i]==null){
+                    cameraUtil.bmp[i] = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888);
+                }
+            }
+
+	          new Thread(CameraView.this).start();
+
+        }
+
+        public void surfaceChanged(SurfaceHolder  holder, int format, int width, int height) {
+
+        }
+
+        @Override
+        public void surfaceDestroyed(SurfaceHolder holder) {
+
+            Log.d("bigdog","camera[0]:"+cameraUtil.cameraExists[0]);
+            if(cameraUtil.cameraExists[0]||cameraUtil.cameraExists[1]){
+                shouldStop = true;
+                for(int i=0 ; i<10 ; i++){
+                    try{
+                        Thread.sleep(100); // wait for thread stopping
+                    }catch(Exception e){}
+                    if(!shouldStop){
+                        break;
+                    }
+                }
+                cameraUtil.stopCamera();
+            }
+        }
+
+
+        private byte[] rotateYUV420Degree90(byte[] data, int imageWidth, int imageHeight)
+        {
+
+            byte [] yuv = new byte[imageWidth*imageHeight*3/2];
+            // Rotate the Y luma
+            int i = 0;
+            for(int x = 0;x < imageWidth;x++)
+            {
+                for(int y = imageHeight-1;y >= 0;y--)
+                {
+                    yuv[i] = data[y*imageWidth+x];
+                    i++;
+                }
+
+            }
+            // Rotate the U and V color components
+            i = imageWidth*imageHeight*3/2-1;
+            for(int x = imageWidth-1;x > 0;x=x-2)
+            {
+                for(int y = 0;y < imageHeight/2;y++)
+                {
+                    yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+x];
+                    i--;
+                    yuv[i] = data[(imageWidth*imageHeight)+(y*imageWidth)+(x-1)];
+                    i--;
+                }
+            }
+            return yuv;
+        }
+
+        private byte[] rotateYUV420Degree180(byte[] data, int imageWidth, int imageHeight)
+        {
+            byte [] yuv = new byte[imageWidth*imageHeight*3/2];
+            int i = 0;
+            int count = 0;
+
+            for (i = imageWidth * imageHeight - 1; i >= 0; i--) {
+                yuv[count] = data[i];
+                count++;
+            }
+
+            i = imageWidth * imageHeight * 3 / 2 - 1;
+            for (i = imageWidth * imageHeight * 3 / 2 - 1; i >= imageWidth
+                    * imageHeight; i -= 2) {
+                yuv[count++] = data[i - 1];
+                yuv[count++] = data[i];
+            }
+            return yuv;
+        }
+
+        private byte[] rotateYUV420Degree270(byte[] data, int imageWidth, int imageHeight)
+        {
+            byte [] yuv = new byte[imageWidth*imageHeight*3/2];
+            int nWidth = 0, nHeight = 0;
+            int wh = 0;
+            int uvHeight = 0;
+            if(imageWidth != nWidth || imageHeight != nHeight)
+            {
+                nWidth = imageWidth;
+                nHeight = imageHeight;
+                wh = imageWidth * imageHeight;
+                uvHeight = imageHeight >> 1;//uvHeight = height / 2
+            }
+
+            //æ—‹è½¬Y
+            int k = 0;
+            for(int i = 0; i < imageWidth; i++) {
+                int nPos = 0;
+                for(int j = 0; j < imageHeight; j++) {
+                    yuv[k] = data[nPos + i];
+                    k++;
+                    nPos += imageWidth;
+                }
+            }
+
+            for(int i = 0; i < imageWidth; i+=2){
+                int nPos = wh;
+                for(int j = 0; j < uvHeight; j++) {
+                    yuv[k] = data[nPos + i];
+                    yuv[k + 1] = data[nPos + i + 1];
+                    k += 2;
+                    nPos += imageWidth;
+                }
+            }
+
+            return rotateYUV420Degree180(yuv,imageWidth,imageHeight);
+        }
+
+        public byte[] cropYUV420(byte[] data,int imageW,int imageH,int newImageH){
+            int cropH;
+            int i,j,count,tmp;
+            byte[] yuv = new byte[imageW*newImageH*3/2];
+
+            cropH = (imageH - newImageH)/2;
+
+            count = 0;
+            for(j=cropH;j<cropH+newImageH;j++){
+                for(i=0;i<imageW;i++){
+                    yuv[count++] = data[j*imageW+i];
+                }
+            }
+
+            //Cr Cb
+            tmp = imageH+cropH/2;
+            for(j=tmp;j<tmp + newImageH/2;j++){
+                for(i=0;i<imageW;i++){
+                    yuv[count++] = data[j*imageW+i];
+                }
+            }
+
+            return yuv;
+        }
+
+
+        //æ¯ä¸€å¸§ç”»é¢æ¥åˆ°çš„æ—¶å€™è°ƒç”¨
+        long x_0 = System.currentTimeMillis();
+        int x = 0;
+
+        public void onPreviewFrame(byte[] data ) {
+            //è§‚çœ‹ä¸€ç§’é’Ÿå†…çš„åˆ·å¸§æ¬¡æ•°
+            if(System.currentTimeMillis() - x_0 > 1000){
+                Log.d("bigdog","x = "+x);
+                x_0 = System.currentTimeMillis();
+                x = 0;
+            }else{
+                x ++;
+            }
+
+            //è®¡ç®—æ—¶é—´æˆ³
+            long frameTimeStamp = 0L;
+            if(mAudioTimestamp == 0L && firstTime > 0L)
+                frameTimeStamp = 1000L * (System.currentTimeMillis() -firstTime);
+            else if (mLastAudioTimestamp == mAudioTimestamp)
+                frameTimeStamp = mAudioTimestamp + frameTime;
+            else{
+                long l2 = (System.nanoTime() - mAudioTimeRecorded) / 1000L;
+                frameTimeStamp = l2 + mAudioTimestamp;
+                mLastAudioTimestamp = mAudioTimestamp;
+            }
+
+            //å½•åˆ¶è§†é¢‘
+            synchronized (mVideoRecordLock) {
+                if (recording && rec && lastSavedframe != null && lastSavedframe.getFrameBytesData() != null && yuvIplImage != null)
+                {
+                    //ä¿å­˜æŸä¸€å¹€çš„å›¾ç‰‡
+                    if(isFirstFrame){
+                        isFirstFrame = false;
+                        firstData = data;
 					/*Message msg = mHandler.obtainMessage(1);
 					msg.obj = data;
 					msg.what = 1;
 					mHandler.sendMessage(msg);*/
-					
-				}
-				//³¬¹ı×îµÍÊ±¼äÊ±£¬ÏÂÒ»²½°´Å¥¿Éµã»÷
-				totalTime = System.currentTimeMillis() - firstTime - pausedTime - ((long) (1.0/(double)frameRate)*1000);
-				if(!nextEnabled && totalTime >= recordingChangeTime){
-					nextEnabled = true;
-					nextBtn.setEnabled(true);
-				}
-				
-				if(nextEnabled && totalTime >= recordingMinimumTime){
-					mHandler.sendEmptyMessage(5);
-				}
-				
-				if(currentRecorderState == RecorderState.PRESS && totalTime >= recordingChangeTime){
-					currentRecorderState = RecorderState.LOOSEN;
-					mHandler.sendEmptyMessage(2);
-				}
-				
-				mVideoTimestamp += frameTime;
-				if(lastSavedframe.getTimeStamp() > mVideoTimestamp)
-				mVideoTimestamp = lastSavedframe.getTimeStamp();
-				try {
-						yuvIplImage.getByteBuffer().put(lastSavedframe.getFrameBytesData());
-						videoRecorder.setTimestamp(lastSavedframe.getTimeStamp());
-						videoRecorder.record(yuvIplImage);
-					} catch (com.googlecode.javacv.FrameRecorder.Exception e) {
-						Log.i("recorder", "Â¼ÖÆ´íÎó"+e.getMessage());
-						e.printStackTrace();
-					}
-				}
-				byte[] tempData = rotateYUV420Degree90(data, previewWidth, previewHeight);
-				if(cameraSelection == 1)
-					tempData = rotateYUV420Degree270(data, previewWidth, previewHeight);
-				lastSavedframe = new SavedFrames(tempData,frameTimeStamp);
-			}
-		}
-	}
 
-	@Override
-	public boolean onTouch(View v, MotionEvent event) {
-		//µ±µã»÷»­ÃæÔ¤ÀÀÇø»úsurfaceviewµÄÇøÓòÊ±,»áµ÷ÓÃ´Ëº¯Êı
-		if(!recordFinish){
-			if(totalTime< recordingTime){
-				//Èç¹ûÂ¼ÖÆµÄÊ±¼äÔÚ6ÃëÒÔÏÂ¾ÍÖ´ĞĞhandler 3´ú±í¸üĞÂ½ø¶ÈÌõ 4´ú±íÔİÍ£
-				switch (event.getAction()) {
-				case MotionEvent.ACTION_DOWN:
-					//Èç¹ûMediaRecorderÃ»ÓĞ±»³õÊ¼»¯
-					//Ö´ĞĞ³õÊ¼»¯
-					mHandler.removeMessages(3);
-					mHandler.removeMessages(4);
-					mHandler.sendEmptyMessageDelayed(3,300);
-					break;
-				case MotionEvent.ACTION_UP:
-					mHandler.removeMessages(3);
-					mHandler.removeMessages(4);
-					if(rec)
-						mHandler.sendEmptyMessage(4);
-					
-					break;
-				}
-			}else{
-				//Èç¹ûÂ¼ÖÆÊ±¼ä³¬¹ı×î´óÊ±¼ä£¬±£´æÊÓÆµ
-				rec = false;
-				saveRecording();
-			}
-		}
-		return true;
-	}
-	/**
-	 * ¹Ø±ÕÉãÏñÍ·µÄÔ¤ÀÀ
-	 */
-	public void stopPreview() {
-		if (isPreviewOn && mCamera != null) {
-			isPreviewOn = false;
-			mCamera.stopPreview();
+                    }
+                    //è¶…è¿‡æœ€ä½æ—¶é—´æ—¶ï¼Œä¸‹ä¸€æ­¥æŒ‰é’®å¯ç‚¹å‡»
+                    totalTime = System.currentTimeMillis() - firstTime - pausedTime - ((long) (1.0/(double)frameRate)*1000);
 
-		}
-	}
 
-	private void handleSurfaceChanged()
-	{
-		if(mCamera == null){
-			//showToast(this, "ÎŞ·¨Á¬½Óµ½Ïà»ú");
-			finish();
-			return;
-		}
-		//»ñÈ¡ÉãÏñÍ·µÄËùÓĞÖ§³ÖµÄ·Ö±æÂÊ
-		List<Camera.Size> resolutionList = Util.getResolutionList(mCamera);
-		if(resolutionList != null && resolutionList.size() > 0){
-			Collections.sort(resolutionList, new Util.ResolutionComparator());
-			Camera.Size previewSize =  null;	
-			if(defaultScreenResolution == -1){
-				boolean hasSize = false;
-				//Èç¹ûÉãÏñÍ·Ö§³Ö640*480£¬ÄÇÃ´Ç¿ÖÆÉèÎª640*480
-				for(int i = 0;i<resolutionList.size();i++){
-					Size size = resolutionList.get(i);
-					if(size != null && size.width==640 && size.height==480){
-						previewSize = size;
-						hasSize = true;
-						break;
-					}
-				}
-				//Èç¹û²»Ö§³ÖÉèÎªÖĞ¼äµÄÄÇ¸ö
-				if(!hasSize){
-					int mediumResolution = resolutionList.size()/2;
-					if(mediumResolution >= resolutionList.size())
-						mediumResolution = resolutionList.size() - 1;
-					previewSize = resolutionList.get(mediumResolution);
-				}
-			}else{
-				if(defaultScreenResolution >= resolutionList.size())
-					defaultScreenResolution = resolutionList.size() - 1;
-				previewSize = resolutionList.get(defaultScreenResolution);
-			}
-			//»ñÈ¡¼ÆËã¹ıµÄÉãÏñÍ··Ö±æÂÊ
-			if(previewSize != null ){
-				previewWidth = previewSize.width;
-				previewHeight = previewSize.height;
-				cameraParameters.setPreviewSize(previewWidth, previewHeight);
-				if(videoRecorder != null)
-				{
-					videoRecorder.setImageWidth(previewWidth);
-					videoRecorder.setImageHeight(previewHeight);
-				}
+                    if(nextEnabled && totalTime >= recordingMinimumTime){
+                        mHandler.sendEmptyMessage(5);
+                    }
 
-			}
-		}
-		//ÉèÖÃÔ¤ÀÀÖ¡ÂÊ
-		cameraParameters.setPreviewFrameRate(frameRate);
-		//¹¹½¨Ò»¸öIplImage¶ÔÏó£¬ÓÃÓÚÂ¼ÖÆÊÓÆµ
-		//ºÍopencvÖĞµÄcvCreateImage·½·¨Ò»Ñù
-		yuvIplImage = IplImage.create(previewHeight, previewWidth,IPL_DEPTH_8U, 2);
+                    if(currentRecorderState == RecorderState.PRESS && totalTime >= recordingChangeTime){
+                        currentRecorderState = RecorderState.LOOSEN;
+                        mHandler.sendEmptyMessage(2);
+                    }
 
-		//ÏµÍ³°æ±¾Îª8Ò»ÏÂµÄ²»Ö§³ÖÕâÖÖ¶Ô½¹
-		if(Build.VERSION.SDK_INT >  Build.VERSION_CODES.FROYO)
-		{
-			mCamera.setDisplayOrientation(Util.determineDisplayOrientation(FFmpegRecorderActivity.this, defaultCameraId));
-			List<String> focusModes = cameraParameters.getSupportedFocusModes();
-			if(focusModes != null){
-				Log.i("video", Build.MODEL);
-				 if (((Build.MODEL.startsWith("GT-I950"))
-						 || (Build.MODEL.endsWith("SCH-I959"))
-						 || (Build.MODEL.endsWith("MEIZU MX3")))&&focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)){
-						
-					 cameraParameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
-				 }else if(focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)){
-					cameraParameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-				}else
-					cameraParameters.setFocusMode(Camera.Parameters.FOCUS_MODE_FIXED);
-			}
-		}
-		else
-			mCamera.setDisplayOrientation(90);
-		mCamera.setParameters(cameraParameters);
+                    mVideoTimestamp += frameTime;
+                    if(lastSavedframe.getTimeStamp() > mVideoTimestamp)
+                        mVideoTimestamp = lastSavedframe.getTimeStamp();
+                    try {
+                        yuvIplImage.getByteBuffer().put(lastSavedframe.getFrameBytesData());
+                        videoRecorder.setTimestamp(lastSavedframe.getTimeStamp());
+                        videoRecorder.record(yuvIplImage);
+                    } catch (com.googlecode.javacv.FrameRecorder.Exception e) {
+                        Log.i("recorder", "å½•åˆ¶é”™è¯¯"+e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                byte[] tempData = rotateYUV420Degree180(data, 480, 480);
 
-	}
-	@Override
-	public void onClick(View v) {
-		//ÏÂÒ»²½
-		if(v.getId() == R.id.recorder_next){
-			if (isRecordingStarted) {
-				rec = false;
-				saveRecording();
-			}else
-				initiateRecording(false);
-		}else if(v.getId() == R.id.recorder_flashlight){
-			if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
-				//showToast(this, "²»ÄÜ¿ªÆôÉÁ¹âµÆ");
-				return;
-			}
-			//ÉÁ¹âµÆ
-			if(isFlashOn){
-				isFlashOn = false;
-				flashIcon.setSelected(false);
-				cameraParameters.setFlashMode(Parameters.FLASH_MODE_OFF);
-			}
-			else{
-				isFlashOn = true;
-				flashIcon.setSelected(true);
-				cameraParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-			}
-			mCamera.setParameters(cameraParameters);
-		}else if(v.getId() == R.id.recorder_frontcamera){
-			//×ª»»ÉãÏñÍ·
-			cameraSelection = ((cameraSelection == CameraInfo.CAMERA_FACING_BACK) ? CameraInfo.CAMERA_FACING_FRONT:CameraInfo.CAMERA_FACING_BACK);
-			initCameraLayout();
+                lastSavedframe = new SavedFrames(tempData,frameTimeStamp);
+            }
+        }
+        int winWidth= screenWidth;
+        int winHeight= screenHeight;
+        Rect rect1 = null;
 
-			if(cameraSelection == CameraInfo.CAMERA_FACING_FRONT)
-				flashIcon.setVisibility(View.GONE);
-			else{
-				flashIcon.setVisibility(View.VISIBLE);
-				if(isFlashOn){
-					cameraParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
-					mCamera.setParameters(cameraParameters);
-				}
-			}
-		}else if(v.getId() == R.id.recorder_cancel){
-			if (recording) 
-				showCancellDialog();
-			else
-				videoTheEnd(false);
-		}
-	}
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            rect1 = new Rect(0, 0, winWidth/2-1, winWidth*3/4/2-1);
+            while (cameraUtil.cameraExists[0]||cameraUtil.cameraExists[1]) {
 
-	
-	/**
-	 * ½áÊøÂ¼ÖÆ
-	 * @param isSuccess
-	 */
-	public void videoTheEnd(boolean isSuccess)
-	{
-		releaseResources();
-		if(fileVideoPath != null && fileVideoPath.exists() && !isSuccess)
-			fileVideoPath.delete();
-		
-		returnToCaller(isSuccess);
-	}
-	
-	/**
-	 * ÉèÖÃ·µ»Ø½á¹û
-	 * @param valid
-	 */
-	private void returnToCaller(boolean valid)
-	{
-		try{
-			setActivityResult(valid);
-			if(valid){
-				Intent intent = new Intent(this,FFmpegPreviewActivity.class);
-				intent.putExtra("path", strVideoPath);
-				intent.putExtra("imagePath", imagePath);
-				startActivity(intent);
-			}
-		} catch (Throwable e)
-		{
-		}finally{
-			finish();
-		}
-	}
-	
-	private void setActivityResult(boolean valid)
-	{
-		Intent resultIntent = new Intent();
-		int resultCode;
-		if (valid)
-		{
-			resultCode = RESULT_OK;
-			resultIntent.setData(uriVideoPath);
-		} else
-			resultCode = RESULT_CANCELED;
-		
-		setResult(resultCode, resultIntent);
-	}
+                cameraUtil.processCamera();
+                cameraUtil.pixeltobmp(cameraUtil.bmp[0],cameraUtil.bmp[1]);
+                //Log.d("bigdog","cameraExists[0]:"+cameraExists[0]+",cameraExists[1]:"+cameraExists[1]);
+                Canvas canvas = getHolder().lockCanvas();
+                if (canvas != null){
+                    //screenHeight
+                    if(cameraUtil.bmp[0] != null)canvas.drawBitmap(cameraUtil.bmp[0],null,rect1,null);
 
-	/**
-	 * ÏòÏµÍ³×¢²áÎÒÃÇÂ¼ÖÆµÄÊÓÆµÎÄ¼ş£¬ÕâÑùÎÄ¼ş²Å»áÔÚsd¿¨ÖĞÏÔÊ¾
-	 */
-	private void registerVideo()
-	{
-		Uri videoTable = Uri.parse(CONSTANTS.VIDEO_CONTENT_URI);
-		
-		Util.videoContentValues.put(Video.Media.SIZE, new File(strVideoPath).length());
-		try{
-			uriVideoPath = getContentResolver().insert(videoTable, Util.videoContentValues);
-		} catch (Throwable e){
-			uriVideoPath = null;
-			strVideoPath = null;
-			e.printStackTrace();
-		} finally{}
-		Util.videoContentValues = null;
-	}
-	
+                    Log.d("bigdog","Width:"+cameraUtil.bmp[0].getWidth()+",Height:"+cameraUtil.bmp[0].getHeight());
+                    onPreviewFrame(Bitmap2Bytes(cameraUtil.bmp[0],100));
+                    getHolder().unlockCanvasAndPost(canvas);
+                }
+                if(shouldStop){
+                    shouldStop = false;
+                    break;
+                }
+            }
+        }
 
-	/**
-	 * ±£´æÂ¼ÖÆµÄÊÓÆµÎÄ¼ş
-	 */
-	private void saveRecording()
-	{
-		if(isRecordingStarted){
-			runAudioThread = false;
-			if(!isRecordingSaved){
-				isRecordingSaved = true;
-				new AsyncStopRecording().execute();
-			}
-		}else{
-			videoTheEnd(false);
-		}
-	}
 
-	/**
-	 * Çó³öÂ¼ÖÆµÄ×ÜÊ±¼ä
-	
-	private synchronized void setTotalVideoTime(){
-		if(totalTime > 0)
-			txtTimer.setText(Util.getRecordingTimeFromMillis(totalTime));
-		
-	} */
-	
-	/**
-	 * ÊÍ·Å×ÊÔ´£¬Í£Ö¹Â¼ÖÆÊÓÆµºÍÒôÆµ
-	 */
-	private void releaseResources(){
-		isRecordingSaved = true;
-		try {
-			if(videoRecorder != null)
-			{
-			videoRecorder.stop();
-			videoRecorder.release();
-			}
-		} catch (com.googlecode.javacv.FrameRecorder.Exception e) {
-			e.printStackTrace();
-		}
-		
-		yuvIplImage = null;
-		videoRecorder = null;
-		lastSavedframe = null;
-		
-		//progressView.putProgressList((int) totalTime);
-		//Í£Ö¹Ë¢ĞÂ½ø¶È
-		progressView.setCurrentState(State.PAUSE);
-	}
-	
-	/**
-	 * µÚÒ»´Î°´ÏÂÊ±£¬³õÊ¼»¯Â¼ÖÆÊı¾İ
-	 * @param isActionDown
-	 */
-	private void initiateRecording(boolean isActionDown)
-	{
-		isRecordingStarted = true;
-		firstTime = System.currentTimeMillis();
-	
-		recording = true;
-		totalPauseTime = 0;
-		pausedTime = 0;
-		
-		//txtTimer.setVisibility(View.VISIBLE);
-		//handler.removeCallbacks(mUpdateTimeTask);
-		//handler.postDelayed(mUpdateTimeTask, 100);
-	}
-	
-	public static enum RecorderState {
-		PRESS(1),LOOSEN(2),CHANGE(3),SUCCESS(4);
-		
-		static RecorderState mapIntToValue(final int stateInt) {
-			for (RecorderState value : RecorderState.values()) {
-				if (stateInt == value.getIntValue()) {
-					return value;
-				}
-			}
-			return PRESS;
-		}
+    }
 
-		private int mIntValue;
+    public  byte[] Bitmap2Bytes(Bitmap bm, int quality) {
+        byte[] imgByteArray = null;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, quality, bos);
+        imgByteArray = bos.toByteArray();
+        // Log.v("kxy", "--- compressed image size: " + imgByteArray.length +
+        // ", quality: " + quality);
+        closeQuietly(bos);
+        return imgByteArray;
+    }
 
-		RecorderState(int intValue) {
-			mIntValue = intValue;
-		}
+    public  void closeQuietly(OutputStream os) {
+        try {
+            if (os != null) {
+                os.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        //å½“ç‚¹å‡»ç”»é¢é¢„è§ˆåŒºæœºsurfaceviewçš„åŒºåŸŸæ—¶,ä¼šè°ƒç”¨æ­¤å‡½æ•°
+        if(!recordFinish){
+            if(totalTime< recordingTime){
+                //å¦‚æœå½•åˆ¶çš„æ—¶é—´åœ¨6ç§’ä»¥ä¸‹å°±æ‰§è¡Œhandler 3ä»£è¡¨æ›´æ–°è¿›åº¦æ¡ 4ä»£è¡¨æš‚åœ
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        //å¦‚æœMediaRecorderæ²¡æœ‰è¢«åˆå§‹åŒ–
+                        //æ‰§è¡Œåˆå§‹åŒ–
+                        mHandler.removeMessages(3);
+                        mHandler.removeMessages(4);
+                        mHandler.sendEmptyMessageDelayed(3,300);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        mHandler.removeMessages(3);
+                        mHandler.removeMessages(4);
+                        if(rec)
+                            mHandler.sendEmptyMessage(4);
 
-		int getIntValue() {
-			return mIntValue;
-		}
-	}
+                        break;
+                }
+            }else{
+                //å¦‚æœå½•åˆ¶æ—¶é—´è¶…è¿‡æœ€å¤§æ—¶é—´ï¼Œä¿å­˜è§†é¢‘
+                rec = false;
+                saveRecording();
+            }
+        }
+        return true;
+    }
+
+
+    private void handleSurfaceChanged()
+    {
+
+        //è·å–æ‘„åƒå¤´çš„æ‰€æœ‰æ”¯æŒçš„åˆ†è¾¨ç‡
+        List<Camera.Size> resolutionList = null;
+        if(resolutionList != null && resolutionList.size() > 0){
+            Collections.sort(resolutionList, new Util.ResolutionComparator());
+            Camera.Size previewSize =  null;
+            if(defaultScreenResolution == -1){
+                boolean hasSize = false;
+                //å¦‚æœæ‘„åƒå¤´æ”¯æŒ640*480ï¼Œé‚£ä¹ˆå¼ºåˆ¶è®¾ä¸º640*480
+                for(int i = 0;i<resolutionList.size();i++){
+                    Size size = resolutionList.get(i);
+                    if(size != null && size.width==640 && size.height==480){
+                        previewSize = size;
+                        hasSize = true;
+                        break;
+                    }
+                }
+                //å¦‚æœä¸æ”¯æŒè®¾ä¸ºä¸­é—´çš„é‚£ä¸ª
+                if(!hasSize){
+                    int mediumResolution = resolutionList.size()/2;
+                    if(mediumResolution >= resolutionList.size())
+                        mediumResolution = resolutionList.size() - 1;
+                    previewSize = resolutionList.get(mediumResolution);
+                }
+            }else{
+                if(defaultScreenResolution >= resolutionList.size())
+                    defaultScreenResolution = resolutionList.size() - 1;
+                previewSize = resolutionList.get(defaultScreenResolution);
+            }
+            //è·å–è®¡ç®—è¿‡çš„æ‘„åƒå¤´åˆ†è¾¨ç‡
+            if(previewSize != null ){
+                previewWidth = previewSize.width;
+                previewHeight = previewSize.height;
+                cameraParameters.setPreviewSize(previewWidth, previewHeight);
+                if(videoRecorder != null)
+                {
+                    videoRecorder.setImageWidth(previewWidth);
+                    videoRecorder.setImageHeight(previewHeight);
+
+                    Log.d("bigdog","videoRecorder.ImageWidth:"+previewWidth);
+                    Log.d("bigdog","videoRecorder.ImageHeight:"+previewHeight);
+                }
+
+            }
+        }
+        //è®¾ç½®é¢„è§ˆå¸§ç‡
+//        cameraParameters.setPreviewFrameRate(frameRate);
+        //æ„å»ºä¸€ä¸ªIplImageå¯¹è±¡ï¼Œç”¨äºå½•åˆ¶è§†é¢‘
+        //å’Œopencvä¸­çš„cvCreateImageæ–¹æ³•ä¸€æ ·
+        yuvIplImage = IplImage.create(previewHeight, previewWidth,IPL_DEPTH_8U, 2);
+        Log.d("bigdog","yuvIplImage.Height:"+previewHeight+",yuvIplImage.Width:"+previewWidth);
+
+        //ç³»ç»Ÿç‰ˆæœ¬ä¸º8ä¸€ä¸‹çš„ä¸æ”¯æŒè¿™ç§å¯¹ç„¦
+
+
+
+    }
+    @Override
+    public void onClick(View v) {
+        //ä¸‹ä¸€æ­¥
+        if(v.getId() == R.id.recorder_next){
+            if (isRecordingStarted) {
+                rec = false;
+                saveRecording();
+            }else
+                initiateRecording(false);
+        }else if(v.getId() == R.id.recorder_flashlight){
+            if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)){
+                //showToast(this, "ä¸èƒ½å¼€å¯é—ªå…‰ç¯");
+                return;
+            }
+            //é—ªå…‰ç¯
+            if(isFlashOn){
+                isFlashOn = false;
+                flashIcon.setSelected(false);
+
+            }
+            else{
+                isFlashOn = true;
+                flashIcon.setSelected(true);
+                //cameraParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
+            }
+            //	mCamera.setParameters(cameraParameters);
+        }else if(v.getId() == R.id.recorder_frontcamera){
+            //è½¬æ¢æ‘„åƒå¤´
+            cameraSelection = ((cameraSelection == CameraInfo.CAMERA_FACING_BACK) ? CameraInfo.CAMERA_FACING_FRONT:CameraInfo.CAMERA_FACING_BACK);
+            initCameraLayout();
+
+            if(cameraSelection == CameraInfo.CAMERA_FACING_FRONT)
+                flashIcon.setVisibility(View.GONE);
+            else{
+                flashIcon.setVisibility(View.VISIBLE);
+                if(isFlashOn){
+                  //  cameraParameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                    //mCamera.setParameters(cameraParameters);
+                }
+            }
+        }else if(v.getId() == R.id.recorder_cancel){
+            if (recording)
+                showCancellDialog();
+            else
+                videoTheEnd(false);
+        }
+    }
+
+
+    /**
+     * ç»“æŸå½•åˆ¶
+     * @param isSuccess
+     */
+    public void videoTheEnd(boolean isSuccess)
+    {
+        releaseResources();
+        if(fileVideoPath != null && fileVideoPath.exists() && !isSuccess)
+            fileVideoPath.delete();
+
+        returnToCaller(isSuccess);
+    }
+
+    /**
+     * è®¾ç½®è¿”å›ç»“æœ
+     * @param valid
+     */
+    private void returnToCaller(boolean valid)
+    {
+        try{
+            setActivityResult(valid);
+            if(valid){
+                Intent intent = new Intent(this,FFmpegPreviewActivity.class);
+                intent.putExtra("path", strVideoPath);
+                intent.putExtra("imagePath", imagePath);
+                startActivity(intent);
+            }
+        } catch (Throwable e)
+        {
+        }finally{
+            finish();
+        }
+    }
+
+    private void setActivityResult(boolean valid)
+    {
+        Intent resultIntent = new Intent();
+        int resultCode;
+        if (valid)
+        {
+            resultCode = RESULT_OK;
+            resultIntent.setData(uriVideoPath);
+        } else
+            resultCode = RESULT_CANCELED;
+
+        setResult(resultCode, resultIntent);
+    }
+
+    /**
+     * å‘ç³»ç»Ÿæ³¨å†Œæˆ‘ä»¬å½•åˆ¶çš„è§†é¢‘æ–‡ä»¶ï¼Œè¿™æ ·æ–‡ä»¶æ‰ä¼šåœ¨sdå¡ä¸­æ˜¾ç¤º
+     */
+    private void registerVideo()
+    {
+        Uri videoTable = Uri.parse(CONSTANTS.VIDEO_CONTENT_URI);
+
+        Util.videoContentValues.put(Video.Media.SIZE, new File(strVideoPath).length());
+        try{
+            uriVideoPath = getContentResolver().insert(videoTable, Util.videoContentValues);
+        } catch (Throwable e){
+            uriVideoPath = null;
+            strVideoPath = null;
+            e.printStackTrace();
+        } finally{}
+        Util.videoContentValues = null;
+    }
+
+
+    /**
+     * ä¿å­˜å½•åˆ¶çš„è§†é¢‘æ–‡ä»¶
+     */
+    private void saveRecording()
+    {
+        if(isRecordingStarted){
+            runAudioThread = false;
+            if(!isRecordingSaved){
+                isRecordingSaved = true;
+                new AsyncStopRecording().execute();
+            }
+        }else{
+            videoTheEnd(false);
+        }
+    }
+
+    /**
+     * æ±‚å‡ºå½•åˆ¶çš„æ€»æ—¶é—´
+
+     private synchronized void setTotalVideoTime(){
+     if(totalTime > 0)
+     txtTimer.setText(Util.getRecordingTimeFromMillis(totalTime));
+
+     } */
+
+    /**
+     * é‡Šæ”¾èµ„æºï¼Œåœæ­¢å½•åˆ¶è§†é¢‘å’ŒéŸ³é¢‘
+     */
+    private void releaseResources(){
+        isRecordingSaved = true;
+        try {
+            if(videoRecorder != null)
+            {
+                videoRecorder.stop();
+                videoRecorder.release();
+            }
+        } catch (com.googlecode.javacv.FrameRecorder.Exception e) {
+            e.printStackTrace();
+        }
+
+        yuvIplImage = null;
+        videoRecorder = null;
+        lastSavedframe = null;
+
+        //progressView.putProgressList((int) totalTime);
+        //åœæ­¢åˆ·æ–°è¿›åº¦
+        progressView.setCurrentState(State.PAUSE);
+    }
+
+    /**
+     * ç¬¬ä¸€æ¬¡æŒ‰ä¸‹æ—¶ï¼Œåˆå§‹åŒ–å½•åˆ¶æ•°æ®
+     * @param isActionDown
+     */
+    private void initiateRecording(boolean isActionDown)
+    {
+        isRecordingStarted = true;
+        firstTime = System.currentTimeMillis();
+
+        recording = true;
+        totalPauseTime = 0;
+        pausedTime = 0;
+
+        //txtTimer.setVisibility(View.VISIBLE);
+        //handler.removeCallbacks(mUpdateTimeTask);
+        //handler.postDelayed(mUpdateTimeTask, 100);
+    }
+
+    public static enum RecorderState {
+        PRESS(1),LOOSEN(2),CHANGE(3),SUCCESS(4);
+
+        static RecorderState mapIntToValue(final int stateInt) {
+            for (RecorderState value : RecorderState.values()) {
+                if (stateInt == value.getIntValue()) {
+                    return value;
+                }
+            }
+            return PRESS;
+        }
+
+        private int mIntValue;
+
+        RecorderState(int intValue) {
+            mIntValue = intValue;
+        }
+
+        int getIntValue() {
+            return mIntValue;
+        }
+    }
 }

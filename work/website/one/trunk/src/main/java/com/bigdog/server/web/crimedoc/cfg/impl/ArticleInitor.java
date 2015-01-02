@@ -23,11 +23,11 @@ public class ArticleInitor implements Initializer {
     public void init(ApplicationContext springApplicationContext) {
         articleDao = (ArticleDao) springApplicationContext.getBean("articleDao");
 
-        if (articleDao.getByTitle("测试标题") == null) {
-            logger.info("article 为空,开始初始化文章表的基础数据....");
+        if (articleDao.getByTitle("test title") == null) {
+            logger.info("article is null,start to load data into database");
             //开始初始化系统内所有基础文章数据
             initDefaultArticle();
-            logger.info("文章表的基础数据始初始化ok....");
+            logger.info("article init is ready");
         }
     }
 
@@ -35,17 +35,17 @@ public class ArticleInitor implements Initializer {
         for (int x = 0; x < 20; x++) {
             Article article = new Article();
             if (x == 0) {
-                article.setTitle(Tools.getMD5("测试标题"));
-                article.setDescription("基础数据描述" + x);
-                article.setContent("基础数据内容" + x);
+                article.setTitle(Tools.getMD5("test title"));
+                article.setDescription("basic data desc" + x);
+                article.setContent("basic data content" + x);
                 article.setCatagory("from system init...");
                 article.setCatagory_order(x);
                 article.setCreateTime(new Date());
                 article.setAuthor("system");
             } else {
-                article.setTitle("基础数据" + x);
-                article.setDescription("基础数据描述" + x);
-                article.setContent("基础数据内容" + x);
+                article.setTitle("basic data" + x);
+                article.setDescription("basic data desc" + x);
+                article.setContent("basic data content" + x);
                 article.setCatagory("from system init...");
                 article.setCatagory_order(x);
                 article.setCreateTime(new Date());

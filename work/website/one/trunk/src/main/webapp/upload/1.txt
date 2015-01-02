@@ -1,0 +1,2 @@
+editor.toTextArea();222
+editor.getTextArea().value

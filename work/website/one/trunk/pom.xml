@@ -2,12 +2,12 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bigdog.server.web</groupId>
-    <artifactId>crimedoc</artifactId>
+    <artifactId>SmartCMS</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>crimedoc</name>
-    <url>http://www.crimedoc.org</url>
-    <description>Crimedoc server app</description>
+    <name>SmartCMS</name>
+    <url>http://www.SmartCMS.org</url>
+    <description>SmartCMS server app</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>3.0.5.RELEASE</spring.version>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>taglibs</groupId>
             <artifactId>standard</artifactId>
-             <version>${taglibs-standard.version}</version>            
+            <version>${taglibs-standard.version}</version>            
         </dependency>
 
         <dependency>
@@ -245,7 +245,7 @@
     </dependencies>
 
     <build>
-        <finalName>crimedoc</finalName>
+        <finalName>SmartCMS</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -268,44 +268,44 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-           <plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>maven-jetty-plugin</artifactId>
-					<version>6.1.10</version>
-			   <configuration>
-					<scanIntervalSeconds>2</scanIntervalSeconds>
-					<stopPort>9966</stopPort>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.10</version>
+                <configuration>
+                    <scanIntervalSeconds>2</scanIntervalSeconds>
+                    <stopPort>9966</stopPort>
                     <stopKey>foo</stopKey>
-					<webAppConfig>  
-                        <contextPath>/crimedoc</contextPath>  
+                    <webAppConfig>  
+                        <contextPath>/SmartCMS</contextPath>  
                     </webAppConfig> 
-					<connectors>
+                    <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
                             <port>8080</port>
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>					
-			   </configuration>
-		    	<executions>
-						<execution>
-								<id>start-jetty</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-										<goal>run</goal>
-								</goals>
-								<configuration>
-										<scanIntervalSeconds>0</scanIntervalSeconds>
-										<daemon>true</daemon>
-								</configuration>
-						</execution>
-						<execution>
-								<id>stop-jetty</id>
-								<phase>post-integration-test</phase>
-								<goals>
-										<goal>stop</goal>
-								</goals>
-						</execution>
-			    </executions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

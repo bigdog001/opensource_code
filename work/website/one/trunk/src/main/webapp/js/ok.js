@@ -162,48 +162,4 @@ function del(aid) {
 }
 
 
-function updateFile() {
-//    var filepath = $("#filepath").val();
-    var filecontent = $("#filecontent").val();
-//    var filecontent = editor.getData();
-    var url_ = "updatefile.action";
-//    alert(filepath);
-//    alert(filecontent);
-    $.ajax({url: url_,
-        type: 'POST',
-        data: {filepath: filepath, filecontent: filecontent},
-        dataType: 'text',
-        timeout: 3000,
-        error: function () {
-            alert('Error loading document');
-        },
-        success: function (result) {
-            alert(result);
-        }
 
-    });
-}
-
-function openfile(filepath) {
-    var url_ = "openfile.action";
-    $("#loadingimg").attr({"display": "block"});
-    $("#submitbutton").attr({"disabled": "disabled"});
-    $.ajax({url: url_,
-        type: 'POST',
-        data: {filepath: filepath},
-        dataType: 'text',
-        timeout: 3000,
-        error: function () {
-            alert('Error loading document');
-        },
-        success: function (result) {
-//            alert(result);
-//            $("#filecontent").html(result);
-            $("#filecontent").val(result);
-
-            $("#submitbutton").removeAttr("disabled");
-            $("#loadingimg").attr({"display": "none"});
-        }
-
-    });
-}
