@@ -8,3 +8,7 @@ set MAVEN_OPTS=-XX:MaxPermSize=512M
 
 5:maven static resource unlock:
 $maven_repo$/org/mortbay/jetty/jetty/6.1.10/jetty-6.x.jar/(org\mortbay\jetty\webapp\webdefault.xml) ,修改useFileMappedBuffer参数的值为false 
+
+6:DB settings
+   6.1:mysql
+       mysql>Create DATABASE IF NOT EXISTS my_db default charset utf8 COLLATE utf8_general_ci; 
