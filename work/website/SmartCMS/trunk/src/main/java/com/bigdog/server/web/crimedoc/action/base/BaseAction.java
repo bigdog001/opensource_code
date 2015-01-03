@@ -19,6 +19,7 @@ import org.apache.struts2.convention.annotation.*;
         @Result(name = "help", location = "/WEB-INF/jsp/web/help.jsp", type = "dispatcher"),
         @Result(name = "cooper", location = "/WEB-INF/jsp/web/cooper.jsp", type = "dispatcher"),
         @Result(name = "contact", location = "/WEB-INF/jsp/web/contact.jsp", type = "dispatcher"),
+        @Result(name = "test", location = "/WEB-INF/jsp/web/site1/test.jsp", type = "dispatcher"),
         @Result(name = "fail", location = "/WEB-INF/jsp/test/fail.jsp", type = "dispatcher")
 })
 @InterceptorRefs(value = {@InterceptorRef("defaultStack"), @InterceptorRef("bigdog")})

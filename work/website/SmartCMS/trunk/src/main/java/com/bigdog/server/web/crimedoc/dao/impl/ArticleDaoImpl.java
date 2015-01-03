@@ -1,6 +1,6 @@
 package com.bigdog.server.web.crimedoc.dao.impl;
 
-import com.bigdog.server.web.crimedoc.dao.base.DaoSupport;
+import com.bigdog.server.web.lib.dao.base.DaoSupport;
 import com.bigdog.server.web.crimedoc.util.Tools;
 import com.bigdog.server.web.crimedoc.bean.Article;
 import com.bigdog.server.web.crimedoc.dao.ArticleDao;
