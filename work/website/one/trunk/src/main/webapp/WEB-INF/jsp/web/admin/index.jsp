@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><s:text name="adminlogin"/></title>
-    <link href="./css/admincss.css" rel="stylesheet" type="text/css">
+    <link href="./res/base/css/admincss.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="bg" id="mid">

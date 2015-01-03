@@ -10,7 +10,7 @@
 <title>帮助中心-360点睛营销平台</title> 
 <style type="text/css">.jlhlebbhengjlhmcjebbkambaekglhkf {top: 0px; left: 0px;min-width: 30px;max-width: 300px;font-size: 13px;font-family: arial, helvetica, sans-serif;opacity: .93;padding:0px;position:absolute;display:block;z-index: 999997;font-style: normal;font-variant: normal;font-weight: normal;}#jlhlebbhengjlhmcjebbkambaekglhkf_up{text-align: center;padding:0px;margin: 0px;}#jlhlebbhengjlhmcjebbkambaekglhkf_cont{background-color: #729FCF;font-family: arial, helvetica; sans-serif-webkit-box-shadow: #729FCF 0px 0px 2px;color: #FFFFFF;padding:7px;-webkit-border-radius: 5px;}#jlhlebbhengjlhmcjebbkambaekglhkf_down{text-align: center;padding:0px;margin: 0px;}</style></head>
 <body> 
-<link href="./css/a49b3710a007a22c.css" rel="stylesheet" type="text/css">
+<link href="./res/page_test/css/a49b3710a007a22c.css" rel="stylesheet" type="text/css">
 <style type="text/css">.cont p {text-indent:30px;line-height:22px;font-size:12px;}.cont p.pl30 {text-indent:0;padding-left:30px;}</style>
 <!--start nav-->
 <jsp:include page="include/nav.jsp"/>

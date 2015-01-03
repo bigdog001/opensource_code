@@ -176,8 +176,16 @@ public class ArticleServiceImpl implements ArticleService {
 //        logger.info("File: " + getWsbean().getUpload());
 
         String fname = Tools.getMD5(base.getWsbean().getStorageFileName()) + Tools.getSubFix(base.getWsbean().getStorageFileName());
-        File storageFile = new File(ServletActionContext.getServletContext()
-                .getRealPath(File.separator + WebConfig.upload_path) + File.separator + fname);
+        String upload_folder = ServletActionContext.getServletContext().getRealPath(File.separator +"res"+ File.separator+ WebConfig.upload_path);
+        
+        File upload_folder_ = new File(upload_folder);
+        if(!upload_folder_.exists()){
+            upload_folder_.mkdir();
+        }
+        upload_folder_ = null;
+        
+        
+        File storageFile = new File(upload_folder + File.separator + fname);
         JSONObject obj = new JSONObject();
         obj.put("upload_code", 1);
         obj.put("upload_msg", "upload success!");

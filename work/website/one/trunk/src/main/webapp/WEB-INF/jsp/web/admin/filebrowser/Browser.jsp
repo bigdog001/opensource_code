@@ -9,35 +9,46 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>浏览目录</title>
 
-        <link href="./js/jQueryFileTree/jqueryFileTree.css" rel="stylesheet" type="text/css">
+        <link href="./res/base/jQueryFileTree/jqueryFileTree.css" rel="stylesheet" type="text/css">
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="./js/jQueryFileTree/jqueryFileTree.js"></script>
-        <script type="text/javascript" src="./js/ok.js"></script>
+        <script type="text/javascript" src="./res/base/jQueryFileTree/jqueryFileTree.js"></script>
+        <script type="text/javascript" src="./res/base/ok.js"></script>
 
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">     
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+        <link rel=stylesheet href="./res/base/codemirror/doc/docs.css">
+        <link rel="stylesheet" href="./res/base/codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="./res/base/codemirror/addon/fold/foldgutter.css" />
+        <script src="./res/base/codemirror/lib/codemirror.js"></script>
+        <script src="./res/base/codemirror/addon/fold/foldcode.js"></script>
+        <script src="./res/base/codemirror/addon/fold/foldgutter.js"></script>
+        <script src="./res/base/codemirror/addon/fold/brace-fold.js"></script>
+        <script src="./res/base/codemirror/addon/fold/xml-fold.js"></script>
+        <script src="./res/base/codemirror/addon/fold/markdown-fold.js"></script>
+        <script src="./res/base/codemirror/addon/fold/comment-fold.js"></script>
+        <script src="./res/base/codemirror/mode/javascript/javascript.js"></script>
+        <script src="./res/base/codemirror/mode/xml/xml.js"></script>
+        <script src="./res/base/codemirror/mode/markdown/markdown.js"></script>
 
 
-        <link rel=stylesheet href="./js/codemirror/doc/docs.css">
-        <link rel="stylesheet" href="./js/codemirror/lib/codemirror.css">
-        <link rel="stylesheet" href="./js/codemirror/addon/fold/foldgutter.css" />
-        <script src="./js/codemirror/lib/codemirror.js"></script>
-        <script src="./js/codemirror/addon/fold/foldcode.js"></script>
-        <script src="./js/codemirror/addon/fold/foldgutter.js"></script>
-        <script src="./js/codemirror/addon/fold/brace-fold.js"></script>
-        <script src="./js/codemirror/addon/fold/xml-fold.js"></script>
-        <script src="./js/codemirror/addon/fold/markdown-fold.js"></script>
-        <script src="./js/codemirror/addon/fold/comment-fold.js"></script>
-        <script src="./js/codemirror/mode/javascript/javascript.js"></script>
-        <script src="./js/codemirror/mode/xml/xml.js"></script>
-        <script src="./js/codemirror/mode/markdown/markdown.js"></script>
-
-
-        <style type="text/css">
-            .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+        <style type="text/css">            
+            .CodeMirror {
+              /* Set height, width, borders, and global font properties here */
+                font-family: monospace;
+                height: auto;
+                border: 1px solid #ccc; /*add by jackqqxu*/
+                font-family: Monaco, Menlo, Consolas, 'COURIER NEW', monospace;/*add by jackqqxu*/
+                font-size: 12px;
+            }
+            .CodeMirror-scroll {
+              /* Set scrolling behaviour here */
+              overflow: auto;
+              max-height: 800px;
+              min-height: 200px
+            }
         </style>
 
         <%
@@ -51,7 +62,7 @@
             <div class="row">
                 <div id="filetree" class="col-md-2"> </div>
                 <div id="" class="col-md-10">
-                    <img src="./image/t014042de8ea12aaadb.gif" style="display: none" id="loadingimg"/>
+                    <img src="./image/loading.gif" style="display: none" id="loadingimg"/>
                     <button onclick="openUpload()">上传文件</button>
                     <div id="filepathshow"></div><br/>
                     <textarea id="filecontent"   name="filecontent"></textarea>
@@ -67,9 +78,9 @@
         $(document).ready(function() {
             $('#filetree').fileTree({
                 root: '<%=path_%>',
-                script: './js/jqueryFileTree/connectors/jqueryFileTree.jsp',
-                expandSpeed: 1000,
-                collapseSpeed: 1000,
+                script: './res/base/jqueryFileTree/connectors/jqueryFileTree.jsp',
+                expandSpeed: 300,
+                collapseSpeed: 300,
                 multiFolder: false
             }, function(file) {
                 filepath = file;

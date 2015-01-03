@@ -11,8 +11,8 @@ var filepath;
 String.prototype.trim = function () {
     return this.replace(/(^\s*)|(\s*$)/g, "");
 }
-
-function go(aid) {
+     
+function go(aid) {  
     if (aid == 0) {
         window.open('openarticle.action', '', 'height=600,width=800,top=90,left=50,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
     } else {

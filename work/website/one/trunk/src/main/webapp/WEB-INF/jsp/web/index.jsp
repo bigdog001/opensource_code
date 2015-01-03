@@ -19,23 +19,23 @@
             <div id="pic_box">
                 <a id="url1" class="pic_paly" href="http://e.360.cn/html/product.html?id=8" target="_blank"
                    style="display: none;">
-                    <img src="./image/f001.jpg" width="726" height="289">
+                    <img src="./res/page_test/image/f001.jpg" width="726" height="289">
                 </a>
                 <a id="url2" class="pic_paly" style="display: block;" href="http://e.360.cn/html/product.html?id=9"
                    target="_blank">
-                    <img src="./image/f002.jpg" width="726" height="289">
+                    <img src="./res/page_test/image/f002.jpg" width="726" height="289">
                 </a>
                 <a id="url3" class="pic_paly" style="display: none;" href="http://e.360.cn/html/product.html?id=10"
                    target="_blank">
-                    <img src="./image/f003.jpg" width="726" height="289">
+                    <img src="./res/page_test/image/f003.jpg" width="726" height="289">
                 </a>
                 <a id="url4" class="pic_paly" style="display: none;" href="http://e.360.cn/html/product.html?id=6"
                    target="_blank">
-                    <img src="./image/f004.png" width="726" height="289">
+                    <img src="./res/page_test/image/f004.png" width="726" height="289">
                 </a>
                 <a id="url5" class="pic_paly" style="display: none;" href="http://e.360.cn/html/product.html?id=11"
                    target="_blank">
-                    <img src="./image/f005.png" width="726" height="289">
+                    <img src="./res/page_test/image/f005.png" width="726" height="289">
                 </a>
 
                 <div id="page_size">
@@ -49,7 +49,7 @@
         </div>
         <div class="boxr">
             <div class="login" id="mod_quc_pop">
-                <h2>欢迎使用亚洲犯罪率调查网！<bigdog:getIt id="7" showit="2"></bigdog:getIt></h2>
+                <h2>欢迎使用亚洲犯罪率调查网！<bigdog:getIt id="8" showit="2"></bigdog:getIt></h2>
 
                 <div id="login">
                     <div id="modLoginWrap" class="mod-qiuser-pop">
@@ -84,7 +84,7 @@
                                         class="verify-code"><input type="text" tabindex="3" maxlength="4"
                                                                    id="phraseLogin" name="phrase" class="ipt1 tipinput1"
                                                                    autocomplete="off"></span><span class="yz"><img
-                                        width="99" height="35" id="lwm" src="./image/image.php" title="换一张"><a
+                                        width="99" height="35" id="lwm" src="./res/page_test/image/image.php" title="换一张"><a
                                         class="ml8 fac" href="http://e.360.cn/#nogo"
                                         id="refreshCaptchaLogin">换一张</a></span>
 
@@ -207,15 +207,15 @@
             <div class="tit">合作案例</div>
             <!--end tit-->
             <ul>
-                <li><a href="http://e.360.cn/html/case/case.html?cid=0" target="_blank"><img src="./image/case_kb.jpg"
+                <li><a href="http://e.360.cn/html/case/case.html?cid=0" target="_blank"><img src="./res/page_test/image/case_kb.jpg"
                                                                                              width="60"
                                                                                              height="60"><span>库巴购物网，库巴科技（北京）有限公司旗下电子商务平台，已发展为国内领先的家电产品网购服务提供商。</span></a>
                 </li>
-                <li><a href="http://e.360.cn/html/case/case.html?cid=1" target="_blank"><img src="./image/case_zp.jpg"
+                <li><a href="http://e.360.cn/html/case/case.html?cid=1" target="_blank"><img src="./res/page_test/image/case_zp.jpg"
                                                                                              width="60"
                                                                                              height="60"><span>珍品网，专注国际顶级奢侈品牌的大型B2C电子商务网站，涵盖多个时尚大牌并首创了"时尚顾问服务"。</span></a>
                 </li>
-                <li><a href="http://e.360.cn/html/case/case.html?cid=2" target="_blank"><img src="./image/case_zn.jpg"
+                <li><a href="http://e.360.cn/html/case/case.html?cid=2" target="_blank"><img src="./res/page_test/image/case_zn.jpg"
                                                                                              width="60"
                                                                                              height="60"><span>钻石小鸟，国内最早从事网络钻石销售的专业珠宝品牌，也是中国网络钻石销售第一品牌。</span></a>
                 </li>
@@ -229,13 +229,13 @@
 </div>
 <!--end bg-->
 <!--author:xiaoang@360.cn-->
-<script type="text/javascript" async="" src="./js/ga.js"></script>
-<script src="./js/172.js"></script>
-<script src="./js/index.js"></script>
+<script type="text/javascript" async="" src="./res/page_test/js/ga.js"></script>
+<script src="./res/page_test/js/172.js"></script>
+<script src="./res/page_test/js/index.js"></script>
 <script type="text/javascript">
     var sDefaultUrl = "http://e.360.cn/home?";
 </script>
-<script type="text/javascript" src="./js/login.js"></script>
+<script type="text/javascript" src="./res/page_test/js/login.js"></script>
 
 
 </body>

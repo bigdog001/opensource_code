@@ -11,10 +11,10 @@
     <title>${filepath}</title>
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="./css/admincss.css"/>
+    <link rel="stylesheet" href="./res/base/css/admincss.css"/>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="./js/ok.js"></script>
+    <script type="text/javascript" src="./res/base/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="./res/base/ok.js"></script>
 </head>
 <body>
 
