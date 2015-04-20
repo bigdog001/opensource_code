@@ -2,7 +2,7 @@ package com.bigdog.server.web.crimedoc.cfg.impl;
 
 import com.bigdog.server.web.crimedoc.util.Tools;
 import com.bigdog.server.web.crimedoc.bean.Article;
-import com.bigdog.server.web.crimedoc.cfg.Initializer;
+import com.bigdog.server.web.lib.cfg.Initializer;
 import com.bigdog.server.web.crimedoc.dao.ArticleDao;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;

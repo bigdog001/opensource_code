@@ -1,6 +1,6 @@
 package com.bigdog.server.web.crimedoc.cfg.impl;
 
-import com.bigdog.server.web.crimedoc.cfg.Initializer;
+import com.bigdog.server.web.lib.cfg.Initializer;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 

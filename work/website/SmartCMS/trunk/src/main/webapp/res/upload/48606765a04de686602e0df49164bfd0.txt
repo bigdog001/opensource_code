@@ -1,0 +1,94 @@
+12-22 14:01:53.707: W/InputMethodManagerService(453): Starting input on non-focused client com.android.internal.view.IInputMethodClient$Stub$Proxy@4299c560 (uid=10037 pid=29419)
+12-22 14:01:54.197: D/dalvikvm(29419): Trying to load lib /data/app-lib/com.example.testcam-1/libbvdisplay.so 0x423a9d70
+12-22 14:01:54.197: E/dalvikvm(29419): dlopen("/data/app-lib/com.example.testcam-1/libbvdisplay.so") failed: Cannot load library: soinfo_link_image(linker.cpp:1635): could not load library "libgnustl_shared.so" needed by "libbvdisplay.so"; caused by load_library(linker.cpp:745): library "libgnustl_shared.so" not found
+12-22 14:01:54.197: W/dalvikvm(29419): Exception Ljava/lang/UnsatisfiedLinkError; thrown while initializing Lcom/example/testcam/ExtCam;
+12-22 14:01:54.197: D/AndroidRuntime(29419): Shutting down VM
+12-22 14:01:54.197: W/dalvikvm(29419): threadid=1: thread exiting with uncaught exception (group=0x41c50930)
+12-22 14:01:54.227: E/AndroidRuntime(29419): FATAL EXCEPTION: main
+12-22 14:01:54.227: E/AndroidRuntime(29419): java.lang.ExceptionInInitializerError
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at com.example.testcam.MainActivity.onDestroy(MainActivity.java:189)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.Activity.performDestroy(Activity.java:5273)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.Instrumentation.callActivityOnDestroy(Instrumentation.java:1110)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.ActivityThread.performDestroyActivity(ActivityThread.java:3438)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.ActivityThread.handleDestroyActivity(ActivityThread.java:3469)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.ActivityThread.access$1200(ActivityThread.java:141)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1287)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.os.Looper.loop(Looper.java:137)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at android.app.ActivityThread.main(ActivityThread.java:5039)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at java.lang.reflect.Method.invokeNative(Native Method)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at java.lang.reflect.Method.invoke(Method.java:511)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:793)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:560)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at dalvik.system.NativeStart.main(Native Method)
+12-22 14:01:54.227: E/AndroidRuntime(29419): Caused by: java.lang.UnsatisfiedLinkError: Cannot load library: soinfo_link_image(linker.cpp:1635): could not load library "libgnustl_shared.so" needed by "libbvdisplay.so"; caused by load_library(linker.cpp:745): library "libgnustl_shared.so" not found
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at java.lang.Runtime.loadLibrary(Runtime.java:371)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at java.lang.System.loadLibrary(System.java:535)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	at com.example.testcam.ExtCam.<clinit>(ExtCam.java:10)
+12-22 14:01:54.227: E/AndroidRuntime(29419): 	... 15 more
+12-22 14:01:55.877: I/Process(29419): Sending signal. PID: 29419 SIG: 9
+12-22 14:01:55.877: I/WindowState(453): WIN DEATH: Window{42752828 u0 SurfaceView}
+12-22 14:01:55.877: W/InputDispatcher(453): channel '42af4140 com.example.testcam/com.example.testcam.MainActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+12-22 14:01:55.877: E/InputDispatcher(453): channel '42af4140 com.example.testcam/com.example.testcam.MainActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+12-22 14:01:55.877: I/ActivityManager(453): Process com.example.testcam (pid 29419) has died.
+12-22 14:01:55.887: W/InputDispatcher(453): Attempted to unregister already unregistered input channel '42af4140 com.example.testcam/com.example.testcam.MainActivity (server)'
+12-22 14:01:55.887: I/WindowState(453): WIN DEATH: Window{42af4140 u0 com.example.testcam/com.example.testcam.MainActivity}
+12-22 14:01:55.887: W/InputMethodManagerService(453): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@429dd310 attribute=null, token = android.os.BinderProxy@428b8d10
+12-22 14:01:56.247: I/jdwp(29347): Ignoring second debugger -- accepting and dropping
+12-22 14:01:56.517: I/ActivityManager(453): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.example.testcam/.MainActivity} from pid 696
+12-22 14:01:56.547: D/dalvikvm(29468): Late-enabling CheckJNI
+12-22 14:01:56.547: I/ActivityManager(453): Start proc com.example.testcam for activity com.example.testcam/.MainActivity: pid=29468 uid=10037 gids={50037, 3003, 1015, 1006, 3001, 3002, 1028}
+12-22 14:01:56.567: I/jdwp(29347): Ignoring second debugger -- accepting and dropping
+12-22 14:01:56.577: I/jdwp(29468): Ignoring second debugger -- accepting and dropping
+12-22 14:01:56.677: D/libEGL(29468): loaded /system/lib/egl/libEGL_tegra.so
+12-22 14:01:56.697: D/libEGL(29468): loaded /system/lib/egl/libGLESv1_CM_tegra.so
+12-22 14:01:56.707: D/libEGL(29468): loaded /system/lib/egl/libGLESv2_tegra.so
+12-22 14:01:56.737: D/OpenGLRenderer(29468): Enabling debug mode 0
+12-22 14:01:56.797: I/ActivityManager(453): Displayed com.example.testcam/.MainActivity: +260ms
+12-22 14:01:57.157: E/PlayEventLogger(26085): Upload failed class org.apache.http.conn.ConnectTimeoutException(Connect to /74.125.69.95:443 timed out)
+12-22 14:02:09.227: D/dalvikvm(14581): GC_CONCURRENT freed 419K, 8% free 8361K/9072K, paused 15ms+4ms, total 54ms
+12-22 14:02:25.137: W/GAV4(844): Thread[Thread-99,5,main]: Exception sending hit: HttpHostConnectException
+12-22 14:02:25.137: W/GAV4(844): Thread[Thread-99,5,main]: Connection to https://ssl.google-analytics.com refused
+12-22 14:02:25.137: W/GAV4(844): Thread[Thread-99,5,main]: Empty hitIds passed to deleteHits.
+12-22 14:02:54.777: I/ConfigFetchService(844): onStartCommand Intent { act=com.google.android.gms.gcm.ACTION_TASK_READY cmp=com.google.android.gms/.config.ConfigFetchService (has extras) }
+12-22 14:02:54.777: I/ConfigFetchService(844): running network task: configservice_periodic
+12-22 14:03:06.427: W/ConfigFetchTask(844): exception on config fetch: java.net.SocketTimeoutException: failed to connect to android.clients.google.com/216.58.216.224 (port 443) after 120000ms: isConnected failed: ETIMEDOUT (Connection timed out)
+12-22 14:03:06.427: W/ConfigFetchTask(844): java.net.SocketTimeoutException: failed to connect to android.clients.google.com/216.58.216.224 (port 443) after 120000ms: isConnected failed: ETIMEDOUT (Connection timed out)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.io.IoBridge.isConnected(IoBridge.java:228)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.io.IoBridge.connectErrno(IoBridge.java:161)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.io.IoBridge.connect(IoBridge.java:112)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:192)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:459)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.net.Socket.connect(Socket.java:842)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpConnection.<init>(HttpConnection.java:76)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpConnection.<init>(HttpConnection.java:50)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpConnection$Address.connect(HttpConnection.java:340)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpConnectionPool.get(HttpConnectionPool.java:87)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpConnection.connect(HttpConnection.java:128)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpEngine.openSocketConnection(HttpEngine.java:316)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpsURLConnectionImpl$HttpsEngine.makeSslConnection(HttpsURLConnectionImpl.java:461)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpsURLConnectionImpl$HttpsEngine.connect(HttpsURLConnectionImpl.java:442)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpEngine.sendSocketRequest(HttpEngine.java:290)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpEngine.sendRequest(HttpEngine.java:240)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpURLConnectionImpl.connect(HttpURLConnectionImpl.java:81)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpURLConnectionImpl.getOutputStream(HttpURLConnectionImpl.java:197)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.net.http.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:281)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at com.google.android.gms.config.f.a(SourceFile:117)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at com.google.android.gms.config.f.doInBackground(SourceFile:40)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at android.os.AsyncTask$2.call(AsyncTask.java:287)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.util.concurrent.FutureTask.run(FutureTask.java:234)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:230)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1080)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:573)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at java.lang.Thread.run(Thread.java:856)
+12-22 14:03:06.427: W/ConfigFetchTask(844): Caused by: libcore.io.ErrnoException: isConnected failed: ETIMEDOUT (Connection timed out)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	at libcore.io.IoBridge.isConnected(IoBridge.java:208)
+12-22 14:03:06.427: W/ConfigFetchTask(844): 	... 26 more
+12-22 14:03:06.427: I/ConfigFetchService(844): launchTask
+12-22 14:03:06.457: I/EventLogService(844): Aggregate from 1419273167627 (log), 1419273167627 (data)
+12-22 14:03:06.527: I/ServiceDumpSys(844): dumping service [account]
+12-22 14:03:06.567: I/GoogleHttpClient(844): Falling back to old SSLCertificateSocketFactory
+12-22 14:03:28.337: W/GAV4(844): Thread[Thread-99,5,main]: Exception sending hit: HttpHostConnectException
+12-22 14:03:28.337: W/GAV4(844): Thread[Thread-99,5,main]: Connection to https://ssl.google-analytics.com refused
+12-22 14:03:28.337: W/GAV4(844): Thread[Thread-99,5,main]: Empty hitIds passed to deleteHits.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

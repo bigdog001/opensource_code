@@ -13,12 +13,12 @@ import org.apache.struts2.convention.annotation.*;
  * Time: 1:21 AM
  */
 @ParentPackage("myPackage")
-@Results({@Result(name = "success", location = "/WEB-INF/jsp/web/index.jsp", type = "dispatcher"),
-        @Result(name = "index", location = "/WEB-INF/jsp/web/index.jsp", type = "dispatcher"),
-        @Result(name = "product", location = "/WEB-INF/jsp/web/product.jsp", type = "dispatcher"),
-        @Result(name = "help", location = "/WEB-INF/jsp/web/help.jsp", type = "dispatcher"),
-        @Result(name = "cooper", location = "/WEB-INF/jsp/web/cooper.jsp", type = "dispatcher"),
-        @Result(name = "contact", location = "/WEB-INF/jsp/web/contact.jsp", type = "dispatcher"),
+@Results({@Result(name = "success", location = "/WEB-INF/jsp/web/site1/index.jsp", type = "dispatcher"),
+        @Result(name = "index", location = "/WEB-INF/jsp/web/site1/index.jsp",  type = "dispatcher"),
+        @Result(name = "product", location = "/WEB-INF/jsp/web/site1/product.jsp", type = "dispatcher"),
+        @Result(name = "help", location = "/WEB-INF/jsp/web/site1/help.jsp", type = "dispatcher"),
+        @Result(name = "cooper", location = "/WEB-INF/jsp/web/site1/cooper.jsp", type = "dispatcher"),
+        @Result(name = "contact", location = "/WEB-INF/jsp/web/site1/contact.jsp", type = "dispatcher"),
         @Result(name = "test", location = "/WEB-INF/jsp/web/site1/test.jsp", type = "dispatcher"),
         @Result(name = "fail", location = "/WEB-INF/jsp/test/fail.jsp", type = "dispatcher")
 })

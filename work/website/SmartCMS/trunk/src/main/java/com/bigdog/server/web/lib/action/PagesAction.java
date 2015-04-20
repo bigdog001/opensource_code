@@ -4,6 +4,7 @@ import com.bigdog.server.web.crimedoc.action.base.BaseAction;
 import org.apache.struts2.convention.annotation.Action;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Scope;
  * Time: 6:58 AM
  */
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Controller("pagesAction")
 public class PagesAction extends BaseAction {
     @Action("/index_website")
     public String index() {
@@ -43,10 +45,9 @@ public class PagesAction extends BaseAction {
         return "contact";
     }
 
-    
-    @Action("/test")
+       
     public String test() {
         getWsbean().setW(5);
-        return "test";
+        return "success";
     }
 }

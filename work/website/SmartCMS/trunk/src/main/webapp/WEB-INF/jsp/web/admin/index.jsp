@@ -8,7 +8,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><s:text name="adminlogin"/></title>
-        <jsp:include page="../include/bootstrap_header.jsp"/>   
+        <jsp:include page="include/bootstrap_header.jsp"/>   
     </head>
     <body>
         <style>

@@ -16,7 +16,7 @@
         <meta name="author" content="">
 
         <title>Fixed Top Navbar Example for Bootstrap</title>   
-        <jsp:include page="../include/bootstrap_header.jsp"/>
+        <jsp:include page="../admin/include/bootstrap_header.jsp"/>
         <style>
             body {
                 min-height: 2000px;
