@@ -33,16 +33,15 @@ class OrdArray {
             }else if (lowerBound > upperBound){
                 return nElems;             // can't find it
             }else{                          // divide range
-              
+
                 if (a[curIn] < searchKey)
                     lowerBound = curIn + 1; // it's in upper half
                 else
                     upperBound = curIn - 1; // it's in lower half
-                    
-            }    
-            }  // end else divide range
-        }  // end while
-    }  // end find()
+
+            }// end else divide range
+    }  // end while
+}  // end find()
 
     //-----------------------------------------------------------
     public void insert(long value)    // put element into array
